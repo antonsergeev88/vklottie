@@ -8,12 +8,572 @@
 
 /* Begin PBXBuildFile section */
 		3267DC1A23561C6D0018BD6B /* VKLottie.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DC1823561C6D0018BD6B /* VKLottie.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3267DD5023561ED90018BD6B /* rlottie.vcxproj.user in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC2223561ED80018BD6B /* rlottie.vcxproj.user */; };
+		3267DD5123561ED90018BD6B /* rlottie.vcxproj.filters in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC2323561ED80018BD6B /* rlottie.vcxproj.filters */; };
+		3267DD5223561ED90018BD6B /* config.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DC2423561ED80018BD6B /* config.h */; };
+		3267DD5323561ED90018BD6B /* rlottie.sln in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC2523561ED80018BD6B /* rlottie.sln */; };
+		3267DD5423561ED90018BD6B /* rlottie.vcxproj in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC2623561ED80018BD6B /* rlottie.vcxproj */; };
+		3267DD5523561ED90018BD6B /* rlottie.spec in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC2823561ED80018BD6B /* rlottie.spec */; };
+		3267DD5623561ED90018BD6B /* rlottie.manifest in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC2923561ED80018BD6B /* rlottie.manifest */; };
+		3267DD5723561ED90018BD6B /* CMakeLists.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC2B23561ED80018BD6B /* CMakeLists.txt */; };
+		3267DD5823561ED90018BD6B /* rlottiecommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DC2C23561ED80018BD6B /* rlottiecommon.h */; };
+		3267DD5923561ED90018BD6B /* meson.build in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC2D23561ED80018BD6B /* meson.build */; };
+		3267DD5A23561ED90018BD6B /* rlottie.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DC2E23561ED80018BD6B /* rlottie.h */; };
+		3267DD5B23561ED90018BD6B /* rlottie_capi.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DC2F23561ED80018BD6B /* rlottie_capi.h */; };
+		3267DD5C23561ED90018BD6B /* CMakeLists.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC3023561ED80018BD6B /* CMakeLists.txt */; };
+		3267DD5D23561ED90018BD6B /* CMakeLists.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC3223561ED80018BD6B /* CMakeLists.txt */; };
+		3267DD5E23561ED90018BD6B /* meson.build in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC3323561ED80018BD6B /* meson.build */; };
+		3267DD5F23561ED90018BD6B /* test_lottieanimation_capi.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3267DC3423561ED80018BD6B /* test_lottieanimation_capi.cpp */; };
+		3267DD6023561ED90018BD6B /* test_vrect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3267DC3523561ED80018BD6B /* test_vrect.cpp */; };
+		3267DD6123561ED90018BD6B /* test_vpath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3267DC3623561ED80018BD6B /* test_vpath.cpp */; };
+		3267DD6223561ED90018BD6B /* testsgregion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3267DC3723561ED80018BD6B /* testsgregion.cpp */; };
+		3267DD6323561ED90018BD6B /* testsuite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3267DC3823561ED80018BD6B /* testsuite.cpp */; };
+		3267DD6423561ED90018BD6B /* test_lottieanimation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3267DC3923561ED80018BD6B /* test_lottieanimation.cpp */; };
+		3267DD6523561ED90018BD6B /* rlottieConfig.cmake.in in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC3B23561ED80018BD6B /* rlottieConfig.cmake.in */; };
+		3267DD6623561ED90018BD6B /* config.h.in in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC3C23561ED80018BD6B /* config.h.in */; };
+		3267DD6723561ED90018BD6B /* COPYING.LGPL in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC3E23561ED80018BD6B /* COPYING.LGPL */; };
+		3267DD6823561ED90018BD6B /* COPYING.FTL in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC3F23561ED80018BD6B /* COPYING.FTL */; };
+		3267DD6923561ED90018BD6B /* COPYING.STB in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC4023561ED80018BD6B /* COPYING.STB */; };
+		3267DD6A23561ED90018BD6B /* COPYING.PIX in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC4123561ED80018BD6B /* COPYING.PIX */; };
+		3267DD6B23561ED90018BD6B /* COPYING.RPD in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC4223561ED80018BD6B /* COPYING.RPD */; };
+		3267DD6C23561ED90018BD6B /* AUTHORS in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC4323561ED80018BD6B /* AUTHORS */; };
+		3267DD6D23561ED90018BD6B /* lottieview.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3267DC4523561ED80018BD6B /* lottieview.cpp */; };
+		3267DD6E23561ED90018BD6B /* evasapp.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DC4623561ED80018BD6B /* evasapp.h */; };
+		3267DD6F23561ED90018BD6B /* CMakeLists.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC4723561ED80018BD6B /* CMakeLists.txt */; };
+		3267DD7023561ED90018BD6B /* lottieviewtest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3267DC4823561ED80018BD6B /* lottieviewtest.cpp */; };
+		3267DD7123561ED90018BD6B /* gif.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DC4923561ED80018BD6B /* gif.h */; };
+		3267DD7223561ED90018BD6B /* lottieview.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DC4A23561ED80018BD6B /* lottieview.h */; };
+		3267DD7323561ED90018BD6B /* meson.build in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC4B23561ED80018BD6B /* meson.build */; };
+		3267DD7423561ED90018BD6B /* lottieviewer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3267DC4C23561ED80018BD6B /* lottieviewer.cpp */; };
+		3267DD7523561ED90018BD6B /* uxsampletest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3267DC4D23561ED80018BD6B /* uxsampletest.cpp */; };
+		3267DD7623561ED90018BD6B /* demo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3267DC4E23561ED80018BD6B /* demo.cpp */; };
+		3267DD7723561ED90018BD6B /* pathtest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3267DC4F23561ED80018BD6B /* pathtest.cpp */; };
+		3267DD7823561ED90018BD6B /* evasapp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3267DC5023561ED80018BD6B /* evasapp.cpp */; };
+		3267DD7923561ED90018BD6B /* material_wave_loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC5223561ED80018BD6B /* material_wave_loading.json */; };
+		3267DD7A23561ED90018BD6B /* _alarm.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC5323561ED80018BD6B /* _alarm.json */; };
+		3267DD7B23561ED90018BD6B /* bounching_ball.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC5423561ED80018BD6B /* bounching_ball.json */; };
+		3267DD7C23561ED90018BD6B /* anubis.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC5523561ED80018BD6B /* anubis.json */; };
+		3267DD7D23561ED90018BD6B /* cooking.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC5623561ED80018BD6B /* cooking.json */; };
+		3267DD7E23561ED90018BD6B /* gears.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC5723561ED80018BD6B /* gears.json */; };
+		3267DD7F23561ED90018BD6B /* loading_rectangles.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC5823561ED80018BD6B /* loading_rectangles.json */; };
+		3267DD8023561ED90018BD6B /* jolly_walker.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC5923561ED80018BD6B /* jolly_walker.json */; };
+		3267DD8123561ED90018BD6B /* intelia_logo_animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC5A23561ED80018BD6B /* intelia_logo_animation.json */; };
+		3267DD8223561ED90018BD6B /* bell.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC5B23561ED80018BD6B /* bell.json */; };
+		3267DD8323561ED90018BD6B /* waves_.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC5C23561ED80018BD6B /* waves_.json */; };
+		3267DD8423561ED90018BD6B /* static_dynamic_dash.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC5D23561ED80018BD6B /* static_dynamic_dash.json */; };
+		3267DD8523561ED90018BD6B /* Indicators1.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC5E23561ED80018BD6B /* Indicators1.json */; };
+		3267DD8623561ED90018BD6B /* gradient_animated_background.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC5F23561ED80018BD6B /* gradient_animated_background.json */; };
+		3267DD8723561ED90018BD6B /* file_transfer.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC6023561ED80018BD6B /* file_transfer.json */; };
+		3267DD8823561ED90018BD6B /* tractor.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC6123561ED80018BD6B /* tractor.json */; };
+		3267DD8923561ED90018BD6B /* worm.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC6223561ED80018BD6B /* worm.json */; };
+		3267DD8A23561ED90018BD6B /* settings.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC6323561ED80018BD6B /* settings.json */; };
+		3267DD8B23561ED90018BD6B /* red_box.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC6423561ED80018BD6B /* red_box.json */; };
+		3267DD8C23561ED90018BD6B /* confetti.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC6523561ED80018BD6B /* confetti.json */; };
+		3267DD8D23561ED90018BD6B /* 5317-fireworkds.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC6623561ED80018BD6B /* 5317-fireworkds.json */; };
+		3267DD8E23561ED90018BD6B /* gears_or_settings.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC6723561ED80018BD6B /* gears_or_settings.json */; };
+		3267DD8F23561ED90018BD6B /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC6823561ED80018BD6B /* loading.json */; };
+		3267DD9023561ED90018BD6B /* dna.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC6923561ED80018BD6B /* dna.json */; };
+		3267DD9123561ED90018BD6B /* img_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC6B23561ED80018BD6B /* img_0.png */; };
+		3267DD9223561ED90018BD6B /* loading_.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC6C23561ED80018BD6B /* loading_.json */; };
+		3267DD9323561ED90018BD6B /* gradient_sleepy_loader.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC6D23561ED80018BD6B /* gradient_sleepy_loader.json */; };
+		3267DD9423561ED90018BD6B /* a_cup_of_coffee.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC6E23561ED80018BD6B /* a_cup_of_coffee.json */; };
+		3267DD9523561ED90018BD6B /* it's_lunch_time!.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC6F23561ED80018BD6B /* it's_lunch_time!.json */; };
+		3267DD9623561ED90018BD6B /* ModernPictogramsForLottie_LoudMute.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC7023561ED80018BD6B /* ModernPictogramsForLottie_LoudMute.json */; };
+		3267DD9723561ED90018BD6B /* world_locations.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC7123561ED80018BD6B /* world_locations.json */; };
+		3267DD9823561ED90018BD6B /* emoji_shock.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC7223561ED80018BD6B /* emoji_shock.json */; };
+		3267DD9923561ED90018BD6B /* balloons_with_string.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC7323561ED80018BD6B /* balloons_with_string.json */; };
+		3267DD9A23561ED90018BD6B /* image_embedded.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC7423561ED80018BD6B /* image_embedded.json */; };
+		3267DD9B23561ED90018BD6B /* image_test.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC7523561ED80018BD6B /* image_test.json */; };
+		3267DD9C23561ED90018BD6B /* looping_landscape_+_plane_+_clouds.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC7623561ED80018BD6B /* looping_landscape_+_plane_+_clouds.json */; };
+		3267DD9D23561ED90018BD6B /* tile_grid_loading_animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC7723561ED80018BD6B /* tile_grid_loading_animation.json */; };
+		3267DD9E23561ED90018BD6B /* movie_loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC7823561ED80018BD6B /* movie_loading.json */; };
+		3267DD9F23561ED90018BD6B /* emoji_wink.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC7923561ED80018BD6B /* emoji_wink.json */; };
+		3267DDA023561ED90018BD6B /* hourglass.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC7A23561ED80018BD6B /* hourglass.json */; };
+		3267DDA123561ED90018BD6B /* abstract_circle.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC7B23561ED80018BD6B /* abstract_circle.json */; };
+		3267DDA223561ED90018BD6B /* like.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC7C23561ED80018BD6B /* like.json */; };
+		3267DDA323561ED90018BD6B /* ao.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC7D23561ED80018BD6B /* ao.json */; };
+		3267DDA423561ED90018BD6B /* glow_loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC7E23561ED80018BD6B /* glow_loading.json */; };
+		3267DDA523561ED90018BD6B /* StickAndBall.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC7F23561ED80018BD6B /* StickAndBall.json */; };
+		3267DDA623561ED90018BD6B /* 1667-firework.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC8023561ED80018BD6B /* 1667-firework.json */; };
+		3267DDA723561ED90018BD6B /* dynamic_property.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC8123561ED80018BD6B /* dynamic_property.json */; };
+		3267DDA823561ED90018BD6B /* imprint.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC8223561ED80018BD6B /* imprint.json */; };
+		3267DDA923561ED90018BD6B /* done.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC8323561ED80018BD6B /* done.json */; };
+		3267DDAA23561ED90018BD6B /* pumped_up.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC8423561ED80018BD6B /* pumped_up.json */; };
+		3267DDAB23561ED90018BD6B /* layout.edj in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC8523561ED80018BD6B /* layout.edj */; };
+		3267DDAC23561ED90018BD6B /* layout.edc in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC8623561ED80018BD6B /* layout.edc */; };
+		3267DDAD23561ED90018BD6B /* polystar_anim.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC8723561ED80018BD6B /* polystar_anim.json */; };
+		3267DDAE23561ED90018BD6B /* telegram.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC8823561ED80018BD6B /* telegram.json */; };
+		3267DDAF23561ED90018BD6B /* 5344-honey-sack-hud.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC8923561ED80018BD6B /* 5344-honey-sack-hud.json */; };
+		3267DDB023561ED90018BD6B /* starts_transparent.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC8A23561ED80018BD6B /* starts_transparent.json */; };
+		3267DDB123561ED90018BD6B /* triib_manage.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC8B23561ED80018BD6B /* triib_manage.json */; };
+		3267DDB223561ED90018BD6B /* F Masks_All_01_1920x1080.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC8D23561ED80018BD6B /* F Masks_All_01_1920x1080.json */; };
+		3267DDB323561ED90018BD6B /* F Masks_All_02_1920x1080.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC8E23561ED80018BD6B /* F Masks_All_02_1920x1080.json */; };
+		3267DDB423561ED90018BD6B /* B Fills_All_01_1920x1080.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC8F23561ED80018BD6B /* B Fills_All_01_1920x1080.json */; };
+		3267DDB523561ED90018BD6B /* D Transforms_All_01_1920x1080.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC9023561ED80018BD6B /* D Transforms_All_01_1920x1080.json */; };
+		3267DDB623561ED90018BD6B /* C Strokes_All_01_1920x1080.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC9123561ED80018BD6B /* C Strokes_All_01_1920x1080.json */; };
+		3267DDB723561ED90018BD6B /* E Interpolation_All_01_1920x1080.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC9223561ED80018BD6B /* E Interpolation_All_01_1920x1080.json */; };
+		3267DDB823561ED90018BD6B /* A Shapes_All_01_1920x1080.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC9323561ED80018BD6B /* A Shapes_All_01_1920x1080.json */; };
+		3267DDB923561ED90018BD6B /* loader_animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC9423561ED80018BD6B /* loader_animation.json */; };
+		3267DDBA23561ED90018BD6B /* mnemonics.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC9523561ED80018BD6B /* mnemonics.json */; };
+		3267DDBB23561ED90018BD6B /* birth_stone_logo.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC9623561ED80018BD6B /* birth_stone_logo.json */; };
+		3267DDBC23561ED90018BD6B /* ripple_loading_animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC9723561ED80018BD6B /* ripple_loading_animation.json */; };
+		3267DDBD23561ED90018BD6B /* matte_two_item_with_lowerlayer.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC9823561ED80018BD6B /* matte_two_item_with_lowerlayer.json */; };
+		3267DDBE23561ED90018BD6B /* party_penguin.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC9923561ED80018BD6B /* party_penguin.json */; };
+		3267DDBF23561ED90018BD6B /* mask.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC9A23561ED80018BD6B /* mask.json */; };
+		3267DDC023561ED90018BD6B /* loader.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC9B23561ED80018BD6B /* loader.json */; };
+		3267DDC123561ED90018BD6B /* acrobatics.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC9C23561ED80018BD6B /* acrobatics.json */; };
+		3267DDC223561ED90018BD6B /* happy.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC9D23561ED80018BD6B /* happy.json */; };
+		3267DDC323561ED90018BD6B /* windmill.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC9E23561ED80018BD6B /* windmill.json */; };
+		3267DDC423561ED90018BD6B /* heart.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DC9F23561ED80018BD6B /* heart.json */; };
+		3267DDC523561ED90018BD6B /* a_mountain.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DCA023561ED80018BD6B /* a_mountain.json */; };
+		3267DDC623561ED90018BD6B /* leap_frog_loader.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DCA123561ED80018BD6B /* leap_frog_loader.json */; };
+		3267DDC723561ED90018BD6B /* 360º_degree.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DCA223561ED80018BD6B /* 360º_degree.json */; };
+		3267DDC823561ED90018BD6B /* night_own.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DCA323561ED80018BD6B /* night_own.json */; };
+		3267DDC923561ED90018BD6B /* 3d.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DCA423561ED80018BD6B /* 3d.json */; };
+		3267DDCA23561ED90018BD6B /* 1643-exploding-star.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DCA523561ED80018BD6B /* 1643-exploding-star.json */; };
+		3267DDCB23561ED90018BD6B /* personal_character.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DCA623561ED80018BD6B /* personal_character.json */; };
+		3267DDCC23561ED90018BD6B /* mughead.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DCA723561ED80018BD6B /* mughead.json */; };
+		3267DDCD23561ED90018BD6B /* peli-canon.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DCA823561ED80018BD6B /* peli-canon.json */; };
+		3267DDCE23561ED90018BD6B /* 4479-fireworks.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DCA923561ED80018BD6B /* 4479-fireworks.json */; };
+		3267DDCF23561ED90018BD6B /* funky_chicken.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DCAA23561ED80018BD6B /* funky_chicken.json */; };
+		3267DDD023561ED90018BD6B /* spin,_lil_loader_v2.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DCAB23561ED80018BD6B /* spin,_lil_loader_v2.json */; };
+		3267DDD123561ED90018BD6B /* fingerprint_success.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DCAC23561ED80018BD6B /* fingerprint_success.json */; };
+		3267DDD223561ED90018BD6B /* you're_in!.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DCAD23561ED80018BD6B /* you're_in!.json */; };
+		3267DDD323561ED90018BD6B /* maps.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DCAE23561ED80018BD6B /* maps.json */; };
+		3267DDD423561ED90018BD6B /* dynamic_path_test.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DCAF23561ED80018BD6B /* dynamic_path_test.json */; };
+		3267DDD523561ED90018BD6B /* insta_camera.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DCB023561ED80018BD6B /* insta_camera.json */; };
+		3267DDD623561ED90018BD6B /* loading_animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DCB123561ED80018BD6B /* loading_animation.json */; };
+		3267DDD723561ED90018BD6B /* loader_4.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DCB223561ED80018BD6B /* loader_4.json */; };
+		3267DDD823561ED90018BD6B /* browser.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DCB323561ED80018BD6B /* browser.json */; };
+		3267DDD923561ED90018BD6B /* square_wheel.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DCB423561ED80018BD6B /* square_wheel.json */; };
+		3267DDDA23561ED90018BD6B /* polystar_line_clockwise_trim.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DCB523561ED80018BD6B /* polystar_line_clockwise_trim.json */; };
+		3267DDDB23561ED90018BD6B /* eid_mubarak.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DCB623561ED80018BD6B /* eid_mubarak.json */; };
+		3267DDDC23561ED90018BD6B /* ondas.json in Resources */ = {isa = PBXBuildFile; fileRef = 3267DCB723561ED80018BD6B /* ondas.json */; };
+		3267DDDD23561ED90018BD6B /* efl_animview.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3267DCB823561ED80018BD6B /* efl_animview.cpp */; };
+		3267DDDE23561ED90018BD6B /* lottie2gif.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3267DCB923561ED80018BD6B /* lottie2gif.cpp */; };
+		3267DDDF23561ED90018BD6B /* meson_options.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3267DCBA23561ED80018BD6B /* meson_options.txt */; };
+		3267DDE023561ED90018BD6B /* .appveyor.yml in Resources */ = {isa = PBXBuildFile; fileRef = 3267DCBB23561ED80018BD6B /* .appveyor.yml */; };
+		3267DDE123561ED90018BD6B /* meson.build in Resources */ = {isa = PBXBuildFile; fileRef = 3267DCBC23561ED80018BD6B /* meson.build */; };
+		3267DDE223561ED90018BD6B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 3267DCBD23561ED80018BD6B /* README.md */; };
+		3267DDE323561ED90018BD6B /* COPYING in Resources */ = {isa = PBXBuildFile; fileRef = 3267DCBE23561ED80018BD6B /* COPYING */; };
+		3267DDE423561ED90018BD6B /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 3267DCBF23561ED80018BD6B /* .gitignore */; };
+		3267DDE523561ED90018BD6B /* .clang-format in Resources */ = {isa = PBXBuildFile; fileRef = 3267DCC023561ED80018BD6B /* .clang-format */; };
+		3267DDE623561ED90018BD6B /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = 3267DCC123561ED80018BD6B /* .travis.yml */; };
+		3267DDE723561ED90018BD6B /* 2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3267DCC323561ED80018BD6B /* 2.gif */; };
+		3267DDE823561ED90018BD6B /* 1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3267DCC423561ED80018BD6B /* 1.gif */; };
+		3267DDE923561ED90018BD6B /* rlottie.expmap in Resources */ = {isa = PBXBuildFile; fileRef = 3267DCC523561ED80018BD6B /* rlottie.expmap */; };
+		3267DDEA23561ED90018BD6B /* CMakeLists.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3267DCC723561ED80018BD6B /* CMakeLists.txt */; };
+		3267DDEB23561ED90018BD6B /* CMakeLists.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3267DCC923561ED80018BD6B /* CMakeLists.txt */; };
+		3267DDEC23561ED90018BD6B /* meson.build in Resources */ = {isa = PBXBuildFile; fileRef = 3267DCCA23561ED80018BD6B /* meson.build */; };
+		3267DDED23561ED90018BD6B /* .lottieplayer.cpp.swp in Resources */ = {isa = PBXBuildFile; fileRef = 3267DCCB23561ED80018BD6B /* .lottieplayer.cpp.swp */; };
+		3267DDEE23561ED90018BD6B /* CMakeLists.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3267DCCD23561ED80018BD6B /* CMakeLists.txt */; };
+		3267DDEF23561ED90018BD6B /* lottieanimation_capi.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3267DCCE23561ED80018BD6B /* lottieanimation_capi.cpp */; };
+		3267DDF023561ED90018BD6B /* meson.build in Resources */ = {isa = PBXBuildFile; fileRef = 3267DCCF23561ED80018BD6B /* meson.build */; };
+		3267DDF123561ED90018BD6B /* meson.build in Resources */ = {isa = PBXBuildFile; fileRef = 3267DCD023561ED80018BD6B /* meson.build */; };
+		3267DDF223561ED90018BD6B /* lottiemodel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3267DCD223561ED80018BD6B /* lottiemodel.cpp */; };
+		3267DDF323561ED90018BD6B /* lottieitem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3267DCD323561ED80018BD6B /* lottieitem.cpp */; };
+		3267DDF423561ED90018BD6B /* CMakeLists.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3267DCD423561ED80018BD6B /* CMakeLists.txt */; };
+		3267DDF523561ED90018BD6B /* lottieanimation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3267DCD523561ED80018BD6B /* lottieanimation.cpp */; };
+		3267DDF623561ED90018BD6B /* lottiekeypath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3267DCD623561ED80018BD6B /* lottiekeypath.cpp */; };
+		3267DDF723561ED90018BD6B /* lottieparser.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DCD723561ED80018BD6B /* lottieparser.h */; };
+		3267DDF823561ED90018BD6B /* lottieparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3267DCD823561ED80018BD6B /* lottieparser.cpp */; };
+		3267DDF923561ED90018BD6B /* lottieloader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3267DCD923561ED80018BD6B /* lottieloader.cpp */; };
+		3267DDFA23561ED90018BD6B /* lottieitem.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DCDA23561ED80018BD6B /* lottieitem.h */; };
+		3267DDFB23561ED90018BD6B /* lottiekeypath.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DCDB23561ED80018BD6B /* lottiekeypath.h */; };
+		3267DDFC23561ED90018BD6B /* meson.build in Resources */ = {isa = PBXBuildFile; fileRef = 3267DCDC23561ED80018BD6B /* meson.build */; };
+		3267DDFD23561ED90018BD6B /* lottieproxymodel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3267DCDD23561ED80018BD6B /* lottieproxymodel.cpp */; };
+		3267DDFE23561ED90018BD6B /* fwd.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DCDF23561ED80018BD6B /* fwd.h */; };
+		3267DDFF23561ED90018BD6B /* memorystream.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DCE023561ED80018BD6B /* memorystream.h */; };
+		3267DE0023561ED90018BD6B /* reader.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DCE123561ED80018BD6B /* reader.h */; };
+		3267DE0123561ED90018BD6B /* prettywriter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DCE223561ED80018BD6B /* prettywriter.h */; };
+		3267DE0223561ED90018BD6B /* ostreamwrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DCE323561ED80018BD6B /* ostreamwrapper.h */; };
+		3267DE0323561ED90018BD6B /* encodedstream.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DCE423561ED80018BD6B /* encodedstream.h */; };
+		3267DE0423561ED90018BD6B /* filereadstream.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DCE523561ED80018BD6B /* filereadstream.h */; };
+		3267DE0523561ED90018BD6B /* cursorstreamwrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DCE623561ED80018BD6B /* cursorstreamwrapper.h */; };
+		3267DE0623561ED90018BD6B /* istreamwrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DCE723561ED80018BD6B /* istreamwrapper.h */; };
+		3267DE0723561ED90018BD6B /* stringbuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DCE823561ED80018BD6B /* stringbuffer.h */; };
+		3267DE0823561ED90018BD6B /* ieee754.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DCEA23561ED80018BD6B /* ieee754.h */; };
+		3267DE0923561ED90018BD6B /* strtod.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DCEB23561ED80018BD6B /* strtod.h */; };
+		3267DE0A23561ED90018BD6B /* swap.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DCEC23561ED80018BD6B /* swap.h */; };
+		3267DE0B23561ED90018BD6B /* regex.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DCED23561ED80018BD6B /* regex.h */; };
+		3267DE0C23561ED90018BD6B /* diyfp.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DCEE23561ED80018BD6B /* diyfp.h */; };
+		3267DE0D23561ED90018BD6B /* biginteger.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DCEF23561ED80018BD6B /* biginteger.h */; };
+		3267DE0E23561ED90018BD6B /* strfunc.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DCF023561ED80018BD6B /* strfunc.h */; };
+		3267DE0F23561ED90018BD6B /* itoa.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DCF123561ED80018BD6B /* itoa.h */; };
+		3267DE1023561ED90018BD6B /* stack.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DCF223561ED80018BD6B /* stack.h */; };
+		3267DE1123561ED90018BD6B /* dtoa.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DCF323561ED80018BD6B /* dtoa.h */; };
+		3267DE1223561ED90018BD6B /* meta.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DCF423561ED80018BD6B /* meta.h */; };
+		3267DE1323561ED90018BD6B /* pow10.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DCF523561ED80018BD6B /* pow10.h */; };
+		3267DE1423561ED90018BD6B /* encodings.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DCF623561ED80018BD6B /* encodings.h */; };
+		3267DE1523561ED90018BD6B /* schema.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DCF723561ED80018BD6B /* schema.h */; };
+		3267DE1623561ED90018BD6B /* stream.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DCF823561ED80018BD6B /* stream.h */; };
+		3267DE1723561ED90018BD6B /* filewritestream.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DCF923561ED80018BD6B /* filewritestream.h */; };
+		3267DE1823561ED90018BD6B /* rapidjson.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DCFA23561ED80018BD6B /* rapidjson.h */; };
+		3267DE1923561ED90018BD6B /* document.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DCFB23561ED80018BD6B /* document.h */; };
+		3267DE1A23561ED90018BD6B /* allocators.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DCFC23561ED80018BD6B /* allocators.h */; };
+		3267DE1B23561ED90018BD6B /* writer.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DCFD23561ED80018BD6B /* writer.h */; };
+		3267DE1C23561ED90018BD6B /* error.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DCFF23561ED80018BD6B /* error.h */; };
+		3267DE1D23561ED90018BD6B /* en.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DD0023561ED80018BD6B /* en.h */; };
+		3267DE1E23561ED90018BD6B /* memorybuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DD0123561ED80018BD6B /* memorybuffer.h */; };
+		3267DE1F23561ED90018BD6B /* pointer.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DD0223561ED80018BD6B /* pointer.h */; };
+		3267DE2023561ED90018BD6B /* inttypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DD0423561ED90018BD6B /* inttypes.h */; };
+		3267DE2123561ED90018BD6B /* stdint.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DD0523561ED90018BD6B /* stdint.h */; };
+		3267DE2223561ED90018BD6B /* lottieproxymodel.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DD0623561ED90018BD6B /* lottieproxymodel.h */; };
+		3267DE2323561ED90018BD6B /* lottiemodel.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DD0723561ED90018BD6B /* lottiemodel.h */; };
+		3267DE2423561ED90018BD6B /* lottieitem_capi.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3267DD0823561ED90018BD6B /* lottieitem_capi.cpp */; };
+		3267DE2523561ED90018BD6B /* lottieloader.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DD0923561ED90018BD6B /* lottieloader.h */; };
+		3267DE2623561ED90018BD6B /* vdasher.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DD0B23561ED90018BD6B /* vdasher.h */; };
+		3267DE2723561ED90018BD6B /* vrle.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DD0C23561ED90018BD6B /* vrle.h */; };
+		3267DE2823561ED90018BD6B /* velapsedtimer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3267DD0D23561ED90018BD6B /* velapsedtimer.cpp */; };
+		3267DE2923561ED90018BD6B /* vdrawhelper_neon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3267DD0E23561ED90018BD6B /* vdrawhelper_neon.cpp */; };
+		3267DE2A23561ED90018BD6B /* velapsedtimer.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DD0F23561ED90018BD6B /* velapsedtimer.h */; };
+		3267DE2B23561ED90018BD6B /* CMakeLists.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3267DD1023561ED90018BD6B /* CMakeLists.txt */; };
+		3267DE2C23561ED90018BD6B /* vrect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3267DD1123561ED90018BD6B /* vrect.cpp */; };
+		3267DE2D23561ED90018BD6B /* vdasher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3267DD1223561ED90018BD6B /* vdasher.cpp */; };
+		3267DE2E23561ED90018BD6B /* vbezier.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3267DD1323561ED90018BD6B /* vbezier.cpp */; };
+		3267DE2F23561ED90018BD6B /* CMakeLists.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3267DD1523561ED90018BD6B /* CMakeLists.txt */; };
+		3267DE3023561ED90018BD6B /* pixman-arm-neon-asm.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DD1623561ED90018BD6B /* pixman-arm-neon-asm.h */; };
+		3267DE3123561ED90018BD6B /* vregion.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DD1723561ED90018BD6B /* vregion.h */; };
+		3267DE3223561ED90018BD6B /* pixman-arm-neon-asm.S in Sources */ = {isa = PBXBuildFile; fileRef = 3267DD1823561ED90018BD6B /* pixman-arm-neon-asm.S */; };
+		3267DE3323561ED90018BD6B /* meson.build in Resources */ = {isa = PBXBuildFile; fileRef = 3267DD1923561ED90018BD6B /* meson.build */; };
+		3267DE3423561ED90018BD6B /* vregion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3267DD1A23561ED90018BD6B /* vregion.cpp */; };
+		3267DE3523561ED90018BD6B /* vpath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3267DD1B23561ED90018BD6B /* vpath.cpp */; };
+		3267DE3623561ED90018BD6B /* CMakeLists.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3267DD1D23561ED90018BD6B /* CMakeLists.txt */; };
+		3267DE3723561ED90018BD6B /* v_ft_types.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DD1E23561ED90018BD6B /* v_ft_types.h */; };
+		3267DE3823561ED90018BD6B /* v_ft_raster.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3267DD1F23561ED90018BD6B /* v_ft_raster.cpp */; };
+		3267DE3923561ED90018BD6B /* meson.build in Resources */ = {isa = PBXBuildFile; fileRef = 3267DD2023561ED90018BD6B /* meson.build */; };
+		3267DE3A23561ED90018BD6B /* v_ft_stroker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3267DD2123561ED90018BD6B /* v_ft_stroker.cpp */; };
+		3267DE3B23561ED90018BD6B /* v_ft_math.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3267DD2223561ED90018BD6B /* v_ft_math.cpp */; };
+		3267DE3C23561ED90018BD6B /* v_ft_stroker.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DD2323561ED90018BD6B /* v_ft_stroker.h */; };
+		3267DE3D23561ED90018BD6B /* v_ft_math.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DD2423561ED90018BD6B /* v_ft_math.h */; };
+		3267DE3E23561ED90018BD6B /* v_ft_raster.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DD2523561ED90018BD6B /* v_ft_raster.h */; };
+		3267DE3F23561ED90018BD6B /* vcompositionfunctions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3267DD2623561ED90018BD6B /* vcompositionfunctions.cpp */; };
+		3267DE4023561ED90018BD6B /* vdrawhelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DD2723561ED90018BD6B /* vdrawhelper.h */; };
+		3267DE4123561ED90018BD6B /* vbitmap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3267DD2823561ED90018BD6B /* vbitmap.cpp */; };
+		3267DE4223561ED90018BD6B /* vdrawable.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DD2923561ED90018BD6B /* vdrawable.h */; };
+		3267DE4323561ED90018BD6B /* vbitmap.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DD2A23561ED90018BD6B /* vbitmap.h */; };
+		3267DE4423561ED90018BD6B /* vpoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DD2B23561ED90018BD6B /* vpoint.h */; };
+		3267DE4523561ED90018BD6B /* vpathmesure.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DD2C23561ED90018BD6B /* vpathmesure.h */; };
+		3267DE4623561ED90018BD6B /* vdebug.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DD2D23561ED90018BD6B /* vdebug.h */; };
+		3267DE4723561ED90018BD6B /* vpath.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DD2E23561ED90018BD6B /* vpath.h */; };
+		3267DE4823561ED90018BD6B /* CMakeLists.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3267DD3023561ED90018BD6B /* CMakeLists.txt */; };
+		3267DE4923561ED90018BD6B /* meson.build in Resources */ = {isa = PBXBuildFile; fileRef = 3267DD3123561ED90018BD6B /* meson.build */; };
+		3267DE4A23561ED90018BD6B /* stb_image.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DD3223561ED90018BD6B /* stb_image.h */; };
+		3267DE4B23561ED90018BD6B /* stb_image.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3267DD3323561ED90018BD6B /* stb_image.cpp */; };
+		3267DE4C23561ED90018BD6B /* meson.build in Resources */ = {isa = PBXBuildFile; fileRef = 3267DD3423561ED90018BD6B /* meson.build */; };
+		3267DE4D23561ED90018BD6B /* vtaskqueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DD3523561ED90018BD6B /* vtaskqueue.h */; };
+		3267DE4E23561ED90018BD6B /* vline.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DD3623561ED90018BD6B /* vline.h */; };
+		3267DE4F23561ED90018BD6B /* vdrawable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3267DD3723561ED90018BD6B /* vdrawable.cpp */; };
+		3267DE5023561ED90018BD6B /* vpathmesure.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3267DD3823561ED90018BD6B /* vpathmesure.cpp */; };
+		3267DE5123561ED90018BD6B /* vbrush.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DD3923561ED90018BD6B /* vbrush.h */; };
+		3267DE5223561ED90018BD6B /* vpainter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3267DD3A23561ED90018BD6B /* vpainter.cpp */; };
+		3267DE5323561ED90018BD6B /* vsharedptr.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DD3B23561ED90018BD6B /* vsharedptr.h */; };
+		3267DE5423561ED90018BD6B /* vdebug.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3267DD3C23561ED90018BD6B /* vdebug.cpp */; };
+		3267DE5523561ED90018BD6B /* vimageloader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3267DD3D23561ED90018BD6B /* vimageloader.cpp */; };
+		3267DE5623561ED90018BD6B /* vglobal.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DD3E23561ED90018BD6B /* vglobal.h */; };
+		3267DE5723561ED90018BD6B /* vraster.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3267DD3F23561ED90018BD6B /* vraster.cpp */; };
+		3267DE5823561ED90018BD6B /* vpainter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DD4023561ED90018BD6B /* vpainter.h */; };
+		3267DE5923561ED90018BD6B /* vmatrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3267DD4123561ED90018BD6B /* vmatrix.cpp */; };
+		3267DE5A23561ED90018BD6B /* vrect.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DD4223561ED90018BD6B /* vrect.h */; };
+		3267DE5B23561ED90018BD6B /* vinterpolator.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DD4323561ED90018BD6B /* vinterpolator.h */; };
+		3267DE5C23561ED90018BD6B /* vbezier.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DD4423561ED90018BD6B /* vbezier.h */; };
+		3267DE5D23561ED90018BD6B /* vdrawhelper_sse2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3267DD4523561ED90018BD6B /* vdrawhelper_sse2.cpp */; };
+		3267DE5E23561ED90018BD6B /* vinterpolator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3267DD4623561ED90018BD6B /* vinterpolator.cpp */; };
+		3267DE5F23561ED90018BD6B /* vdrawhelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3267DD4723561ED90018BD6B /* vdrawhelper.cpp */; };
+		3267DE6023561ED90018BD6B /* vstackallocator.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DD4823561ED90018BD6B /* vstackallocator.h */; };
+		3267DE6123561ED90018BD6B /* vimageloader.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DD4923561ED90018BD6B /* vimageloader.h */; };
+		3267DE6223561ED90018BD6B /* vraster.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DD4A23561ED90018BD6B /* vraster.h */; };
+		3267DE6323561ED90018BD6B /* vmatrix.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DD4B23561ED90018BD6B /* vmatrix.h */; };
+		3267DE6423561ED90018BD6B /* vrle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3267DD4C23561ED90018BD6B /* vrle.cpp */; };
+		3267DE6523561ED90018BD6B /* vcowptr.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DD4D23561ED90018BD6B /* vcowptr.h */; };
+		3267DE6623561ED90018BD6B /* vbrush.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3267DD4E23561ED90018BD6B /* vbrush.cpp */; };
+		3267DE6723561ED90018BD6B /* rlottie.pc.in in Resources */ = {isa = PBXBuildFile; fileRef = 3267DD4F23561ED90018BD6B /* rlottie.pc.in */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3267DC1523561C6D0018BD6B /* VKLottie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VKLottie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3267DC1823561C6D0018BD6B /* VKLottie.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VKLottie.h; sourceTree = "<group>"; };
 		3267DC1923561C6D0018BD6B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3267DC2223561ED80018BD6B /* rlottie.vcxproj.user */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = rlottie.vcxproj.user; sourceTree = "<group>"; };
+		3267DC2323561ED80018BD6B /* rlottie.vcxproj.filters */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = rlottie.vcxproj.filters; sourceTree = "<group>"; };
+		3267DC2423561ED80018BD6B /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
+		3267DC2523561ED80018BD6B /* rlottie.sln */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rlottie.sln; sourceTree = "<group>"; };
+		3267DC2623561ED80018BD6B /* rlottie.vcxproj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = rlottie.vcxproj; sourceTree = "<group>"; };
+		3267DC2823561ED80018BD6B /* rlottie.spec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rlottie.spec; sourceTree = "<group>"; };
+		3267DC2923561ED80018BD6B /* rlottie.manifest */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rlottie.manifest; sourceTree = "<group>"; };
+		3267DC2B23561ED80018BD6B /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
+		3267DC2C23561ED80018BD6B /* rlottiecommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rlottiecommon.h; sourceTree = "<group>"; };
+		3267DC2D23561ED80018BD6B /* meson.build */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = meson.build; sourceTree = "<group>"; };
+		3267DC2E23561ED80018BD6B /* rlottie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rlottie.h; sourceTree = "<group>"; };
+		3267DC2F23561ED80018BD6B /* rlottie_capi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rlottie_capi.h; sourceTree = "<group>"; };
+		3267DC3023561ED80018BD6B /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
+		3267DC3223561ED80018BD6B /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
+		3267DC3323561ED80018BD6B /* meson.build */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = meson.build; sourceTree = "<group>"; };
+		3267DC3423561ED80018BD6B /* test_lottieanimation_capi.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = test_lottieanimation_capi.cpp; sourceTree = "<group>"; };
+		3267DC3523561ED80018BD6B /* test_vrect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = test_vrect.cpp; sourceTree = "<group>"; };
+		3267DC3623561ED80018BD6B /* test_vpath.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = test_vpath.cpp; sourceTree = "<group>"; };
+		3267DC3723561ED80018BD6B /* testsgregion.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = testsgregion.cpp; sourceTree = "<group>"; };
+		3267DC3823561ED80018BD6B /* testsuite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = testsuite.cpp; sourceTree = "<group>"; };
+		3267DC3923561ED80018BD6B /* test_lottieanimation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = test_lottieanimation.cpp; sourceTree = "<group>"; };
+		3267DC3B23561ED80018BD6B /* rlottieConfig.cmake.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rlottieConfig.cmake.in; sourceTree = "<group>"; };
+		3267DC3C23561ED80018BD6B /* config.h.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = config.h.in; sourceTree = "<group>"; };
+		3267DC3E23561ED80018BD6B /* COPYING.LGPL */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = COPYING.LGPL; sourceTree = "<group>"; };
+		3267DC3F23561ED80018BD6B /* COPYING.FTL */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = COPYING.FTL; sourceTree = "<group>"; };
+		3267DC4023561ED80018BD6B /* COPYING.STB */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = COPYING.STB; sourceTree = "<group>"; };
+		3267DC4123561ED80018BD6B /* COPYING.PIX */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = COPYING.PIX; sourceTree = "<group>"; };
+		3267DC4223561ED80018BD6B /* COPYING.RPD */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = COPYING.RPD; sourceTree = "<group>"; };
+		3267DC4323561ED80018BD6B /* AUTHORS */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AUTHORS; sourceTree = "<group>"; };
+		3267DC4523561ED80018BD6B /* lottieview.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lottieview.cpp; sourceTree = "<group>"; };
+		3267DC4623561ED80018BD6B /* evasapp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = evasapp.h; sourceTree = "<group>"; };
+		3267DC4723561ED80018BD6B /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
+		3267DC4823561ED80018BD6B /* lottieviewtest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lottieviewtest.cpp; sourceTree = "<group>"; };
+		3267DC4923561ED80018BD6B /* gif.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gif.h; sourceTree = "<group>"; };
+		3267DC4A23561ED80018BD6B /* lottieview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lottieview.h; sourceTree = "<group>"; };
+		3267DC4B23561ED80018BD6B /* meson.build */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = meson.build; sourceTree = "<group>"; };
+		3267DC4C23561ED80018BD6B /* lottieviewer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lottieviewer.cpp; sourceTree = "<group>"; };
+		3267DC4D23561ED80018BD6B /* uxsampletest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = uxsampletest.cpp; sourceTree = "<group>"; };
+		3267DC4E23561ED80018BD6B /* demo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = demo.cpp; sourceTree = "<group>"; };
+		3267DC4F23561ED80018BD6B /* pathtest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pathtest.cpp; sourceTree = "<group>"; };
+		3267DC5023561ED80018BD6B /* evasapp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = evasapp.cpp; sourceTree = "<group>"; };
+		3267DC5223561ED80018BD6B /* material_wave_loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = material_wave_loading.json; sourceTree = "<group>"; };
+		3267DC5323561ED80018BD6B /* _alarm.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = _alarm.json; sourceTree = "<group>"; };
+		3267DC5423561ED80018BD6B /* bounching_ball.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bounching_ball.json; sourceTree = "<group>"; };
+		3267DC5523561ED80018BD6B /* anubis.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = anubis.json; sourceTree = "<group>"; };
+		3267DC5623561ED80018BD6B /* cooking.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cooking.json; sourceTree = "<group>"; };
+		3267DC5723561ED80018BD6B /* gears.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = gears.json; sourceTree = "<group>"; };
+		3267DC5823561ED80018BD6B /* loading_rectangles.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading_rectangles.json; sourceTree = "<group>"; };
+		3267DC5923561ED80018BD6B /* jolly_walker.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = jolly_walker.json; sourceTree = "<group>"; };
+		3267DC5A23561ED80018BD6B /* intelia_logo_animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = intelia_logo_animation.json; sourceTree = "<group>"; };
+		3267DC5B23561ED80018BD6B /* bell.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bell.json; sourceTree = "<group>"; };
+		3267DC5C23561ED80018BD6B /* waves_.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = waves_.json; sourceTree = "<group>"; };
+		3267DC5D23561ED80018BD6B /* static_dynamic_dash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = static_dynamic_dash.json; sourceTree = "<group>"; };
+		3267DC5E23561ED80018BD6B /* Indicators1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Indicators1.json; sourceTree = "<group>"; };
+		3267DC5F23561ED80018BD6B /* gradient_animated_background.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = gradient_animated_background.json; sourceTree = "<group>"; };
+		3267DC6023561ED80018BD6B /* file_transfer.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = file_transfer.json; sourceTree = "<group>"; };
+		3267DC6123561ED80018BD6B /* tractor.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tractor.json; sourceTree = "<group>"; };
+		3267DC6223561ED80018BD6B /* worm.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = worm.json; sourceTree = "<group>"; };
+		3267DC6323561ED80018BD6B /* settings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = settings.json; sourceTree = "<group>"; };
+		3267DC6423561ED80018BD6B /* red_box.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = red_box.json; sourceTree = "<group>"; };
+		3267DC6523561ED80018BD6B /* confetti.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = confetti.json; sourceTree = "<group>"; };
+		3267DC6623561ED80018BD6B /* 5317-fireworkds.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "5317-fireworkds.json"; sourceTree = "<group>"; };
+		3267DC6723561ED80018BD6B /* gears_or_settings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = gears_or_settings.json; sourceTree = "<group>"; };
+		3267DC6823561ED80018BD6B /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
+		3267DC6923561ED80018BD6B /* dna.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dna.json; sourceTree = "<group>"; };
+		3267DC6B23561ED80018BD6B /* img_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_0.png; sourceTree = "<group>"; };
+		3267DC6C23561ED80018BD6B /* loading_.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading_.json; sourceTree = "<group>"; };
+		3267DC6D23561ED80018BD6B /* gradient_sleepy_loader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = gradient_sleepy_loader.json; sourceTree = "<group>"; };
+		3267DC6E23561ED80018BD6B /* a_cup_of_coffee.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = a_cup_of_coffee.json; sourceTree = "<group>"; };
+		3267DC6F23561ED80018BD6B /* it's_lunch_time!.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "it's_lunch_time!.json"; sourceTree = "<group>"; };
+		3267DC7023561ED80018BD6B /* ModernPictogramsForLottie_LoudMute.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ModernPictogramsForLottie_LoudMute.json; sourceTree = "<group>"; };
+		3267DC7123561ED80018BD6B /* world_locations.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = world_locations.json; sourceTree = "<group>"; };
+		3267DC7223561ED80018BD6B /* emoji_shock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = emoji_shock.json; sourceTree = "<group>"; };
+		3267DC7323561ED80018BD6B /* balloons_with_string.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = balloons_with_string.json; sourceTree = "<group>"; };
+		3267DC7423561ED80018BD6B /* image_embedded.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = image_embedded.json; sourceTree = "<group>"; };
+		3267DC7523561ED80018BD6B /* image_test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = image_test.json; sourceTree = "<group>"; };
+		3267DC7623561ED80018BD6B /* looping_landscape_+_plane_+_clouds.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "looping_landscape_+_plane_+_clouds.json"; sourceTree = "<group>"; };
+		3267DC7723561ED80018BD6B /* tile_grid_loading_animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tile_grid_loading_animation.json; sourceTree = "<group>"; };
+		3267DC7823561ED80018BD6B /* movie_loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = movie_loading.json; sourceTree = "<group>"; };
+		3267DC7923561ED80018BD6B /* emoji_wink.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = emoji_wink.json; sourceTree = "<group>"; };
+		3267DC7A23561ED80018BD6B /* hourglass.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hourglass.json; sourceTree = "<group>"; };
+		3267DC7B23561ED80018BD6B /* abstract_circle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = abstract_circle.json; sourceTree = "<group>"; };
+		3267DC7C23561ED80018BD6B /* like.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = like.json; sourceTree = "<group>"; };
+		3267DC7D23561ED80018BD6B /* ao.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ao.json; sourceTree = "<group>"; };
+		3267DC7E23561ED80018BD6B /* glow_loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = glow_loading.json; sourceTree = "<group>"; };
+		3267DC7F23561ED80018BD6B /* StickAndBall.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = StickAndBall.json; sourceTree = "<group>"; };
+		3267DC8023561ED80018BD6B /* 1667-firework.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "1667-firework.json"; sourceTree = "<group>"; };
+		3267DC8123561ED80018BD6B /* dynamic_property.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dynamic_property.json; sourceTree = "<group>"; };
+		3267DC8223561ED80018BD6B /* imprint.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = imprint.json; sourceTree = "<group>"; };
+		3267DC8323561ED80018BD6B /* done.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = done.json; sourceTree = "<group>"; };
+		3267DC8423561ED80018BD6B /* pumped_up.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pumped_up.json; sourceTree = "<group>"; };
+		3267DC8523561ED80018BD6B /* layout.edj */ = {isa = PBXFileReference; lastKnownFileType = file; path = layout.edj; sourceTree = "<group>"; };
+		3267DC8623561ED80018BD6B /* layout.edc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = layout.edc; sourceTree = "<group>"; };
+		3267DC8723561ED80018BD6B /* polystar_anim.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = polystar_anim.json; sourceTree = "<group>"; };
+		3267DC8823561ED80018BD6B /* telegram.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = telegram.json; sourceTree = "<group>"; };
+		3267DC8923561ED80018BD6B /* 5344-honey-sack-hud.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "5344-honey-sack-hud.json"; sourceTree = "<group>"; };
+		3267DC8A23561ED80018BD6B /* starts_transparent.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = starts_transparent.json; sourceTree = "<group>"; };
+		3267DC8B23561ED80018BD6B /* triib_manage.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = triib_manage.json; sourceTree = "<group>"; };
+		3267DC8D23561ED80018BD6B /* F Masks_All_01_1920x1080.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "F Masks_All_01_1920x1080.json"; sourceTree = "<group>"; };
+		3267DC8E23561ED80018BD6B /* F Masks_All_02_1920x1080.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "F Masks_All_02_1920x1080.json"; sourceTree = "<group>"; };
+		3267DC8F23561ED80018BD6B /* B Fills_All_01_1920x1080.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "B Fills_All_01_1920x1080.json"; sourceTree = "<group>"; };
+		3267DC9023561ED80018BD6B /* D Transforms_All_01_1920x1080.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "D Transforms_All_01_1920x1080.json"; sourceTree = "<group>"; };
+		3267DC9123561ED80018BD6B /* C Strokes_All_01_1920x1080.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "C Strokes_All_01_1920x1080.json"; sourceTree = "<group>"; };
+		3267DC9223561ED80018BD6B /* E Interpolation_All_01_1920x1080.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "E Interpolation_All_01_1920x1080.json"; sourceTree = "<group>"; };
+		3267DC9323561ED80018BD6B /* A Shapes_All_01_1920x1080.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "A Shapes_All_01_1920x1080.json"; sourceTree = "<group>"; };
+		3267DC9423561ED80018BD6B /* loader_animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loader_animation.json; sourceTree = "<group>"; };
+		3267DC9523561ED80018BD6B /* mnemonics.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mnemonics.json; sourceTree = "<group>"; };
+		3267DC9623561ED80018BD6B /* birth_stone_logo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = birth_stone_logo.json; sourceTree = "<group>"; };
+		3267DC9723561ED80018BD6B /* ripple_loading_animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ripple_loading_animation.json; sourceTree = "<group>"; };
+		3267DC9823561ED80018BD6B /* matte_two_item_with_lowerlayer.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = matte_two_item_with_lowerlayer.json; sourceTree = "<group>"; };
+		3267DC9923561ED80018BD6B /* party_penguin.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = party_penguin.json; sourceTree = "<group>"; };
+		3267DC9A23561ED80018BD6B /* mask.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mask.json; sourceTree = "<group>"; };
+		3267DC9B23561ED80018BD6B /* loader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loader.json; sourceTree = "<group>"; };
+		3267DC9C23561ED80018BD6B /* acrobatics.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = acrobatics.json; sourceTree = "<group>"; };
+		3267DC9D23561ED80018BD6B /* happy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = happy.json; sourceTree = "<group>"; };
+		3267DC9E23561ED80018BD6B /* windmill.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = windmill.json; sourceTree = "<group>"; };
+		3267DC9F23561ED80018BD6B /* heart.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = heart.json; sourceTree = "<group>"; };
+		3267DCA023561ED80018BD6B /* a_mountain.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = a_mountain.json; sourceTree = "<group>"; };
+		3267DCA123561ED80018BD6B /* leap_frog_loader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = leap_frog_loader.json; sourceTree = "<group>"; };
+		3267DCA223561ED80018BD6B /* 360º_degree.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "360º_degree.json"; sourceTree = "<group>"; };
+		3267DCA323561ED80018BD6B /* night_own.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = night_own.json; sourceTree = "<group>"; };
+		3267DCA423561ED80018BD6B /* 3d.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 3d.json; sourceTree = "<group>"; };
+		3267DCA523561ED80018BD6B /* 1643-exploding-star.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "1643-exploding-star.json"; sourceTree = "<group>"; };
+		3267DCA623561ED80018BD6B /* personal_character.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = personal_character.json; sourceTree = "<group>"; };
+		3267DCA723561ED80018BD6B /* mughead.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mughead.json; sourceTree = "<group>"; };
+		3267DCA823561ED80018BD6B /* peli-canon.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "peli-canon.json"; sourceTree = "<group>"; };
+		3267DCA923561ED80018BD6B /* 4479-fireworks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "4479-fireworks.json"; sourceTree = "<group>"; };
+		3267DCAA23561ED80018BD6B /* funky_chicken.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = funky_chicken.json; sourceTree = "<group>"; };
+		3267DCAB23561ED80018BD6B /* spin,_lil_loader_v2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spin,_lil_loader_v2.json"; sourceTree = "<group>"; };
+		3267DCAC23561ED80018BD6B /* fingerprint_success.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fingerprint_success.json; sourceTree = "<group>"; };
+		3267DCAD23561ED80018BD6B /* you're_in!.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "you're_in!.json"; sourceTree = "<group>"; };
+		3267DCAE23561ED80018BD6B /* maps.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = maps.json; sourceTree = "<group>"; };
+		3267DCAF23561ED80018BD6B /* dynamic_path_test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dynamic_path_test.json; sourceTree = "<group>"; };
+		3267DCB023561ED80018BD6B /* insta_camera.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = insta_camera.json; sourceTree = "<group>"; };
+		3267DCB123561ED80018BD6B /* loading_animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading_animation.json; sourceTree = "<group>"; };
+		3267DCB223561ED80018BD6B /* loader_4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loader_4.json; sourceTree = "<group>"; };
+		3267DCB323561ED80018BD6B /* browser.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = browser.json; sourceTree = "<group>"; };
+		3267DCB423561ED80018BD6B /* square_wheel.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = square_wheel.json; sourceTree = "<group>"; };
+		3267DCB523561ED80018BD6B /* polystar_line_clockwise_trim.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = polystar_line_clockwise_trim.json; sourceTree = "<group>"; };
+		3267DCB623561ED80018BD6B /* eid_mubarak.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = eid_mubarak.json; sourceTree = "<group>"; };
+		3267DCB723561ED80018BD6B /* ondas.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ondas.json; sourceTree = "<group>"; };
+		3267DCB823561ED80018BD6B /* efl_animview.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = efl_animview.cpp; sourceTree = "<group>"; };
+		3267DCB923561ED80018BD6B /* lottie2gif.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lottie2gif.cpp; sourceTree = "<group>"; };
+		3267DCBA23561ED80018BD6B /* meson_options.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = meson_options.txt; sourceTree = "<group>"; };
+		3267DCBB23561ED80018BD6B /* .appveyor.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .appveyor.yml; sourceTree = "<group>"; };
+		3267DCBC23561ED80018BD6B /* meson.build */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = meson.build; sourceTree = "<group>"; };
+		3267DCBD23561ED80018BD6B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		3267DCBE23561ED80018BD6B /* COPYING */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = COPYING; sourceTree = "<group>"; };
+		3267DCBF23561ED80018BD6B /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		3267DCC023561ED80018BD6B /* .clang-format */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ".clang-format"; sourceTree = "<group>"; };
+		3267DCC123561ED80018BD6B /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .travis.yml; sourceTree = "<group>"; };
+		3267DCC323561ED80018BD6B /* 2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 2.gif; sourceTree = "<group>"; };
+		3267DCC423561ED80018BD6B /* 1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 1.gif; sourceTree = "<group>"; };
+		3267DCC523561ED80018BD6B /* rlottie.expmap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rlottie.expmap; sourceTree = "<group>"; };
+		3267DCC723561ED80018BD6B /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
+		3267DCC923561ED80018BD6B /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
+		3267DCCA23561ED80018BD6B /* meson.build */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = meson.build; sourceTree = "<group>"; };
+		3267DCCB23561ED80018BD6B /* .lottieplayer.cpp.swp */ = {isa = PBXFileReference; lastKnownFileType = file; path = .lottieplayer.cpp.swp; sourceTree = "<group>"; };
+		3267DCCD23561ED80018BD6B /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
+		3267DCCE23561ED80018BD6B /* lottieanimation_capi.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lottieanimation_capi.cpp; sourceTree = "<group>"; };
+		3267DCCF23561ED80018BD6B /* meson.build */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = meson.build; sourceTree = "<group>"; };
+		3267DCD023561ED80018BD6B /* meson.build */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = meson.build; sourceTree = "<group>"; };
+		3267DCD223561ED80018BD6B /* lottiemodel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lottiemodel.cpp; sourceTree = "<group>"; };
+		3267DCD323561ED80018BD6B /* lottieitem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lottieitem.cpp; sourceTree = "<group>"; };
+		3267DCD423561ED80018BD6B /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
+		3267DCD523561ED80018BD6B /* lottieanimation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lottieanimation.cpp; sourceTree = "<group>"; };
+		3267DCD623561ED80018BD6B /* lottiekeypath.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lottiekeypath.cpp; sourceTree = "<group>"; };
+		3267DCD723561ED80018BD6B /* lottieparser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lottieparser.h; sourceTree = "<group>"; };
+		3267DCD823561ED80018BD6B /* lottieparser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lottieparser.cpp; sourceTree = "<group>"; };
+		3267DCD923561ED80018BD6B /* lottieloader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lottieloader.cpp; sourceTree = "<group>"; };
+		3267DCDA23561ED80018BD6B /* lottieitem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lottieitem.h; sourceTree = "<group>"; };
+		3267DCDB23561ED80018BD6B /* lottiekeypath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lottiekeypath.h; sourceTree = "<group>"; };
+		3267DCDC23561ED80018BD6B /* meson.build */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = meson.build; sourceTree = "<group>"; };
+		3267DCDD23561ED80018BD6B /* lottieproxymodel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lottieproxymodel.cpp; sourceTree = "<group>"; };
+		3267DCDF23561ED80018BD6B /* fwd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fwd.h; sourceTree = "<group>"; };
+		3267DCE023561ED80018BD6B /* memorystream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = memorystream.h; sourceTree = "<group>"; };
+		3267DCE123561ED80018BD6B /* reader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = reader.h; sourceTree = "<group>"; };
+		3267DCE223561ED80018BD6B /* prettywriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prettywriter.h; sourceTree = "<group>"; };
+		3267DCE323561ED80018BD6B /* ostreamwrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ostreamwrapper.h; sourceTree = "<group>"; };
+		3267DCE423561ED80018BD6B /* encodedstream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = encodedstream.h; sourceTree = "<group>"; };
+		3267DCE523561ED80018BD6B /* filereadstream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = filereadstream.h; sourceTree = "<group>"; };
+		3267DCE623561ED80018BD6B /* cursorstreamwrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cursorstreamwrapper.h; sourceTree = "<group>"; };
+		3267DCE723561ED80018BD6B /* istreamwrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = istreamwrapper.h; sourceTree = "<group>"; };
+		3267DCE823561ED80018BD6B /* stringbuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stringbuffer.h; sourceTree = "<group>"; };
+		3267DCEA23561ED80018BD6B /* ieee754.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ieee754.h; sourceTree = "<group>"; };
+		3267DCEB23561ED80018BD6B /* strtod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = strtod.h; sourceTree = "<group>"; };
+		3267DCEC23561ED80018BD6B /* swap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = swap.h; sourceTree = "<group>"; };
+		3267DCED23561ED80018BD6B /* regex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = regex.h; sourceTree = "<group>"; };
+		3267DCEE23561ED80018BD6B /* diyfp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = diyfp.h; sourceTree = "<group>"; };
+		3267DCEF23561ED80018BD6B /* biginteger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = biginteger.h; sourceTree = "<group>"; };
+		3267DCF023561ED80018BD6B /* strfunc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = strfunc.h; sourceTree = "<group>"; };
+		3267DCF123561ED80018BD6B /* itoa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = itoa.h; sourceTree = "<group>"; };
+		3267DCF223561ED80018BD6B /* stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stack.h; sourceTree = "<group>"; };
+		3267DCF323561ED80018BD6B /* dtoa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dtoa.h; sourceTree = "<group>"; };
+		3267DCF423561ED80018BD6B /* meta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = meta.h; sourceTree = "<group>"; };
+		3267DCF523561ED80018BD6B /* pow10.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pow10.h; sourceTree = "<group>"; };
+		3267DCF623561ED80018BD6B /* encodings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = encodings.h; sourceTree = "<group>"; };
+		3267DCF723561ED80018BD6B /* schema.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = schema.h; sourceTree = "<group>"; };
+		3267DCF823561ED80018BD6B /* stream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stream.h; sourceTree = "<group>"; };
+		3267DCF923561ED80018BD6B /* filewritestream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = filewritestream.h; sourceTree = "<group>"; };
+		3267DCFA23561ED80018BD6B /* rapidjson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rapidjson.h; sourceTree = "<group>"; };
+		3267DCFB23561ED80018BD6B /* document.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = document.h; sourceTree = "<group>"; };
+		3267DCFC23561ED80018BD6B /* allocators.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = allocators.h; sourceTree = "<group>"; };
+		3267DCFD23561ED80018BD6B /* writer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = writer.h; sourceTree = "<group>"; };
+		3267DCFF23561ED80018BD6B /* error.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = error.h; sourceTree = "<group>"; };
+		3267DD0023561ED80018BD6B /* en.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = en.h; sourceTree = "<group>"; };
+		3267DD0123561ED80018BD6B /* memorybuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = memorybuffer.h; sourceTree = "<group>"; };
+		3267DD0223561ED80018BD6B /* pointer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pointer.h; sourceTree = "<group>"; };
+		3267DD0423561ED90018BD6B /* inttypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = inttypes.h; sourceTree = "<group>"; };
+		3267DD0523561ED90018BD6B /* stdint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stdint.h; sourceTree = "<group>"; };
+		3267DD0623561ED90018BD6B /* lottieproxymodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lottieproxymodel.h; sourceTree = "<group>"; };
+		3267DD0723561ED90018BD6B /* lottiemodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lottiemodel.h; sourceTree = "<group>"; };
+		3267DD0823561ED90018BD6B /* lottieitem_capi.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lottieitem_capi.cpp; sourceTree = "<group>"; };
+		3267DD0923561ED90018BD6B /* lottieloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lottieloader.h; sourceTree = "<group>"; };
+		3267DD0B23561ED90018BD6B /* vdasher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vdasher.h; sourceTree = "<group>"; };
+		3267DD0C23561ED90018BD6B /* vrle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vrle.h; sourceTree = "<group>"; };
+		3267DD0D23561ED90018BD6B /* velapsedtimer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = velapsedtimer.cpp; sourceTree = "<group>"; };
+		3267DD0E23561ED90018BD6B /* vdrawhelper_neon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = vdrawhelper_neon.cpp; sourceTree = "<group>"; };
+		3267DD0F23561ED90018BD6B /* velapsedtimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = velapsedtimer.h; sourceTree = "<group>"; };
+		3267DD1023561ED90018BD6B /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
+		3267DD1123561ED90018BD6B /* vrect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = vrect.cpp; sourceTree = "<group>"; };
+		3267DD1223561ED90018BD6B /* vdasher.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = vdasher.cpp; sourceTree = "<group>"; };
+		3267DD1323561ED90018BD6B /* vbezier.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = vbezier.cpp; sourceTree = "<group>"; };
+		3267DD1523561ED90018BD6B /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
+		3267DD1623561ED90018BD6B /* pixman-arm-neon-asm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "pixman-arm-neon-asm.h"; sourceTree = "<group>"; };
+		3267DD1723561ED90018BD6B /* vregion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vregion.h; sourceTree = "<group>"; };
+		3267DD1823561ED90018BD6B /* pixman-arm-neon-asm.S */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = "pixman-arm-neon-asm.S"; sourceTree = "<group>"; };
+		3267DD1923561ED90018BD6B /* meson.build */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = meson.build; sourceTree = "<group>"; };
+		3267DD1A23561ED90018BD6B /* vregion.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = vregion.cpp; sourceTree = "<group>"; };
+		3267DD1B23561ED90018BD6B /* vpath.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = vpath.cpp; sourceTree = "<group>"; };
+		3267DD1D23561ED90018BD6B /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
+		3267DD1E23561ED90018BD6B /* v_ft_types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = v_ft_types.h; sourceTree = "<group>"; };
+		3267DD1F23561ED90018BD6B /* v_ft_raster.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = v_ft_raster.cpp; sourceTree = "<group>"; };
+		3267DD2023561ED90018BD6B /* meson.build */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = meson.build; sourceTree = "<group>"; };
+		3267DD2123561ED90018BD6B /* v_ft_stroker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = v_ft_stroker.cpp; sourceTree = "<group>"; };
+		3267DD2223561ED90018BD6B /* v_ft_math.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = v_ft_math.cpp; sourceTree = "<group>"; };
+		3267DD2323561ED90018BD6B /* v_ft_stroker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = v_ft_stroker.h; sourceTree = "<group>"; };
+		3267DD2423561ED90018BD6B /* v_ft_math.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = v_ft_math.h; sourceTree = "<group>"; };
+		3267DD2523561ED90018BD6B /* v_ft_raster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = v_ft_raster.h; sourceTree = "<group>"; };
+		3267DD2623561ED90018BD6B /* vcompositionfunctions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = vcompositionfunctions.cpp; sourceTree = "<group>"; };
+		3267DD2723561ED90018BD6B /* vdrawhelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vdrawhelper.h; sourceTree = "<group>"; };
+		3267DD2823561ED90018BD6B /* vbitmap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = vbitmap.cpp; sourceTree = "<group>"; };
+		3267DD2923561ED90018BD6B /* vdrawable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vdrawable.h; sourceTree = "<group>"; };
+		3267DD2A23561ED90018BD6B /* vbitmap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vbitmap.h; sourceTree = "<group>"; };
+		3267DD2B23561ED90018BD6B /* vpoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vpoint.h; sourceTree = "<group>"; };
+		3267DD2C23561ED90018BD6B /* vpathmesure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vpathmesure.h; sourceTree = "<group>"; };
+		3267DD2D23561ED90018BD6B /* vdebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vdebug.h; sourceTree = "<group>"; };
+		3267DD2E23561ED90018BD6B /* vpath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vpath.h; sourceTree = "<group>"; };
+		3267DD3023561ED90018BD6B /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
+		3267DD3123561ED90018BD6B /* meson.build */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = meson.build; sourceTree = "<group>"; };
+		3267DD3223561ED90018BD6B /* stb_image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_image.h; sourceTree = "<group>"; };
+		3267DD3323561ED90018BD6B /* stb_image.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stb_image.cpp; sourceTree = "<group>"; };
+		3267DD3423561ED90018BD6B /* meson.build */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = meson.build; sourceTree = "<group>"; };
+		3267DD3523561ED90018BD6B /* vtaskqueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vtaskqueue.h; sourceTree = "<group>"; };
+		3267DD3623561ED90018BD6B /* vline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vline.h; sourceTree = "<group>"; };
+		3267DD3723561ED90018BD6B /* vdrawable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = vdrawable.cpp; sourceTree = "<group>"; };
+		3267DD3823561ED90018BD6B /* vpathmesure.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = vpathmesure.cpp; sourceTree = "<group>"; };
+		3267DD3923561ED90018BD6B /* vbrush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vbrush.h; sourceTree = "<group>"; };
+		3267DD3A23561ED90018BD6B /* vpainter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = vpainter.cpp; sourceTree = "<group>"; };
+		3267DD3B23561ED90018BD6B /* vsharedptr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vsharedptr.h; sourceTree = "<group>"; };
+		3267DD3C23561ED90018BD6B /* vdebug.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = vdebug.cpp; sourceTree = "<group>"; };
+		3267DD3D23561ED90018BD6B /* vimageloader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = vimageloader.cpp; sourceTree = "<group>"; };
+		3267DD3E23561ED90018BD6B /* vglobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vglobal.h; sourceTree = "<group>"; };
+		3267DD3F23561ED90018BD6B /* vraster.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = vraster.cpp; sourceTree = "<group>"; };
+		3267DD4023561ED90018BD6B /* vpainter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vpainter.h; sourceTree = "<group>"; };
+		3267DD4123561ED90018BD6B /* vmatrix.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = vmatrix.cpp; sourceTree = "<group>"; };
+		3267DD4223561ED90018BD6B /* vrect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vrect.h; sourceTree = "<group>"; };
+		3267DD4323561ED90018BD6B /* vinterpolator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vinterpolator.h; sourceTree = "<group>"; };
+		3267DD4423561ED90018BD6B /* vbezier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vbezier.h; sourceTree = "<group>"; };
+		3267DD4523561ED90018BD6B /* vdrawhelper_sse2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = vdrawhelper_sse2.cpp; sourceTree = "<group>"; };
+		3267DD4623561ED90018BD6B /* vinterpolator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = vinterpolator.cpp; sourceTree = "<group>"; };
+		3267DD4723561ED90018BD6B /* vdrawhelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = vdrawhelper.cpp; sourceTree = "<group>"; };
+		3267DD4823561ED90018BD6B /* vstackallocator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vstackallocator.h; sourceTree = "<group>"; };
+		3267DD4923561ED90018BD6B /* vimageloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vimageloader.h; sourceTree = "<group>"; };
+		3267DD4A23561ED90018BD6B /* vraster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vraster.h; sourceTree = "<group>"; };
+		3267DD4B23561ED90018BD6B /* vmatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vmatrix.h; sourceTree = "<group>"; };
+		3267DD4C23561ED90018BD6B /* vrle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = vrle.cpp; sourceTree = "<group>"; };
+		3267DD4D23561ED90018BD6B /* vcowptr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vcowptr.h; sourceTree = "<group>"; };
+		3267DD4E23561ED90018BD6B /* vbrush.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = vbrush.cpp; sourceTree = "<group>"; };
+		3267DD4F23561ED90018BD6B /* rlottie.pc.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rlottie.pc.in; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,9 +607,481 @@
 			isa = PBXGroup;
 			children = (
 				3267DC1823561C6D0018BD6B /* VKLottie.h */,
+				3267DC2023561ED80018BD6B /* rlottie */,
 				3267DC1923561C6D0018BD6B /* Info.plist */,
 			);
 			path = VKLottie;
+			sourceTree = "<group>";
+		};
+		3267DC2023561ED80018BD6B /* rlottie */ = {
+			isa = PBXGroup;
+			children = (
+				3267DC2123561ED80018BD6B /* vs2019 */,
+				3267DC2723561ED80018BD6B /* packaging */,
+				3267DC2A23561ED80018BD6B /* inc */,
+				3267DC3023561ED80018BD6B /* CMakeLists.txt */,
+				3267DC3123561ED80018BD6B /* test */,
+				3267DC3A23561ED80018BD6B /* cmake */,
+				3267DC3D23561ED80018BD6B /* licenses */,
+				3267DC4323561ED80018BD6B /* AUTHORS */,
+				3267DC4423561ED80018BD6B /* example */,
+				3267DCBA23561ED80018BD6B /* meson_options.txt */,
+				3267DCBB23561ED80018BD6B /* .appveyor.yml */,
+				3267DCBC23561ED80018BD6B /* meson.build */,
+				3267DCBD23561ED80018BD6B /* README.md */,
+				3267DCBE23561ED80018BD6B /* COPYING */,
+				3267DCBF23561ED80018BD6B /* .gitignore */,
+				3267DCC023561ED80018BD6B /* .clang-format */,
+				3267DCC123561ED80018BD6B /* .travis.yml */,
+				3267DCC223561ED80018BD6B /* .Gifs */,
+				3267DCC523561ED80018BD6B /* rlottie.expmap */,
+				3267DCC623561ED80018BD6B /* src */,
+				3267DD4F23561ED90018BD6B /* rlottie.pc.in */,
+			);
+			path = rlottie;
+			sourceTree = SOURCE_ROOT;
+		};
+		3267DC2123561ED80018BD6B /* vs2019 */ = {
+			isa = PBXGroup;
+			children = (
+				3267DC2223561ED80018BD6B /* rlottie.vcxproj.user */,
+				3267DC2323561ED80018BD6B /* rlottie.vcxproj.filters */,
+				3267DC2423561ED80018BD6B /* config.h */,
+				3267DC2523561ED80018BD6B /* rlottie.sln */,
+				3267DC2623561ED80018BD6B /* rlottie.vcxproj */,
+			);
+			path = vs2019;
+			sourceTree = "<group>";
+		};
+		3267DC2723561ED80018BD6B /* packaging */ = {
+			isa = PBXGroup;
+			children = (
+				3267DC2823561ED80018BD6B /* rlottie.spec */,
+				3267DC2923561ED80018BD6B /* rlottie.manifest */,
+			);
+			path = packaging;
+			sourceTree = "<group>";
+		};
+		3267DC2A23561ED80018BD6B /* inc */ = {
+			isa = PBXGroup;
+			children = (
+				3267DC2B23561ED80018BD6B /* CMakeLists.txt */,
+				3267DC2C23561ED80018BD6B /* rlottiecommon.h */,
+				3267DC2D23561ED80018BD6B /* meson.build */,
+				3267DC2E23561ED80018BD6B /* rlottie.h */,
+				3267DC2F23561ED80018BD6B /* rlottie_capi.h */,
+			);
+			path = inc;
+			sourceTree = "<group>";
+		};
+		3267DC3123561ED80018BD6B /* test */ = {
+			isa = PBXGroup;
+			children = (
+				3267DC3223561ED80018BD6B /* CMakeLists.txt */,
+				3267DC3323561ED80018BD6B /* meson.build */,
+				3267DC3423561ED80018BD6B /* test_lottieanimation_capi.cpp */,
+				3267DC3523561ED80018BD6B /* test_vrect.cpp */,
+				3267DC3623561ED80018BD6B /* test_vpath.cpp */,
+				3267DC3723561ED80018BD6B /* testsgregion.cpp */,
+				3267DC3823561ED80018BD6B /* testsuite.cpp */,
+				3267DC3923561ED80018BD6B /* test_lottieanimation.cpp */,
+			);
+			path = test;
+			sourceTree = "<group>";
+		};
+		3267DC3A23561ED80018BD6B /* cmake */ = {
+			isa = PBXGroup;
+			children = (
+				3267DC3B23561ED80018BD6B /* rlottieConfig.cmake.in */,
+				3267DC3C23561ED80018BD6B /* config.h.in */,
+			);
+			path = cmake;
+			sourceTree = "<group>";
+		};
+		3267DC3D23561ED80018BD6B /* licenses */ = {
+			isa = PBXGroup;
+			children = (
+				3267DC3E23561ED80018BD6B /* COPYING.LGPL */,
+				3267DC3F23561ED80018BD6B /* COPYING.FTL */,
+				3267DC4023561ED80018BD6B /* COPYING.STB */,
+				3267DC4123561ED80018BD6B /* COPYING.PIX */,
+				3267DC4223561ED80018BD6B /* COPYING.RPD */,
+			);
+			path = licenses;
+			sourceTree = "<group>";
+		};
+		3267DC4423561ED80018BD6B /* example */ = {
+			isa = PBXGroup;
+			children = (
+				3267DC4523561ED80018BD6B /* lottieview.cpp */,
+				3267DC4623561ED80018BD6B /* evasapp.h */,
+				3267DC4723561ED80018BD6B /* CMakeLists.txt */,
+				3267DC4823561ED80018BD6B /* lottieviewtest.cpp */,
+				3267DC4923561ED80018BD6B /* gif.h */,
+				3267DC4A23561ED80018BD6B /* lottieview.h */,
+				3267DC4B23561ED80018BD6B /* meson.build */,
+				3267DC4C23561ED80018BD6B /* lottieviewer.cpp */,
+				3267DC4D23561ED80018BD6B /* uxsampletest.cpp */,
+				3267DC4E23561ED80018BD6B /* demo.cpp */,
+				3267DC4F23561ED80018BD6B /* pathtest.cpp */,
+				3267DC5023561ED80018BD6B /* evasapp.cpp */,
+				3267DC5123561ED80018BD6B /* resource */,
+				3267DCB823561ED80018BD6B /* efl_animview.cpp */,
+				3267DCB923561ED80018BD6B /* lottie2gif.cpp */,
+			);
+			path = example;
+			sourceTree = "<group>";
+		};
+		3267DC5123561ED80018BD6B /* resource */ = {
+			isa = PBXGroup;
+			children = (
+				3267DC5223561ED80018BD6B /* material_wave_loading.json */,
+				3267DC5323561ED80018BD6B /* _alarm.json */,
+				3267DC5423561ED80018BD6B /* bounching_ball.json */,
+				3267DC5523561ED80018BD6B /* anubis.json */,
+				3267DC5623561ED80018BD6B /* cooking.json */,
+				3267DC5723561ED80018BD6B /* gears.json */,
+				3267DC5823561ED80018BD6B /* loading_rectangles.json */,
+				3267DC5923561ED80018BD6B /* jolly_walker.json */,
+				3267DC5A23561ED80018BD6B /* intelia_logo_animation.json */,
+				3267DC5B23561ED80018BD6B /* bell.json */,
+				3267DC5C23561ED80018BD6B /* waves_.json */,
+				3267DC5D23561ED80018BD6B /* static_dynamic_dash.json */,
+				3267DC5E23561ED80018BD6B /* Indicators1.json */,
+				3267DC5F23561ED80018BD6B /* gradient_animated_background.json */,
+				3267DC6023561ED80018BD6B /* file_transfer.json */,
+				3267DC6123561ED80018BD6B /* tractor.json */,
+				3267DC6223561ED80018BD6B /* worm.json */,
+				3267DC6323561ED80018BD6B /* settings.json */,
+				3267DC6423561ED80018BD6B /* red_box.json */,
+				3267DC6523561ED80018BD6B /* confetti.json */,
+				3267DC6623561ED80018BD6B /* 5317-fireworkds.json */,
+				3267DC6723561ED80018BD6B /* gears_or_settings.json */,
+				3267DC6823561ED80018BD6B /* loading.json */,
+				3267DC6923561ED80018BD6B /* dna.json */,
+				3267DC6A23561ED80018BD6B /* images */,
+				3267DC6C23561ED80018BD6B /* loading_.json */,
+				3267DC6D23561ED80018BD6B /* gradient_sleepy_loader.json */,
+				3267DC6E23561ED80018BD6B /* a_cup_of_coffee.json */,
+				3267DC6F23561ED80018BD6B /* it's_lunch_time!.json */,
+				3267DC7023561ED80018BD6B /* ModernPictogramsForLottie_LoudMute.json */,
+				3267DC7123561ED80018BD6B /* world_locations.json */,
+				3267DC7223561ED80018BD6B /* emoji_shock.json */,
+				3267DC7323561ED80018BD6B /* balloons_with_string.json */,
+				3267DC7423561ED80018BD6B /* image_embedded.json */,
+				3267DC7523561ED80018BD6B /* image_test.json */,
+				3267DC7623561ED80018BD6B /* looping_landscape_+_plane_+_clouds.json */,
+				3267DC7723561ED80018BD6B /* tile_grid_loading_animation.json */,
+				3267DC7823561ED80018BD6B /* movie_loading.json */,
+				3267DC7923561ED80018BD6B /* emoji_wink.json */,
+				3267DC7A23561ED80018BD6B /* hourglass.json */,
+				3267DC7B23561ED80018BD6B /* abstract_circle.json */,
+				3267DC7C23561ED80018BD6B /* like.json */,
+				3267DC7D23561ED80018BD6B /* ao.json */,
+				3267DC7E23561ED80018BD6B /* glow_loading.json */,
+				3267DC7F23561ED80018BD6B /* StickAndBall.json */,
+				3267DC8023561ED80018BD6B /* 1667-firework.json */,
+				3267DC8123561ED80018BD6B /* dynamic_property.json */,
+				3267DC8223561ED80018BD6B /* imprint.json */,
+				3267DC8323561ED80018BD6B /* done.json */,
+				3267DC8423561ED80018BD6B /* pumped_up.json */,
+				3267DC8523561ED80018BD6B /* layout.edj */,
+				3267DC8623561ED80018BD6B /* layout.edc */,
+				3267DC8723561ED80018BD6B /* polystar_anim.json */,
+				3267DC8823561ED80018BD6B /* telegram.json */,
+				3267DC8923561ED80018BD6B /* 5344-honey-sack-hud.json */,
+				3267DC8A23561ED80018BD6B /* starts_transparent.json */,
+				3267DC8B23561ED80018BD6B /* triib_manage.json */,
+				3267DC8C23561ED80018BD6B /* UXSample_1920x1080 */,
+				3267DC9423561ED80018BD6B /* loader_animation.json */,
+				3267DC9523561ED80018BD6B /* mnemonics.json */,
+				3267DC9623561ED80018BD6B /* birth_stone_logo.json */,
+				3267DC9723561ED80018BD6B /* ripple_loading_animation.json */,
+				3267DC9823561ED80018BD6B /* matte_two_item_with_lowerlayer.json */,
+				3267DC9923561ED80018BD6B /* party_penguin.json */,
+				3267DC9A23561ED80018BD6B /* mask.json */,
+				3267DC9B23561ED80018BD6B /* loader.json */,
+				3267DC9C23561ED80018BD6B /* acrobatics.json */,
+				3267DC9D23561ED80018BD6B /* happy.json */,
+				3267DC9E23561ED80018BD6B /* windmill.json */,
+				3267DC9F23561ED80018BD6B /* heart.json */,
+				3267DCA023561ED80018BD6B /* a_mountain.json */,
+				3267DCA123561ED80018BD6B /* leap_frog_loader.json */,
+				3267DCA223561ED80018BD6B /* 360º_degree.json */,
+				3267DCA323561ED80018BD6B /* night_own.json */,
+				3267DCA423561ED80018BD6B /* 3d.json */,
+				3267DCA523561ED80018BD6B /* 1643-exploding-star.json */,
+				3267DCA623561ED80018BD6B /* personal_character.json */,
+				3267DCA723561ED80018BD6B /* mughead.json */,
+				3267DCA823561ED80018BD6B /* peli-canon.json */,
+				3267DCA923561ED80018BD6B /* 4479-fireworks.json */,
+				3267DCAA23561ED80018BD6B /* funky_chicken.json */,
+				3267DCAB23561ED80018BD6B /* spin,_lil_loader_v2.json */,
+				3267DCAC23561ED80018BD6B /* fingerprint_success.json */,
+				3267DCAD23561ED80018BD6B /* you're_in!.json */,
+				3267DCAE23561ED80018BD6B /* maps.json */,
+				3267DCAF23561ED80018BD6B /* dynamic_path_test.json */,
+				3267DCB023561ED80018BD6B /* insta_camera.json */,
+				3267DCB123561ED80018BD6B /* loading_animation.json */,
+				3267DCB223561ED80018BD6B /* loader_4.json */,
+				3267DCB323561ED80018BD6B /* browser.json */,
+				3267DCB423561ED80018BD6B /* square_wheel.json */,
+				3267DCB523561ED80018BD6B /* polystar_line_clockwise_trim.json */,
+				3267DCB623561ED80018BD6B /* eid_mubarak.json */,
+				3267DCB723561ED80018BD6B /* ondas.json */,
+			);
+			path = resource;
+			sourceTree = "<group>";
+		};
+		3267DC6A23561ED80018BD6B /* images */ = {
+			isa = PBXGroup;
+			children = (
+				3267DC6B23561ED80018BD6B /* img_0.png */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
+		3267DC8C23561ED80018BD6B /* UXSample_1920x1080 */ = {
+			isa = PBXGroup;
+			children = (
+				3267DC8D23561ED80018BD6B /* F Masks_All_01_1920x1080.json */,
+				3267DC8E23561ED80018BD6B /* F Masks_All_02_1920x1080.json */,
+				3267DC8F23561ED80018BD6B /* B Fills_All_01_1920x1080.json */,
+				3267DC9023561ED80018BD6B /* D Transforms_All_01_1920x1080.json */,
+				3267DC9123561ED80018BD6B /* C Strokes_All_01_1920x1080.json */,
+				3267DC9223561ED80018BD6B /* E Interpolation_All_01_1920x1080.json */,
+				3267DC9323561ED80018BD6B /* A Shapes_All_01_1920x1080.json */,
+			);
+			path = UXSample_1920x1080;
+			sourceTree = "<group>";
+		};
+		3267DCC223561ED80018BD6B /* .Gifs */ = {
+			isa = PBXGroup;
+			children = (
+				3267DCC323561ED80018BD6B /* 2.gif */,
+				3267DCC423561ED80018BD6B /* 1.gif */,
+			);
+			path = .Gifs;
+			sourceTree = "<group>";
+		};
+		3267DCC623561ED80018BD6B /* src */ = {
+			isa = PBXGroup;
+			children = (
+				3267DCC723561ED80018BD6B /* CMakeLists.txt */,
+				3267DCC823561ED80018BD6B /* binding */,
+				3267DCD023561ED80018BD6B /* meson.build */,
+				3267DCD123561ED80018BD6B /* lottie */,
+				3267DD0A23561ED90018BD6B /* vector */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		3267DCC823561ED80018BD6B /* binding */ = {
+			isa = PBXGroup;
+			children = (
+				3267DCC923561ED80018BD6B /* CMakeLists.txt */,
+				3267DCCA23561ED80018BD6B /* meson.build */,
+				3267DCCB23561ED80018BD6B /* .lottieplayer.cpp.swp */,
+				3267DCCC23561ED80018BD6B /* c */,
+			);
+			path = binding;
+			sourceTree = "<group>";
+		};
+		3267DCCC23561ED80018BD6B /* c */ = {
+			isa = PBXGroup;
+			children = (
+				3267DCCD23561ED80018BD6B /* CMakeLists.txt */,
+				3267DCCE23561ED80018BD6B /* lottieanimation_capi.cpp */,
+				3267DCCF23561ED80018BD6B /* meson.build */,
+			);
+			path = c;
+			sourceTree = "<group>";
+		};
+		3267DCD123561ED80018BD6B /* lottie */ = {
+			isa = PBXGroup;
+			children = (
+				3267DCD223561ED80018BD6B /* lottiemodel.cpp */,
+				3267DCD323561ED80018BD6B /* lottieitem.cpp */,
+				3267DCD423561ED80018BD6B /* CMakeLists.txt */,
+				3267DCD523561ED80018BD6B /* lottieanimation.cpp */,
+				3267DCD623561ED80018BD6B /* lottiekeypath.cpp */,
+				3267DCD723561ED80018BD6B /* lottieparser.h */,
+				3267DCD823561ED80018BD6B /* lottieparser.cpp */,
+				3267DCD923561ED80018BD6B /* lottieloader.cpp */,
+				3267DCDA23561ED80018BD6B /* lottieitem.h */,
+				3267DCDB23561ED80018BD6B /* lottiekeypath.h */,
+				3267DCDC23561ED80018BD6B /* meson.build */,
+				3267DCDD23561ED80018BD6B /* lottieproxymodel.cpp */,
+				3267DCDE23561ED80018BD6B /* rapidjson */,
+				3267DD0623561ED90018BD6B /* lottieproxymodel.h */,
+				3267DD0723561ED90018BD6B /* lottiemodel.h */,
+				3267DD0823561ED90018BD6B /* lottieitem_capi.cpp */,
+				3267DD0923561ED90018BD6B /* lottieloader.h */,
+			);
+			path = lottie;
+			sourceTree = "<group>";
+		};
+		3267DCDE23561ED80018BD6B /* rapidjson */ = {
+			isa = PBXGroup;
+			children = (
+				3267DCDF23561ED80018BD6B /* fwd.h */,
+				3267DCE023561ED80018BD6B /* memorystream.h */,
+				3267DCE123561ED80018BD6B /* reader.h */,
+				3267DCE223561ED80018BD6B /* prettywriter.h */,
+				3267DCE323561ED80018BD6B /* ostreamwrapper.h */,
+				3267DCE423561ED80018BD6B /* encodedstream.h */,
+				3267DCE523561ED80018BD6B /* filereadstream.h */,
+				3267DCE623561ED80018BD6B /* cursorstreamwrapper.h */,
+				3267DCE723561ED80018BD6B /* istreamwrapper.h */,
+				3267DCE823561ED80018BD6B /* stringbuffer.h */,
+				3267DCE923561ED80018BD6B /* internal */,
+				3267DCF623561ED80018BD6B /* encodings.h */,
+				3267DCF723561ED80018BD6B /* schema.h */,
+				3267DCF823561ED80018BD6B /* stream.h */,
+				3267DCF923561ED80018BD6B /* filewritestream.h */,
+				3267DCFA23561ED80018BD6B /* rapidjson.h */,
+				3267DCFB23561ED80018BD6B /* document.h */,
+				3267DCFC23561ED80018BD6B /* allocators.h */,
+				3267DCFD23561ED80018BD6B /* writer.h */,
+				3267DCFE23561ED80018BD6B /* error */,
+				3267DD0123561ED80018BD6B /* memorybuffer.h */,
+				3267DD0223561ED80018BD6B /* pointer.h */,
+				3267DD0323561ED90018BD6B /* msinttypes */,
+			);
+			path = rapidjson;
+			sourceTree = "<group>";
+		};
+		3267DCE923561ED80018BD6B /* internal */ = {
+			isa = PBXGroup;
+			children = (
+				3267DCEA23561ED80018BD6B /* ieee754.h */,
+				3267DCEB23561ED80018BD6B /* strtod.h */,
+				3267DCEC23561ED80018BD6B /* swap.h */,
+				3267DCED23561ED80018BD6B /* regex.h */,
+				3267DCEE23561ED80018BD6B /* diyfp.h */,
+				3267DCEF23561ED80018BD6B /* biginteger.h */,
+				3267DCF023561ED80018BD6B /* strfunc.h */,
+				3267DCF123561ED80018BD6B /* itoa.h */,
+				3267DCF223561ED80018BD6B /* stack.h */,
+				3267DCF323561ED80018BD6B /* dtoa.h */,
+				3267DCF423561ED80018BD6B /* meta.h */,
+				3267DCF523561ED80018BD6B /* pow10.h */,
+			);
+			path = internal;
+			sourceTree = "<group>";
+		};
+		3267DCFE23561ED80018BD6B /* error */ = {
+			isa = PBXGroup;
+			children = (
+				3267DCFF23561ED80018BD6B /* error.h */,
+				3267DD0023561ED80018BD6B /* en.h */,
+			);
+			path = error;
+			sourceTree = "<group>";
+		};
+		3267DD0323561ED90018BD6B /* msinttypes */ = {
+			isa = PBXGroup;
+			children = (
+				3267DD0423561ED90018BD6B /* inttypes.h */,
+				3267DD0523561ED90018BD6B /* stdint.h */,
+			);
+			path = msinttypes;
+			sourceTree = "<group>";
+		};
+		3267DD0A23561ED90018BD6B /* vector */ = {
+			isa = PBXGroup;
+			children = (
+				3267DD0B23561ED90018BD6B /* vdasher.h */,
+				3267DD0C23561ED90018BD6B /* vrle.h */,
+				3267DD0D23561ED90018BD6B /* velapsedtimer.cpp */,
+				3267DD0E23561ED90018BD6B /* vdrawhelper_neon.cpp */,
+				3267DD0F23561ED90018BD6B /* velapsedtimer.h */,
+				3267DD1023561ED90018BD6B /* CMakeLists.txt */,
+				3267DD1123561ED90018BD6B /* vrect.cpp */,
+				3267DD1223561ED90018BD6B /* vdasher.cpp */,
+				3267DD1323561ED90018BD6B /* vbezier.cpp */,
+				3267DD1423561ED90018BD6B /* pixman */,
+				3267DD1B23561ED90018BD6B /* vpath.cpp */,
+				3267DD1C23561ED90018BD6B /* freetype */,
+				3267DD2623561ED90018BD6B /* vcompositionfunctions.cpp */,
+				3267DD2723561ED90018BD6B /* vdrawhelper.h */,
+				3267DD2823561ED90018BD6B /* vbitmap.cpp */,
+				3267DD2923561ED90018BD6B /* vdrawable.h */,
+				3267DD2A23561ED90018BD6B /* vbitmap.h */,
+				3267DD2B23561ED90018BD6B /* vpoint.h */,
+				3267DD2C23561ED90018BD6B /* vpathmesure.h */,
+				3267DD2D23561ED90018BD6B /* vdebug.h */,
+				3267DD2E23561ED90018BD6B /* vpath.h */,
+				3267DD2F23561ED90018BD6B /* stb */,
+				3267DD3423561ED90018BD6B /* meson.build */,
+				3267DD3523561ED90018BD6B /* vtaskqueue.h */,
+				3267DD3623561ED90018BD6B /* vline.h */,
+				3267DD3723561ED90018BD6B /* vdrawable.cpp */,
+				3267DD3823561ED90018BD6B /* vpathmesure.cpp */,
+				3267DD3923561ED90018BD6B /* vbrush.h */,
+				3267DD3A23561ED90018BD6B /* vpainter.cpp */,
+				3267DD3B23561ED90018BD6B /* vsharedptr.h */,
+				3267DD3C23561ED90018BD6B /* vdebug.cpp */,
+				3267DD3D23561ED90018BD6B /* vimageloader.cpp */,
+				3267DD3E23561ED90018BD6B /* vglobal.h */,
+				3267DD3F23561ED90018BD6B /* vraster.cpp */,
+				3267DD4023561ED90018BD6B /* vpainter.h */,
+				3267DD4123561ED90018BD6B /* vmatrix.cpp */,
+				3267DD4223561ED90018BD6B /* vrect.h */,
+				3267DD4323561ED90018BD6B /* vinterpolator.h */,
+				3267DD4423561ED90018BD6B /* vbezier.h */,
+				3267DD4523561ED90018BD6B /* vdrawhelper_sse2.cpp */,
+				3267DD4623561ED90018BD6B /* vinterpolator.cpp */,
+				3267DD4723561ED90018BD6B /* vdrawhelper.cpp */,
+				3267DD4823561ED90018BD6B /* vstackallocator.h */,
+				3267DD4923561ED90018BD6B /* vimageloader.h */,
+				3267DD4A23561ED90018BD6B /* vraster.h */,
+				3267DD4B23561ED90018BD6B /* vmatrix.h */,
+				3267DD4C23561ED90018BD6B /* vrle.cpp */,
+				3267DD4D23561ED90018BD6B /* vcowptr.h */,
+				3267DD4E23561ED90018BD6B /* vbrush.cpp */,
+			);
+			path = vector;
+			sourceTree = "<group>";
+		};
+		3267DD1423561ED90018BD6B /* pixman */ = {
+			isa = PBXGroup;
+			children = (
+				3267DD1523561ED90018BD6B /* CMakeLists.txt */,
+				3267DD1623561ED90018BD6B /* pixman-arm-neon-asm.h */,
+				3267DD1723561ED90018BD6B /* vregion.h */,
+				3267DD1823561ED90018BD6B /* pixman-arm-neon-asm.S */,
+				3267DD1923561ED90018BD6B /* meson.build */,
+				3267DD1A23561ED90018BD6B /* vregion.cpp */,
+			);
+			path = pixman;
+			sourceTree = "<group>";
+		};
+		3267DD1C23561ED90018BD6B /* freetype */ = {
+			isa = PBXGroup;
+			children = (
+				3267DD1D23561ED90018BD6B /* CMakeLists.txt */,
+				3267DD1E23561ED90018BD6B /* v_ft_types.h */,
+				3267DD1F23561ED90018BD6B /* v_ft_raster.cpp */,
+				3267DD2023561ED90018BD6B /* meson.build */,
+				3267DD2123561ED90018BD6B /* v_ft_stroker.cpp */,
+				3267DD2223561ED90018BD6B /* v_ft_math.cpp */,
+				3267DD2323561ED90018BD6B /* v_ft_stroker.h */,
+				3267DD2423561ED90018BD6B /* v_ft_math.h */,
+				3267DD2523561ED90018BD6B /* v_ft_raster.h */,
+			);
+			path = freetype;
+			sourceTree = "<group>";
+		};
+		3267DD2F23561ED90018BD6B /* stb */ = {
+			isa = PBXGroup;
+			children = (
+				3267DD3023561ED90018BD6B /* CMakeLists.txt */,
+				3267DD3123561ED90018BD6B /* meson.build */,
+				3267DD3223561ED90018BD6B /* stb_image.h */,
+				3267DD3323561ED90018BD6B /* stb_image.cpp */,
+			);
+			path = stb;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -59,7 +1091,87 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3267DE6123561ED90018BD6B /* vimageloader.h in Headers */,
+				3267DE0B23561ED90018BD6B /* regex.h in Headers */,
+				3267DDFE23561ED90018BD6B /* fwd.h in Headers */,
+				3267DD5223561ED90018BD6B /* config.h in Headers */,
+				3267DE1223561ED90018BD6B /* meta.h in Headers */,
+				3267DE0223561ED90018BD6B /* ostreamwrapper.h in Headers */,
+				3267DE1F23561ED90018BD6B /* pointer.h in Headers */,
+				3267DE0E23561ED90018BD6B /* strfunc.h in Headers */,
+				3267DE1A23561ED90018BD6B /* allocators.h in Headers */,
+				3267DE2023561ED90018BD6B /* inttypes.h in Headers */,
+				3267DD6E23561ED90018BD6B /* evasapp.h in Headers */,
+				3267DE0023561ED90018BD6B /* reader.h in Headers */,
 				3267DC1A23561C6D0018BD6B /* VKLottie.h in Headers */,
+				3267DE2223561ED90018BD6B /* lottieproxymodel.h in Headers */,
+				3267DE2723561ED90018BD6B /* vrle.h in Headers */,
+				3267DDFB23561ED90018BD6B /* lottiekeypath.h in Headers */,
+				3267DE3D23561ED90018BD6B /* v_ft_math.h in Headers */,
+				3267DE0A23561ED90018BD6B /* swap.h in Headers */,
+				3267DE1723561ED90018BD6B /* filewritestream.h in Headers */,
+				3267DE2623561ED90018BD6B /* vdasher.h in Headers */,
+				3267DE1123561ED90018BD6B /* dtoa.h in Headers */,
+				3267DE1323561ED90018BD6B /* pow10.h in Headers */,
+				3267DE0323561ED90018BD6B /* encodedstream.h in Headers */,
+				3267DE5623561ED90018BD6B /* vglobal.h in Headers */,
+				3267DE1823561ED90018BD6B /* rapidjson.h in Headers */,
+				3267DE4523561ED90018BD6B /* vpathmesure.h in Headers */,
+				3267DDFF23561ED90018BD6B /* memorystream.h in Headers */,
+				3267DE1B23561ED90018BD6B /* writer.h in Headers */,
+				3267DE5B23561ED90018BD6B /* vinterpolator.h in Headers */,
+				3267DE0123561ED90018BD6B /* prettywriter.h in Headers */,
+				3267DE4E23561ED90018BD6B /* vline.h in Headers */,
+				3267DD7123561ED90018BD6B /* gif.h in Headers */,
+				3267DE1423561ED90018BD6B /* encodings.h in Headers */,
+				3267DE1623561ED90018BD6B /* stream.h in Headers */,
+				3267DE2523561ED90018BD6B /* lottieloader.h in Headers */,
+				3267DD5A23561ED90018BD6B /* rlottie.h in Headers */,
+				3267DE1023561ED90018BD6B /* stack.h in Headers */,
+				3267DE4223561ED90018BD6B /* vdrawable.h in Headers */,
+				3267DE0623561ED90018BD6B /* istreamwrapper.h in Headers */,
+				3267DE5323561ED90018BD6B /* vsharedptr.h in Headers */,
+				3267DD5B23561ED90018BD6B /* rlottie_capi.h in Headers */,
+				3267DE2323561ED90018BD6B /* lottiemodel.h in Headers */,
+				3267DE0D23561ED90018BD6B /* biginteger.h in Headers */,
+				3267DDFA23561ED90018BD6B /* lottieitem.h in Headers */,
+				3267DE0923561ED90018BD6B /* strtod.h in Headers */,
+				3267DE3723561ED90018BD6B /* v_ft_types.h in Headers */,
+				3267DE6023561ED90018BD6B /* vstackallocator.h in Headers */,
+				3267DE5123561ED90018BD6B /* vbrush.h in Headers */,
+				3267DE1523561ED90018BD6B /* schema.h in Headers */,
+				3267DE3023561ED90018BD6B /* pixman-arm-neon-asm.h in Headers */,
+				3267DE4A23561ED90018BD6B /* stb_image.h in Headers */,
+				3267DE3123561ED90018BD6B /* vregion.h in Headers */,
+				3267DE1E23561ED90018BD6B /* memorybuffer.h in Headers */,
+				3267DE4323561ED90018BD6B /* vbitmap.h in Headers */,
+				3267DE4423561ED90018BD6B /* vpoint.h in Headers */,
+				3267DE0823561ED90018BD6B /* ieee754.h in Headers */,
+				3267DE5C23561ED90018BD6B /* vbezier.h in Headers */,
+				3267DE0423561ED90018BD6B /* filereadstream.h in Headers */,
+				3267DE6323561ED90018BD6B /* vmatrix.h in Headers */,
+				3267DE1D23561ED90018BD6B /* en.h in Headers */,
+				3267DE5A23561ED90018BD6B /* vrect.h in Headers */,
+				3267DE0723561ED90018BD6B /* stringbuffer.h in Headers */,
+				3267DE4623561ED90018BD6B /* vdebug.h in Headers */,
+				3267DE4023561ED90018BD6B /* vdrawhelper.h in Headers */,
+				3267DE0523561ED90018BD6B /* cursorstreamwrapper.h in Headers */,
+				3267DE3C23561ED90018BD6B /* v_ft_stroker.h in Headers */,
+				3267DE4D23561ED90018BD6B /* vtaskqueue.h in Headers */,
+				3267DE6523561ED90018BD6B /* vcowptr.h in Headers */,
+				3267DE0F23561ED90018BD6B /* itoa.h in Headers */,
+				3267DE3E23561ED90018BD6B /* v_ft_raster.h in Headers */,
+				3267DDF723561ED90018BD6B /* lottieparser.h in Headers */,
+				3267DE1923561ED90018BD6B /* document.h in Headers */,
+				3267DE0C23561ED90018BD6B /* diyfp.h in Headers */,
+				3267DE5823561ED90018BD6B /* vpainter.h in Headers */,
+				3267DE4723561ED90018BD6B /* vpath.h in Headers */,
+				3267DE2123561ED90018BD6B /* stdint.h in Headers */,
+				3267DE1C23561ED90018BD6B /* error.h in Headers */,
+				3267DE2A23561ED90018BD6B /* velapsedtimer.h in Headers */,
+				3267DD7223561ED90018BD6B /* lottieview.h in Headers */,
+				3267DD5823561ED90018BD6B /* rlottiecommon.h in Headers */,
+				3267DE6223561ED90018BD6B /* vraster.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,6 +1232,156 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3267DD7923561ED90018BD6B /* material_wave_loading.json in Resources */,
+				3267DD5523561ED90018BD6B /* rlottie.spec in Resources */,
+				3267DDC623561ED90018BD6B /* leap_frog_loader.json in Resources */,
+				3267DD5423561ED90018BD6B /* rlottie.vcxproj in Resources */,
+				3267DDF423561ED90018BD6B /* CMakeLists.txt in Resources */,
+				3267DDA923561ED90018BD6B /* done.json in Resources */,
+				3267DD9E23561ED90018BD6B /* movie_loading.json in Resources */,
+				3267DD8823561ED90018BD6B /* tractor.json in Resources */,
+				3267DDBA23561ED90018BD6B /* mnemonics.json in Resources */,
+				3267DD7323561ED90018BD6B /* meson.build in Resources */,
+				3267DDB923561ED90018BD6B /* loader_animation.json in Resources */,
+				3267DD7D23561ED90018BD6B /* cooking.json in Resources */,
+				3267DDF023561ED90018BD6B /* meson.build in Resources */,
+				3267DDCF23561ED90018BD6B /* funky_chicken.json in Resources */,
+				3267DDE823561ED90018BD6B /* 1.gif in Resources */,
+				3267DDDB23561ED90018BD6B /* eid_mubarak.json in Resources */,
+				3267DD5623561ED90018BD6B /* rlottie.manifest in Resources */,
+				3267DDAB23561ED90018BD6B /* layout.edj in Resources */,
+				3267DDC223561ED90018BD6B /* happy.json in Resources */,
+				3267DD9723561ED90018BD6B /* world_locations.json in Resources */,
+				3267DD6823561ED90018BD6B /* COPYING.FTL in Resources */,
+				3267DD9323561ED90018BD6B /* gradient_sleepy_loader.json in Resources */,
+				3267DD8E23561ED90018BD6B /* gears_or_settings.json in Resources */,
+				3267DDDC23561ED90018BD6B /* ondas.json in Resources */,
+				3267DD6F23561ED90018BD6B /* CMakeLists.txt in Resources */,
+				3267DDBC23561ED90018BD6B /* ripple_loading_animation.json in Resources */,
+				3267DD9123561ED90018BD6B /* img_0.png in Resources */,
+				3267DD8123561ED90018BD6B /* intelia_logo_animation.json in Resources */,
+				3267DD9823561ED90018BD6B /* emoji_shock.json in Resources */,
+				3267DDB823561ED90018BD6B /* A Shapes_All_01_1920x1080.json in Resources */,
+				3267DD9223561ED90018BD6B /* loading_.json in Resources */,
+				3267DD8223561ED90018BD6B /* bell.json in Resources */,
+				3267DE4823561ED90018BD6B /* CMakeLists.txt in Resources */,
+				3267DDC423561ED90018BD6B /* heart.json in Resources */,
+				3267DD5923561ED90018BD6B /* meson.build in Resources */,
+				3267DD8523561ED90018BD6B /* Indicators1.json in Resources */,
+				3267DDCD23561ED90018BD6B /* peli-canon.json in Resources */,
+				3267DD9623561ED90018BD6B /* ModernPictogramsForLottie_LoudMute.json in Resources */,
+				3267DDD923561ED90018BD6B /* square_wheel.json in Resources */,
+				3267DE4923561ED90018BD6B /* meson.build in Resources */,
+				3267DE2F23561ED90018BD6B /* CMakeLists.txt in Resources */,
+				3267DD5D23561ED90018BD6B /* CMakeLists.txt in Resources */,
+				3267DD5323561ED90018BD6B /* rlottie.sln in Resources */,
+				3267DDE223561ED90018BD6B /* README.md in Resources */,
+				3267DD8423561ED90018BD6B /* static_dynamic_dash.json in Resources */,
+				3267DDD823561ED90018BD6B /* browser.json in Resources */,
+				3267DDEE23561ED90018BD6B /* CMakeLists.txt in Resources */,
+				3267DD5723561ED90018BD6B /* CMakeLists.txt in Resources */,
+				3267DDE923561ED90018BD6B /* rlottie.expmap in Resources */,
+				3267DDD123561ED90018BD6B /* fingerprint_success.json in Resources */,
+				3267DDBB23561ED90018BD6B /* birth_stone_logo.json in Resources */,
+				3267DD8D23561ED90018BD6B /* 5317-fireworkds.json in Resources */,
+				3267DDC923561ED90018BD6B /* 3d.json in Resources */,
+				3267DD9B23561ED90018BD6B /* image_test.json in Resources */,
+				3267DDB423561ED90018BD6B /* B Fills_All_01_1920x1080.json in Resources */,
+				3267DDB123561ED90018BD6B /* triib_manage.json in Resources */,
+				3267DD9D23561ED90018BD6B /* tile_grid_loading_animation.json in Resources */,
+				3267DD7F23561ED90018BD6B /* loading_rectangles.json in Resources */,
+				3267DDA523561ED90018BD6B /* StickAndBall.json in Resources */,
+				3267DDE723561ED90018BD6B /* 2.gif in Resources */,
+				3267DDA723561ED90018BD6B /* dynamic_property.json in Resources */,
+				3267DE3623561ED90018BD6B /* CMakeLists.txt in Resources */,
+				3267DDA223561ED90018BD6B /* like.json in Resources */,
+				3267DDDF23561ED90018BD6B /* meson_options.txt in Resources */,
+				3267DDA123561ED90018BD6B /* abstract_circle.json in Resources */,
+				3267DDED23561ED90018BD6B /* .lottieplayer.cpp.swp in Resources */,
+				3267DE2B23561ED90018BD6B /* CMakeLists.txt in Resources */,
+				3267DD7E23561ED90018BD6B /* gears.json in Resources */,
+				3267DD6523561ED90018BD6B /* rlottieConfig.cmake.in in Resources */,
+				3267DD8C23561ED90018BD6B /* confetti.json in Resources */,
+				3267DDAA23561ED90018BD6B /* pumped_up.json in Resources */,
+				3267DD9A23561ED90018BD6B /* image_embedded.json in Resources */,
+				3267DD9423561ED90018BD6B /* a_cup_of_coffee.json in Resources */,
+				3267DD5023561ED90018BD6B /* rlottie.vcxproj.user in Resources */,
+				3267DD6C23561ED90018BD6B /* AUTHORS in Resources */,
+				3267DE4C23561ED90018BD6B /* meson.build in Resources */,
+				3267DDC123561ED90018BD6B /* acrobatics.json in Resources */,
+				3267DDFC23561ED90018BD6B /* meson.build in Resources */,
+				3267DDD523561ED90018BD6B /* insta_camera.json in Resources */,
+				3267DDB523561ED90018BD6B /* D Transforms_All_01_1920x1080.json in Resources */,
+				3267DD7A23561ED90018BD6B /* _alarm.json in Resources */,
+				3267DD9523561ED90018BD6B /* it's_lunch_time!.json in Resources */,
+				3267DDEC23561ED90018BD6B /* meson.build in Resources */,
+				3267DDBF23561ED90018BD6B /* mask.json in Resources */,
+				3267DDC723561ED90018BD6B /* 360º_degree.json in Resources */,
+				3267DDC023561ED90018BD6B /* loader.json in Resources */,
+				3267DDAF23561ED90018BD6B /* 5344-honey-sack-hud.json in Resources */,
+				3267DD8F23561ED90018BD6B /* loading.json in Resources */,
+				3267DDDA23561ED90018BD6B /* polystar_line_clockwise_trim.json in Resources */,
+				3267DDB623561ED90018BD6B /* C Strokes_All_01_1920x1080.json in Resources */,
+				3267DDA423561ED90018BD6B /* glow_loading.json in Resources */,
+				3267DD8723561ED90018BD6B /* file_transfer.json in Resources */,
+				3267DDCE23561ED90018BD6B /* 4479-fireworks.json in Resources */,
+				3267DD9923561ED90018BD6B /* balloons_with_string.json in Resources */,
+				3267DDBD23561ED90018BD6B /* matte_two_item_with_lowerlayer.json in Resources */,
+				3267DD8623561ED90018BD6B /* gradient_animated_background.json in Resources */,
+				3267DD9C23561ED90018BD6B /* looping_landscape_+_plane_+_clouds.json in Resources */,
+				3267DD9F23561ED90018BD6B /* emoji_wink.json in Resources */,
+				3267DDCB23561ED90018BD6B /* personal_character.json in Resources */,
+				3267DDD023561ED90018BD6B /* spin,_lil_loader_v2.json in Resources */,
+				3267DDEA23561ED90018BD6B /* CMakeLists.txt in Resources */,
+				3267DD5123561ED90018BD6B /* rlottie.vcxproj.filters in Resources */,
+				3267DDD423561ED90018BD6B /* dynamic_path_test.json in Resources */,
+				3267DD7C23561ED90018BD6B /* anubis.json in Resources */,
+				3267DDCA23561ED90018BD6B /* 1643-exploding-star.json in Resources */,
+				3267DD6923561ED90018BD6B /* COPYING.STB in Resources */,
+				3267DD6B23561ED90018BD6B /* COPYING.RPD in Resources */,
+				3267DDD323561ED90018BD6B /* maps.json in Resources */,
+				3267DE6723561ED90018BD6B /* rlottie.pc.in in Resources */,
+				3267DD8323561ED90018BD6B /* waves_.json in Resources */,
+				3267DDE623561ED90018BD6B /* .travis.yml in Resources */,
+				3267DD7B23561ED90018BD6B /* bounching_ball.json in Resources */,
+				3267DE3323561ED90018BD6B /* meson.build in Resources */,
+				3267DDD623561ED90018BD6B /* loading_animation.json in Resources */,
+				3267DD6723561ED90018BD6B /* COPYING.LGPL in Resources */,
+				3267DD6A23561ED90018BD6B /* COPYING.PIX in Resources */,
+				3267DDE423561ED90018BD6B /* .gitignore in Resources */,
+				3267DE3923561ED90018BD6B /* meson.build in Resources */,
+				3267DDE023561ED90018BD6B /* .appveyor.yml in Resources */,
+				3267DD8A23561ED90018BD6B /* settings.json in Resources */,
+				3267DDA823561ED90018BD6B /* imprint.json in Resources */,
+				3267DDB223561ED90018BD6B /* F Masks_All_01_1920x1080.json in Resources */,
+				3267DD9023561ED90018BD6B /* dna.json in Resources */,
+				3267DD8023561ED90018BD6B /* jolly_walker.json in Resources */,
+				3267DDB723561ED90018BD6B /* E Interpolation_All_01_1920x1080.json in Resources */,
+				3267DDA623561ED90018BD6B /* 1667-firework.json in Resources */,
+				3267DD8923561ED90018BD6B /* worm.json in Resources */,
+				3267DDA023561ED90018BD6B /* hourglass.json in Resources */,
+				3267DDAC23561ED90018BD6B /* layout.edc in Resources */,
+				3267DDE323561ED90018BD6B /* COPYING in Resources */,
+				3267DDD223561ED90018BD6B /* you're_in!.json in Resources */,
+				3267DDC323561ED90018BD6B /* windmill.json in Resources */,
+				3267DD5C23561ED90018BD6B /* CMakeLists.txt in Resources */,
+				3267DDD723561ED90018BD6B /* loader_4.json in Resources */,
+				3267DDCC23561ED90018BD6B /* mughead.json in Resources */,
+				3267DD6623561ED90018BD6B /* config.h.in in Resources */,
+				3267DDAD23561ED90018BD6B /* polystar_anim.json in Resources */,
+				3267DDEB23561ED90018BD6B /* CMakeLists.txt in Resources */,
+				3267DD5E23561ED90018BD6B /* meson.build in Resources */,
+				3267DDE523561ED90018BD6B /* .clang-format in Resources */,
+				3267DDB023561ED90018BD6B /* starts_transparent.json in Resources */,
+				3267DDF123561ED90018BD6B /* meson.build in Resources */,
+				3267DD8B23561ED90018BD6B /* red_box.json in Resources */,
+				3267DDBE23561ED90018BD6B /* party_penguin.json in Resources */,
+				3267DDA323561ED90018BD6B /* ao.json in Resources */,
+				3267DDAE23561ED90018BD6B /* telegram.json in Resources */,
+				3267DDC523561ED90018BD6B /* a_mountain.json in Resources */,
+				3267DDB323561ED90018BD6B /* F Masks_All_02_1920x1080.json in Resources */,
+				3267DDC823561ED90018BD6B /* night_own.json in Resources */,
+				3267DDE123561ED90018BD6B /* meson.build in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,6 +1392,56 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3267DE2923561ED90018BD6B /* vdrawhelper_neon.cpp in Sources */,
+				3267DD7823561ED90018BD6B /* evasapp.cpp in Sources */,
+				3267DDF923561ED90018BD6B /* lottieloader.cpp in Sources */,
+				3267DDF623561ED90018BD6B /* lottiekeypath.cpp in Sources */,
+				3267DDF523561ED90018BD6B /* lottieanimation.cpp in Sources */,
+				3267DE4123561ED90018BD6B /* vbitmap.cpp in Sources */,
+				3267DE5923561ED90018BD6B /* vmatrix.cpp in Sources */,
+				3267DE5523561ED90018BD6B /* vimageloader.cpp in Sources */,
+				3267DE3A23561ED90018BD6B /* v_ft_stroker.cpp in Sources */,
+				3267DE2823561ED90018BD6B /* velapsedtimer.cpp in Sources */,
+				3267DE3B23561ED90018BD6B /* v_ft_math.cpp in Sources */,
+				3267DE3823561ED90018BD6B /* v_ft_raster.cpp in Sources */,
+				3267DE6423561ED90018BD6B /* vrle.cpp in Sources */,
+				3267DE3F23561ED90018BD6B /* vcompositionfunctions.cpp in Sources */,
+				3267DD6023561ED90018BD6B /* test_vrect.cpp in Sources */,
+				3267DD7423561ED90018BD6B /* lottieviewer.cpp in Sources */,
+				3267DE4B23561ED90018BD6B /* stb_image.cpp in Sources */,
+				3267DE6623561ED90018BD6B /* vbrush.cpp in Sources */,
+				3267DE4F23561ED90018BD6B /* vdrawable.cpp in Sources */,
+				3267DDF323561ED90018BD6B /* lottieitem.cpp in Sources */,
+				3267DE2D23561ED90018BD6B /* vdasher.cpp in Sources */,
+				3267DDFD23561ED90018BD6B /* lottieproxymodel.cpp in Sources */,
+				3267DD5F23561ED90018BD6B /* test_lottieanimation_capi.cpp in Sources */,
+				3267DDF223561ED90018BD6B /* lottiemodel.cpp in Sources */,
+				3267DE5423561ED90018BD6B /* vdebug.cpp in Sources */,
+				3267DE3423561ED90018BD6B /* vregion.cpp in Sources */,
+				3267DD6123561ED90018BD6B /* test_vpath.cpp in Sources */,
+				3267DD7623561ED90018BD6B /* demo.cpp in Sources */,
+				3267DDEF23561ED90018BD6B /* lottieanimation_capi.cpp in Sources */,
+				3267DE2C23561ED90018BD6B /* vrect.cpp in Sources */,
+				3267DE5723561ED90018BD6B /* vraster.cpp in Sources */,
+				3267DD7523561ED90018BD6B /* uxsampletest.cpp in Sources */,
+				3267DDDD23561ED90018BD6B /* efl_animview.cpp in Sources */,
+				3267DE2E23561ED90018BD6B /* vbezier.cpp in Sources */,
+				3267DE5E23561ED90018BD6B /* vinterpolator.cpp in Sources */,
+				3267DD6223561ED90018BD6B /* testsgregion.cpp in Sources */,
+				3267DE5D23561ED90018BD6B /* vdrawhelper_sse2.cpp in Sources */,
+				3267DE2423561ED90018BD6B /* lottieitem_capi.cpp in Sources */,
+				3267DE5F23561ED90018BD6B /* vdrawhelper.cpp in Sources */,
+				3267DD6323561ED90018BD6B /* testsuite.cpp in Sources */,
+				3267DDF823561ED90018BD6B /* lottieparser.cpp in Sources */,
+				3267DE5223561ED90018BD6B /* vpainter.cpp in Sources */,
+				3267DDDE23561ED90018BD6B /* lottie2gif.cpp in Sources */,
+				3267DD6D23561ED90018BD6B /* lottieview.cpp in Sources */,
+				3267DD6423561ED90018BD6B /* test_lottieanimation.cpp in Sources */,
+				3267DD7723561ED90018BD6B /* pathtest.cpp in Sources */,
+				3267DE5023561ED90018BD6B /* vpathmesure.cpp in Sources */,
+				3267DE3523561ED90018BD6B /* vpath.cpp in Sources */,
+				3267DD7023561ED90018BD6B /* lottieviewtest.cpp in Sources */,
+				3267DE3223561ED90018BD6B /* pixman-arm-neon-asm.S in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
