@@ -6,10 +6,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreGraphics/CoreGraphics.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface VKLPlayer : NSObject
+
+- (instancetype)initWithAnimationData:(NSData *)animationData size:(CGSize)size scale:(CGFloat)scale;
 
 @end
 
