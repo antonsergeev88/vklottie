@@ -21,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readwrite, assign) CGFloat scale;
 
 @property (nonatomic, readonly, strong) VKLRenderer *renderer;
+@property (nonatomic, readwrite, assign) NSUInteger currentFrame;
 
 @end
 
@@ -45,8 +46,12 @@ NS_ASSUME_NONNULL_END
 }
 
 - (void)drawInMTKView:(MTKView *)view {
+    if (view.preferredFramesPerSecond != self.renderer.frameRate) {
+        view.preferredFramesPerSecond = self.renderer.frameRate;
+    }
     void *buffer = malloc(sizeof(uint32_t) * self.size.width * self.size.height * self.scale * self.scale);
-    [self.renderer renderedBuffer:buffer forFrame:0 size:self.size scale:self.scale];
+    [self.renderer renderedBuffer:buffer forFrame:self.currentFrame size:self.size scale:self.scale];
+    self.currentFrame = (self.currentFrame + 1) % self.renderer.frameCount;
     CGDataProviderRef dataProvider = CGDataProviderCreateWithData(NULL, buffer, sizeof(uint32_t) * self.size.width * self.size.height * self.scale * self.scale, release);
     CGImageRef cgImage = CGImageCreate(self.size.width * self.scale, self.size.height * self.scale, 8, 32, self.size.width * self.scale * 4, CGColorSpaceCreateDeviceRGB(), kCGBitmapByteOrder32Little|kCGImageAlphaPremultipliedFirst, dataProvider, NULL, false, kCGRenderingIntentDefault);
     CGDataProviderRelease(dataProvider);
