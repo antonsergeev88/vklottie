@@ -32,4 +32,19 @@ using namespace rlottie;
     return self;
 }
 
+- (void)renderedBuffer:(void *)buffer forFrame:(NSInteger)frame size:(CGSize)size scale:(CGFloat)scale {
+    uint32_t *alignedBuffer = (uint32_t *)buffer;
+    CGSize pixelSize = CGSizeMake(size.width * scale, size.height * scale);
+    Surface surface(alignedBuffer, (size_t)pixelSize.width, (size_t)pixelSize.height, (size_t)pixelSize.width * sizeof(uint32_t));
+    _animation->renderSync((size_t)frame, surface);
+}
+
+- (NSInteger)frameRate {
+    return (NSInteger)_animation->frameRate();
+}
+
+- (NSInteger)frameCount {
+    return (NSInteger)_animation->totalFrame();
+}
+
 @end
