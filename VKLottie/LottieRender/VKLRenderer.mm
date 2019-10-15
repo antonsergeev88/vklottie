@@ -47,4 +47,15 @@ using namespace rlottie;
     return (NSInteger)_animation->totalFrame();
 }
 
+- (CGSize)size {
+    size_t width;
+    size_t height;
+    _animation->size(width, height);
+    return CGSizeMake(width, height);
+}
+
+- (CFTimeInterval)duration {
+    return (CFTimeInterval)_animation->duration();
+}
+
 @end

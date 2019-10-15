@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface VKLPlayer : NSObject
 
-- (instancetype)initWithAnimationData:(NSData *)animationData size:(CGSize)size scale:(CGFloat)scale;
+- (instancetype)initWithAnimationData:(NSData *)animationData cacheKey:(NSString *)cacheKey size:(CGSize)size scale:(CGFloat)scale;
 
 @end
 

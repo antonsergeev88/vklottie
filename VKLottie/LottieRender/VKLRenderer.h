@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, readonly, assign) NSInteger frameRate;
 @property (nonatomic, readonly, assign) NSInteger frameCount;
+@property (nonatomic, readonly, assign) CGSize size;
+@property (nonatomic, readonly, assign) CFTimeInterval duration;
 
 - (instancetype)initWithAnimationData:(NSData *)animationData cahceKey:(NSString *)cacheKey;
 - (void)renderedBuffer:(void *)buffer forFrame:(NSInteger)frame size:(CGSize)size scale:(CGFloat)scale;

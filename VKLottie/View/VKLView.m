@@ -25,15 +25,31 @@ NS_ASSUME_NONNULL_END
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        _animationView = [[MTKView alloc] init];
+        [self initialSetupWithFrame:frame];
     }
     return self;
 }
 
+- (instancetype)initWithCoder:(NSCoder *)coder {
+    self = [super initWithCoder:coder];
+    if (self) {
+        [self initialSetupWithFrame:self.frame];
+    }
+    return self;
+}
+
+- (void)initialSetupWithFrame:(CGRect)frame {
+    _animationView = [[MTKView alloc] initWithFrame:CGRectMake(0.0, 0.0, frame.size.width, frame.size.height) device:MTLCreateSystemDefaultDevice()];
+    [self addSubview:_animationView];
+}
+
 #pragma mark - Player
 
+- (VKLPlayer *)player {
+    return [self.animationView.delegate isKindOfClass:VKLPlayer.class] ? self.animationView.delegate : nil;
+}
+
 - (void)setPlayer:(VKLPlayer *)player {
-    _player = player;
     self.animationView.delegate = player;
 }
 
