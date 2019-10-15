@@ -118,6 +118,9 @@
 		3267DE6623561ED90018BD6B /* vbrush.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3267DD4E23561ED90018BD6B /* vbrush.cpp */; };
 		3267DE69235621420018BD6B /* config.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DE68235621420018BD6B /* config.h */; };
 		3267DE73235624200018BD6B /* config.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DE6E235624200018BD6B /* config.h */; };
+		3267DE782356299F0018BD6B /* VKLView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DE762356299F0018BD6B /* VKLView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3267DE792356299F0018BD6B /* VKLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3267DE772356299F0018BD6B /* VKLView.m */; };
+		3267DE7C235629CC0018BD6B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3267DE7B235629CC0018BD6B /* UIKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -236,6 +239,9 @@
 		3267DD4E23561ED90018BD6B /* vbrush.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = vbrush.cpp; sourceTree = "<group>"; };
 		3267DE68235621420018BD6B /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
 		3267DE6E235624200018BD6B /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
+		3267DE762356299F0018BD6B /* VKLView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VKLView.h; sourceTree = "<group>"; };
+		3267DE772356299F0018BD6B /* VKLView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VKLView.m; sourceTree = "<group>"; };
+		3267DE7B235629CC0018BD6B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,6 +249,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3267DE7C235629CC0018BD6B /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,6 +261,7 @@
 			children = (
 				3267DC1723561C6D0018BD6B /* VKLottie */,
 				3267DC1623561C6D0018BD6B /* Products */,
+				3267DE7A235629CC0018BD6B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -269,6 +277,8 @@
 			isa = PBXGroup;
 			children = (
 				3267DC1823561C6D0018BD6B /* VKLottie.h */,
+				3267DE762356299F0018BD6B /* VKLView.h */,
+				3267DE772356299F0018BD6B /* VKLView.m */,
 				3267DC2023561ED80018BD6B /* rlottie */,
 				3267DC1923561C6D0018BD6B /* Info.plist */,
 			);
@@ -498,6 +508,14 @@
 			path = vs2019;
 			sourceTree = "<group>";
 		};
+		3267DE7A235629CC0018BD6B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3267DE7B235629CC0018BD6B /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -580,6 +598,7 @@
 				3267DE4723561ED90018BD6B /* vpath.h in Headers */,
 				3267DE1C23561ED90018BD6B /* error.h in Headers */,
 				3267DE2A23561ED90018BD6B /* velapsedtimer.h in Headers */,
+				3267DE782356299F0018BD6B /* VKLView.h in Headers */,
 				3267DD5823561ED90018BD6B /* rlottiecommon.h in Headers */,
 				3267DE6223561ED90018BD6B /* vraster.h in Headers */,
 			);
@@ -671,6 +690,7 @@
 				3267DDF323561ED90018BD6B /* lottieitem.cpp in Sources */,
 				3267DE2D23561ED90018BD6B /* vdasher.cpp in Sources */,
 				3267DDFD23561ED90018BD6B /* lottieproxymodel.cpp in Sources */,
+				3267DE792356299F0018BD6B /* VKLView.m in Sources */,
 				3267DDF223561ED90018BD6B /* lottiemodel.cpp in Sources */,
 				3267DE5423561ED90018BD6B /* vdebug.cpp in Sources */,
 				3267DE3423561ED90018BD6B /* vregion.cpp in Sources */,
