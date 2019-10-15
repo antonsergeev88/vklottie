@@ -6,7 +6,19 @@
 //
 
 #import "VKLPlayer.h"
+#import "VKLPlayer+MTKViewDelegate.h"
+#import <MetalKit/MetalKit.h>
 
 @implementation VKLPlayer
+
+#pragma mark - MTKViewDelegate
+
+- (void)mtkView:(MTKView *)view drawableSizeWillChange:(CGSize)size {
+
+}
+
+- (void)drawInMTKView:(MTKView *)view {
+    
+}
 
 @end

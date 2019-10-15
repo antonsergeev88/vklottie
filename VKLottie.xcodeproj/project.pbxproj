@@ -124,6 +124,7 @@
 		32C3C5B023562BD900FA6353 /* VKLPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 32C3C5AE23562BD900FA6353 /* VKLPlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		32C3C5B123562BD900FA6353 /* VKLPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 32C3C5AF23562BD900FA6353 /* VKLPlayer.m */; };
 		32C3C5B323562DA500FA6353 /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32C3C5B223562DA500FA6353 /* MetalKit.framework */; };
+		32C3C5B523562E1800FA6353 /* VKLPlayer+MTKViewDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 32C3C5B423562E1400FA6353 /* VKLPlayer+MTKViewDelegate.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -248,6 +249,7 @@
 		32C3C5AE23562BD900FA6353 /* VKLPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VKLPlayer.h; sourceTree = "<group>"; };
 		32C3C5AF23562BD900FA6353 /* VKLPlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VKLPlayer.m; sourceTree = "<group>"; };
 		32C3C5B223562DA500FA6353 /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
+		32C3C5B423562E1400FA6353 /* VKLPlayer+MTKViewDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VKLPlayer+MTKViewDelegate.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -529,6 +531,7 @@
 				3267DE762356299F0018BD6B /* VKLView.h */,
 				3267DE772356299F0018BD6B /* VKLView.m */,
 				32C3C5AE23562BD900FA6353 /* VKLPlayer.h */,
+				32C3C5B423562E1400FA6353 /* VKLPlayer+MTKViewDelegate.h */,
 				32C3C5AF23562BD900FA6353 /* VKLPlayer.m */,
 			);
 			path = View;
@@ -585,6 +588,7 @@
 				3267DE73235624200018BD6B /* config.h in Headers */,
 				3267DE0923561ED90018BD6B /* strtod.h in Headers */,
 				3267DE3723561ED90018BD6B /* v_ft_types.h in Headers */,
+				32C3C5B523562E1800FA6353 /* VKLPlayer+MTKViewDelegate.h in Headers */,
 				3267DE6023561ED90018BD6B /* vstackallocator.h in Headers */,
 				3267DE5123561ED90018BD6B /* vbrush.h in Headers */,
 				3267DE1523561ED90018BD6B /* schema.h in Headers */,

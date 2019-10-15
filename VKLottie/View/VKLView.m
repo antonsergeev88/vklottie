@@ -7,6 +7,8 @@
 
 #import "VKLView.h"
 #import <MetalKit/MetalKit.h>
+#import "VKLPlayer.h"
+#import "VKLPlayer+MTKViewDelegate.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -27,6 +29,15 @@ NS_ASSUME_NONNULL_END
     }
     return self;
 }
+
+#pragma mark - Player
+
+- (void)setPlayer:(VKLPlayer *)player {
+    _player = player;
+    self.animationView.delegate = player;
+}
+
+#pragma mark - Layout
 
 - (void)layoutSubviews {
     CGSize size = self.bounds.size;
