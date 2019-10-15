@@ -125,6 +125,8 @@
 		32C3C5B123562BD900FA6353 /* VKLPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 32C3C5AF23562BD900FA6353 /* VKLPlayer.m */; };
 		32C3C5B323562DA500FA6353 /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32C3C5B223562DA500FA6353 /* MetalKit.framework */; };
 		32C3C5B523562E1800FA6353 /* VKLPlayer+MTKViewDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 32C3C5B423562E1400FA6353 /* VKLPlayer+MTKViewDelegate.h */; };
+		32C3C5B9235633BD00FA6353 /* VKLRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 32C3C5B7235633BD00FA6353 /* VKLRenderer.h */; };
+		32C3C5BA235633BD00FA6353 /* VKLRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 32C3C5B8235633BD00FA6353 /* VKLRenderer.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -250,6 +252,8 @@
 		32C3C5AF23562BD900FA6353 /* VKLPlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VKLPlayer.m; sourceTree = "<group>"; };
 		32C3C5B223562DA500FA6353 /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
 		32C3C5B423562E1400FA6353 /* VKLPlayer+MTKViewDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VKLPlayer+MTKViewDelegate.h"; sourceTree = "<group>"; };
+		32C3C5B7235633BD00FA6353 /* VKLRenderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VKLRenderer.h; sourceTree = "<group>"; };
+		32C3C5B8235633BD00FA6353 /* VKLRenderer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = VKLRenderer.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,6 +290,7 @@
 			isa = PBXGroup;
 			children = (
 				3267DC1823561C6D0018BD6B /* VKLottie.h */,
+				32C3C5B62356338300FA6353 /* LottieRender */,
 				32C3C5AD23562BA100FA6353 /* View */,
 				3267DC2023561ED80018BD6B /* rlottie */,
 				3267DC1923561C6D0018BD6B /* Info.plist */,
@@ -537,6 +542,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		32C3C5B62356338300FA6353 /* LottieRender */ = {
+			isa = PBXGroup;
+			children = (
+				32C3C5B7235633BD00FA6353 /* VKLRenderer.h */,
+				32C3C5B8235633BD00FA6353 /* VKLRenderer.mm */,
+			);
+			path = LottieRender;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -555,6 +569,7 @@
 				3267DE0023561ED90018BD6B /* reader.h in Headers */,
 				3267DC1A23561C6D0018BD6B /* VKLottie.h in Headers */,
 				3267DE2223561ED90018BD6B /* lottieproxymodel.h in Headers */,
+				32C3C5B9235633BD00FA6353 /* VKLRenderer.h in Headers */,
 				3267DE2723561ED90018BD6B /* vrle.h in Headers */,
 				3267DDFB23561ED90018BD6B /* lottiekeypath.h in Headers */,
 				3267DE3D23561ED90018BD6B /* v_ft_math.h in Headers */,
@@ -703,6 +718,7 @@
 				3267DE5523561ED90018BD6B /* vimageloader.cpp in Sources */,
 				3267DE3A23561ED90018BD6B /* v_ft_stroker.cpp in Sources */,
 				3267DE2823561ED90018BD6B /* velapsedtimer.cpp in Sources */,
+				32C3C5BA235633BD00FA6353 /* VKLRenderer.mm in Sources */,
 				3267DE3B23561ED90018BD6B /* v_ft_math.cpp in Sources */,
 				3267DE3823561ED90018BD6B /* v_ft_raster.cpp in Sources */,
 				3267DE6423561ED90018BD6B /* vrle.cpp in Sources */,
