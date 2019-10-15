@@ -123,6 +123,7 @@
 		3267DE7C235629CC0018BD6B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3267DE7B235629CC0018BD6B /* UIKit.framework */; };
 		32C3C5B023562BD900FA6353 /* VKLPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 32C3C5AE23562BD900FA6353 /* VKLPlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		32C3C5B123562BD900FA6353 /* VKLPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 32C3C5AF23562BD900FA6353 /* VKLPlayer.m */; };
+		32C3C5B323562DA500FA6353 /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32C3C5B223562DA500FA6353 /* MetalKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -246,6 +247,7 @@
 		3267DE7B235629CC0018BD6B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		32C3C5AE23562BD900FA6353 /* VKLPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VKLPlayer.h; sourceTree = "<group>"; };
 		32C3C5AF23562BD900FA6353 /* VKLPlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VKLPlayer.m; sourceTree = "<group>"; };
+		32C3C5B223562DA500FA6353 /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,6 +256,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3267DE7C235629CC0018BD6B /* UIKit.framework in Frameworks */,
+				32C3C5B323562DA500FA6353 /* MetalKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -514,6 +517,7 @@
 		3267DE7A235629CC0018BD6B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				32C3C5B223562DA500FA6353 /* MetalKit.framework */,
 				3267DE7B235629CC0018BD6B /* UIKit.framework */,
 			);
 			name = Frameworks;
