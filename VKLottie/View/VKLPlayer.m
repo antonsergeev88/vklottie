@@ -7,7 +7,6 @@
 
 #import "VKLPlayer.h"
 #import "VKLPlayer+MTKViewDelegate.h"
-#import <MetalKit/MetalKit.h>
 
 @implementation VKLPlayer
 
@@ -18,7 +17,7 @@
 }
 
 - (void)drawInMTKView:(MTKView *)view {
-    
+
 }
 
 @end

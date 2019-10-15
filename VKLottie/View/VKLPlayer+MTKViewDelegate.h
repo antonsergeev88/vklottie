@@ -6,8 +6,7 @@
 //
 
 #import "VKLPlayer.h"
-
-@protocol MTKViewDelegate;
+#import <MetalKit/MetalKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
