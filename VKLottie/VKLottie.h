@@ -16,3 +16,4 @@ FOUNDATION_EXPORT const unsigned char VKLottieVersionString[];
 // In this header, you should import all the public headers of your framework using statements like #import <VKLottie/PublicHeader.h>
 
 #import <VKLottie/VKLView.h>
+#import <VKLottie/VKLPlayer.h>

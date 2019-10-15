@@ -121,6 +121,8 @@
 		3267DE782356299F0018BD6B /* VKLView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DE762356299F0018BD6B /* VKLView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3267DE792356299F0018BD6B /* VKLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3267DE772356299F0018BD6B /* VKLView.m */; };
 		3267DE7C235629CC0018BD6B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3267DE7B235629CC0018BD6B /* UIKit.framework */; };
+		32C3C5B023562BD900FA6353 /* VKLPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 32C3C5AE23562BD900FA6353 /* VKLPlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32C3C5B123562BD900FA6353 /* VKLPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 32C3C5AF23562BD900FA6353 /* VKLPlayer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -242,6 +244,8 @@
 		3267DE762356299F0018BD6B /* VKLView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VKLView.h; sourceTree = "<group>"; };
 		3267DE772356299F0018BD6B /* VKLView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VKLView.m; sourceTree = "<group>"; };
 		3267DE7B235629CC0018BD6B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		32C3C5AE23562BD900FA6353 /* VKLPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VKLPlayer.h; sourceTree = "<group>"; };
+		32C3C5AF23562BD900FA6353 /* VKLPlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VKLPlayer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -520,6 +524,8 @@
 			children = (
 				3267DE762356299F0018BD6B /* VKLView.h */,
 				3267DE772356299F0018BD6B /* VKLView.m */,
+				32C3C5AE23562BD900FA6353 /* VKLPlayer.h */,
+				32C3C5AF23562BD900FA6353 /* VKLPlayer.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -594,6 +600,7 @@
 				3267DE4623561ED90018BD6B /* vdebug.h in Headers */,
 				3267DE4023561ED90018BD6B /* vdrawhelper.h in Headers */,
 				3267DE0523561ED90018BD6B /* cursorstreamwrapper.h in Headers */,
+				32C3C5B023562BD900FA6353 /* VKLPlayer.h in Headers */,
 				3267DE3C23561ED90018BD6B /* v_ft_stroker.h in Headers */,
 				3267DE4D23561ED90018BD6B /* vtaskqueue.h in Headers */,
 				3267DE6523561ED90018BD6B /* vcowptr.h in Headers */,
@@ -711,6 +718,7 @@
 				3267DE2423561ED90018BD6B /* lottieitem_capi.cpp in Sources */,
 				3267DE5F23561ED90018BD6B /* vdrawhelper.cpp in Sources */,
 				3267DDF823561ED90018BD6B /* lottieparser.cpp in Sources */,
+				32C3C5B123562BD900FA6353 /* VKLPlayer.m in Sources */,
 				3267DE5223561ED90018BD6B /* vpainter.cpp in Sources */,
 				3267DE5023561ED90018BD6B /* vpathmesure.cpp in Sources */,
 				3267DE3523561ED90018BD6B /* vpath.cpp in Sources */,
