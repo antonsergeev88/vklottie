@@ -277,8 +277,7 @@
 			isa = PBXGroup;
 			children = (
 				3267DC1823561C6D0018BD6B /* VKLottie.h */,
-				3267DE762356299F0018BD6B /* VKLView.h */,
-				3267DE772356299F0018BD6B /* VKLView.m */,
+				32C3C5AD23562BA100FA6353 /* View */,
 				3267DC2023561ED80018BD6B /* rlottie */,
 				3267DC1923561C6D0018BD6B /* Info.plist */,
 			);
@@ -514,6 +513,15 @@
 				3267DE7B235629CC0018BD6B /* UIKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		32C3C5AD23562BA100FA6353 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3267DE762356299F0018BD6B /* VKLView.h */,
+				3267DE772356299F0018BD6B /* VKLView.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
