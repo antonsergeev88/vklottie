@@ -1,0 +1,3 @@
+[submodule "rlottie"]
+	path = rlottie
+	url = git://github.com/antonsergeev88/rlottie.git
