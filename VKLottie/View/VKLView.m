@@ -37,6 +37,16 @@ NS_ASSUME_NONNULL_END
     self.animationView.delegate = player;
 }
 
+#pragma mark - Playing
+
+- (BOOL)isPlaying {
+    return !self.animationView.paused;
+}
+
+- (void)setPlaying:(BOOL)playing {
+    self.animationView.paused = !playing;
+}
+
 #pragma mark - Layout
 
 - (void)layoutSubviews {
