@@ -71,10 +71,16 @@ NS_ASSUME_NONNULL_END
     return self;
 }
 
+- (void)setupView:(MTKView *)mtkView {
+    mtkView.clearColor = MTLClearColorMake(0, 0, 0, 0);
+    mtkView.drawableSize = CGSizeMake(self.size.width * self.scale, self.size.height * self.scale);
+    mtkView.autoResizeDrawable = NO;
+}
+
 #pragma mark - MTKViewDelegate
 
 - (void)mtkView:(MTKView *)view drawableSizeWillChange:(CGSize)size {
-
+    NSAssert(false, @"You should not change drawable size");
 }
 
 - (void)drawInMTKView:(MTKView *)view {
@@ -93,8 +99,6 @@ NS_ASSUME_NONNULL_END
 
     id<MTLCommandBuffer> commandBuffer = [self.mtlCommandQueue commandBuffer];
     MTLRenderPassDescriptor *renderPassDescriptor = view.currentRenderPassDescriptor;
-    renderPassDescriptor.colorAttachments[0].loadAction = MTLLoadActionClear;
-    renderPassDescriptor.colorAttachments[0].clearColor = MTLClearColorMake(0, 0, 0, 0);
     if(renderPassDescriptor != nil) {
         id<MTLRenderCommandEncoder> renderEncoder = [commandBuffer renderCommandEncoderWithDescriptor:renderPassDescriptor];
         [renderEncoder setViewport:(MTLViewport){0.0, 0.0, view.drawableSize.width, view.drawableSize.height, 0.0, 1.0 }];
