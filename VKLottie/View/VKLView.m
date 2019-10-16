@@ -52,6 +52,7 @@ NS_ASSUME_NONNULL_END
 }
 
 - (void)setPlayer:(VKLPlayer *)player {
+    self.animationView.delegate = nil;
     [player setupView:self.animationView];
     self.animationView.delegate = player;
 }
