@@ -11,7 +11,6 @@
 		3267DD5823561ED90018BD6B /* rlottiecommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DC2C23561ED80018BD6B /* rlottiecommon.h */; };
 		3267DD5A23561ED90018BD6B /* rlottie.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DC2E23561ED80018BD6B /* rlottie.h */; };
 		3267DD5B23561ED90018BD6B /* rlottie_capi.h in Headers */ = {isa = PBXBuildFile; fileRef = 3267DC2F23561ED80018BD6B /* rlottie_capi.h */; };
-		3267DDEA23561ED90018BD6B /* CMakeLists.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3267DCC723561ED80018BD6B /* CMakeLists.txt */; };
 		3267DDEF23561ED90018BD6B /* lottieanimation_capi.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3267DCCE23561ED80018BD6B /* lottieanimation_capi.cpp */; };
 		3267DDF223561ED90018BD6B /* lottiemodel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3267DCD223561ED80018BD6B /* lottiemodel.cpp */; };
 		3267DDF323561ED90018BD6B /* lottieitem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3267DCD323561ED80018BD6B /* lottieitem.cpp */; };
@@ -141,6 +140,8 @@
 		32CCE9AB2356714A00F30ABE /* VKLArchiver.m in Sources */ = {isa = PBXBuildFile; fileRef = 32CCE9A92356714A00F30ABE /* VKLArchiver.m */; };
 		32CCE9AE2356753200F30ABE /* VKLFileManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 32CCE9AC2356753200F30ABE /* VKLFileManager.h */; };
 		32CCE9AF2356753200F30ABE /* VKLFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 32CCE9AD2356753200F30ABE /* VKLFileManager.m */; };
+		32CCE9B32356EADD00F30ABE /* VKLShaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 32CCE9B22356EADD00F30ABE /* VKLShaders.metal */; };
+		32CCE9B52356F01700F30ABE /* VKLShaderTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 32CCE9B42356F01700F30ABE /* VKLShaderTypes.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -174,7 +175,6 @@
 		3267DC2C23561ED80018BD6B /* rlottiecommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rlottiecommon.h; sourceTree = "<group>"; };
 		3267DC2E23561ED80018BD6B /* rlottie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rlottie.h; sourceTree = "<group>"; };
 		3267DC2F23561ED80018BD6B /* rlottie_capi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rlottie_capi.h; sourceTree = "<group>"; };
-		3267DCC723561ED80018BD6B /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
 		3267DCCE23561ED80018BD6B /* lottieanimation_capi.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lottieanimation_capi.cpp; sourceTree = "<group>"; };
 		3267DCD223561ED80018BD6B /* lottiemodel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lottiemodel.cpp; sourceTree = "<group>"; };
 		3267DCD323561ED80018BD6B /* lottieitem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lottieitem.cpp; sourceTree = "<group>"; };
@@ -305,6 +305,8 @@
 		32CCE9A92356714A00F30ABE /* VKLArchiver.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VKLArchiver.m; sourceTree = "<group>"; };
 		32CCE9AC2356753200F30ABE /* VKLFileManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VKLFileManager.h; sourceTree = "<group>"; };
 		32CCE9AD2356753200F30ABE /* VKLFileManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VKLFileManager.m; sourceTree = "<group>"; };
+		32CCE9B22356EADD00F30ABE /* VKLShaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = VKLShaders.metal; sourceTree = "<group>"; };
+		32CCE9B42356F01700F30ABE /* VKLShaderTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VKLShaderTypes.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -352,6 +354,7 @@
 			isa = PBXGroup;
 			children = (
 				3267DC1823561C6D0018BD6B /* VKLottie.h */,
+				32CCE9B12356EA5600F30ABE /* MetalRenderer */,
 				32C3C5B62356338300FA6353 /* LottieRender */,
 				32C3C5AD23562BA100FA6353 /* View */,
 				3267DC2023561ED80018BD6B /* rlottie */,
@@ -383,7 +386,6 @@
 		3267DCC623561ED80018BD6B /* src */ = {
 			isa = PBXGroup;
 			children = (
-				3267DCC723561ED80018BD6B /* CMakeLists.txt */,
 				3267DCC823561ED80018BD6B /* binding */,
 				3267DCD123561ED80018BD6B /* lottie */,
 				3267DD0A23561ED90018BD6B /* vector */,
@@ -597,11 +599,6 @@
 			children = (
 				3267DE762356299F0018BD6B /* VKLView.h */,
 				3267DE772356299F0018BD6B /* VKLView.m */,
-				32C3C5AE23562BD900FA6353 /* VKLPlayer.h */,
-				32C3C5B423562E1400FA6353 /* VKLPlayer+MTKViewDelegate.h */,
-				32C3C5AF23562BD900FA6353 /* VKLPlayer.m */,
-				32CCE9A82356714A00F30ABE /* VKLArchiver.h */,
-				32CCE9A92356714A00F30ABE /* VKLArchiver.m */,
 				32CCE9AC2356753200F30ABE /* VKLFileManager.h */,
 				32CCE9AD2356753200F30ABE /* VKLFileManager.m */,
 			);
@@ -613,6 +610,8 @@
 			children = (
 				32C3C5B7235633BD00FA6353 /* VKLRenderer.h */,
 				32C3C5B8235633BD00FA6353 /* VKLRenderer.mm */,
+				32CCE9A82356714A00F30ABE /* VKLArchiver.h */,
+				32CCE9A92356714A00F30ABE /* VKLArchiver.m */,
 			);
 			path = LottieRender;
 			sourceTree = "<group>";
@@ -638,6 +637,18 @@
 				32CCE9A52356482400F30ABE /* acrobatics.json */,
 			);
 			path = Animations;
+			sourceTree = "<group>";
+		};
+		32CCE9B12356EA5600F30ABE /* MetalRenderer */ = {
+			isa = PBXGroup;
+			children = (
+				32C3C5AE23562BD900FA6353 /* VKLPlayer.h */,
+				32C3C5B423562E1400FA6353 /* VKLPlayer+MTKViewDelegate.h */,
+				32C3C5AF23562BD900FA6353 /* VKLPlayer.m */,
+				32CCE9B42356F01700F30ABE /* VKLShaderTypes.h */,
+				32CCE9B22356EADD00F30ABE /* VKLShaders.metal */,
+			);
+			path = MetalRenderer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -710,6 +721,7 @@
 				3267DE6323561ED90018BD6B /* vmatrix.h in Headers */,
 				3267DE1D23561ED90018BD6B /* en.h in Headers */,
 				3267DE5A23561ED90018BD6B /* vrect.h in Headers */,
+				32CCE9B52356F01700F30ABE /* VKLShaderTypes.h in Headers */,
 				3267DE0723561ED90018BD6B /* stringbuffer.h in Headers */,
 				3267DE4623561ED90018BD6B /* vdebug.h in Headers */,
 				3267DE4023561ED90018BD6B /* vdrawhelper.h in Headers */,
@@ -814,7 +826,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3267DDEA23561ED90018BD6B /* CMakeLists.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -864,6 +875,7 @@
 				3267DE2C23561ED90018BD6B /* vrect.cpp in Sources */,
 				3267DE5723561ED90018BD6B /* vraster.cpp in Sources */,
 				32CCE9AF2356753200F30ABE /* VKLFileManager.m in Sources */,
+				32CCE9B32356EADD00F30ABE /* VKLShaders.metal in Sources */,
 				3267DE2E23561ED90018BD6B /* vbezier.cpp in Sources */,
 				3267DE5E23561ED90018BD6B /* vinterpolator.cpp in Sources */,
 				3267DE5D23561ED90018BD6B /* vdrawhelper_sse2.cpp in Sources */,
