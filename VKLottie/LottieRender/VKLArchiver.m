@@ -98,8 +98,8 @@ NS_ASSUME_NONNULL_END
             NSInteger encodedBufferSize = 0;
             fwrite(yBuffer, yBufferSize, 1, animationFile);
             encodedBufferSize += yBufferSize;
-//            fwrite(alphaBuffer, alphaBufferSize, 1, animationFile);
-//            encodedBufferSize += alphaBufferSize;
+            fwrite(alphaBuffer, alphaBufferSize, 1, animationFile);
+            encodedBufferSize += alphaBufferSize;
             [frameOffsets addObject:@(currentOffset)];
             [frameLengths addObject:@(encodedBufferSize)];
             currentOffset += encodedBufferSize;
