@@ -17,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly, assign) CGSize size;
 @property (nonatomic, readonly, assign) CFTimeInterval duration;
 
+@property (nonatomic, readonly, copy) NSString *cacheKey;
+
 - (instancetype)initWithAnimationData:(NSData *)animationData cahceKey:(NSString *)cacheKey;
 - (void)renderedBuffer:(void *)buffer forFrame:(NSInteger)frame size:(CGSize)size scale:(CGFloat)scale;
 

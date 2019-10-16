@@ -137,6 +137,10 @@
 		32CCE9A02356470900F30ABE /* VKLottie.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3267DC1523561C6D0018BD6B /* VKLottie.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		32CCE9A62356482500F30ABE /* acrobatics.json in Resources */ = {isa = PBXBuildFile; fileRef = 32CCE9A52356482400F30ABE /* acrobatics.json */; };
 		32CCE9A723564D0600F30ABE /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32C3C5B223562DA500FA6353 /* MetalKit.framework */; };
+		32CCE9AA2356714A00F30ABE /* VKLArchiver.h in Headers */ = {isa = PBXBuildFile; fileRef = 32CCE9A82356714A00F30ABE /* VKLArchiver.h */; };
+		32CCE9AB2356714A00F30ABE /* VKLArchiver.m in Sources */ = {isa = PBXBuildFile; fileRef = 32CCE9A92356714A00F30ABE /* VKLArchiver.m */; };
+		32CCE9AE2356753200F30ABE /* VKLFileManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 32CCE9AC2356753200F30ABE /* VKLFileManager.h */; };
+		32CCE9AF2356753200F30ABE /* VKLFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 32CCE9AD2356753200F30ABE /* VKLFileManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -297,6 +301,10 @@
 		32CCE999235646FA00F30ABE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		32CCE99B235646FA00F30ABE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		32CCE9A52356482400F30ABE /* acrobatics.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = acrobatics.json; sourceTree = "<group>"; };
+		32CCE9A82356714A00F30ABE /* VKLArchiver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VKLArchiver.h; sourceTree = "<group>"; };
+		32CCE9A92356714A00F30ABE /* VKLArchiver.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VKLArchiver.m; sourceTree = "<group>"; };
+		32CCE9AC2356753200F30ABE /* VKLFileManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VKLFileManager.h; sourceTree = "<group>"; };
+		32CCE9AD2356753200F30ABE /* VKLFileManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VKLFileManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -592,6 +600,10 @@
 				32C3C5AE23562BD900FA6353 /* VKLPlayer.h */,
 				32C3C5B423562E1400FA6353 /* VKLPlayer+MTKViewDelegate.h */,
 				32C3C5AF23562BD900FA6353 /* VKLPlayer.m */,
+				32CCE9A82356714A00F30ABE /* VKLArchiver.h */,
+				32CCE9A92356714A00F30ABE /* VKLArchiver.m */,
+				32CCE9AC2356753200F30ABE /* VKLFileManager.h */,
+				32CCE9AD2356753200F30ABE /* VKLFileManager.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -669,6 +681,7 @@
 				3267DE1623561ED90018BD6B /* stream.h in Headers */,
 				3267DE2523561ED90018BD6B /* lottieloader.h in Headers */,
 				3267DD5A23561ED90018BD6B /* rlottie.h in Headers */,
+				32CCE9AA2356714A00F30ABE /* VKLArchiver.h in Headers */,
 				3267DE1023561ED90018BD6B /* stack.h in Headers */,
 				3267DE4223561ED90018BD6B /* vdrawable.h in Headers */,
 				3267DE0623561ED90018BD6B /* istreamwrapper.h in Headers */,
@@ -685,6 +698,7 @@
 				3267DE5123561ED90018BD6B /* vbrush.h in Headers */,
 				3267DE1523561ED90018BD6B /* schema.h in Headers */,
 				3267DE3023561ED90018BD6B /* pixman-arm-neon-asm.h in Headers */,
+				32CCE9AE2356753200F30ABE /* VKLFileManager.h in Headers */,
 				3267DE4A23561ED90018BD6B /* stb_image.h in Headers */,
 				3267DE3123561ED90018BD6B /* vregion.h in Headers */,
 				3267DE1E23561ED90018BD6B /* memorybuffer.h in Headers */,
@@ -838,6 +852,7 @@
 				3267DE4B23561ED90018BD6B /* stb_image.cpp in Sources */,
 				3267DE6623561ED90018BD6B /* vbrush.cpp in Sources */,
 				3267DE4F23561ED90018BD6B /* vdrawable.cpp in Sources */,
+				32CCE9AB2356714A00F30ABE /* VKLArchiver.m in Sources */,
 				3267DDF323561ED90018BD6B /* lottieitem.cpp in Sources */,
 				3267DE2D23561ED90018BD6B /* vdasher.cpp in Sources */,
 				3267DDFD23561ED90018BD6B /* lottieproxymodel.cpp in Sources */,
@@ -848,6 +863,7 @@
 				3267DDEF23561ED90018BD6B /* lottieanimation_capi.cpp in Sources */,
 				3267DE2C23561ED90018BD6B /* vrect.cpp in Sources */,
 				3267DE5723561ED90018BD6B /* vraster.cpp in Sources */,
+				32CCE9AF2356753200F30ABE /* VKLFileManager.m in Sources */,
 				3267DE2E23561ED90018BD6B /* vbezier.cpp in Sources */,
 				3267DE5E23561ED90018BD6B /* vinterpolator.cpp in Sources */,
 				3267DE5D23561ED90018BD6B /* vdrawhelper_sse2.cpp in Sources */,

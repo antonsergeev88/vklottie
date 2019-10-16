@@ -18,6 +18,7 @@ using namespace rlottie;
 - (instancetype)initWithAnimationData:(NSData *)animationData cahceKey:(NSString *)cacheKey {
     self = [super init];
     if (self) {
+        _cacheKey = cacheKey;
         string jsonData = ({
             NSString *nsString = [[NSString alloc] initWithData:animationData encoding:NSUTF8StringEncoding];
             const char *cString = [nsString cStringUsingEncoding:NSUTF8StringEncoding];
