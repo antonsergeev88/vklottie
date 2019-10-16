@@ -44,20 +44,71 @@ NS_ASSUME_NONNULL_END
         NSInteger currentOffset = 0;
         NSInteger frameCount = renderer.frameCount;
 
-        NSInteger bufferSize = size.width * size.height * scale * scale * sizeof(uint32_t);
-        void *buffer = malloc(bufferSize);
+        NSInteger pixelCount = size.width * size.height * scale * scale;
+
+        NSInteger bufferSize = pixelCount * sizeof(uint32_t);
+        uint8_t *buffer = malloc(bufferSize);
+
+        NSInteger alphaBufferSize = pixelCount * sizeof(uint8_t) / 2 + ((pixelCount % 2) == 0 ? 0 : 1);
+        uint8_t *alphaBuffer = malloc(alphaBufferSize);
+
+        NSInteger yBufferSize = pixelCount * sizeof(uint8_t);
+        uint8_t *yBuffer = malloc(yBufferSize);
 
         for (NSInteger i = 0; i < frameCount; i++) {
             [renderer renderedBuffer:buffer forFrame:i size:size scale:scale];
-            NSInteger encodedBufferSize = size.width * size.height * scale * scale * sizeof(uint32_t);
-            fwrite(buffer, encodedBufferSize, 1, animationFile);
+
+            for (NSInteger i = 0; i < pixelCount; i++) {
+
+                uint8_t r, g, b, a;
+                r = buffer[i * 4 + 0];
+                g = buffer[i * 4 + 1];
+                b = buffer[i * 4 + 2];
+                a = buffer[i * 4 + 3];
+
+                uint8_t rn, gn, bn, an;
+                if (i + 1 < pixelCount) {
+                    rn = buffer[(i + 1) * 4 + 0];
+                    gn = buffer[(i + 1) * 4 + 1];
+                    bn = buffer[(i + 1) * 4 + 2];
+                    an = buffer[(i + 1) * 4 + 3];
+                } else {
+                    rn = 0; gn = 0; bn = 0; an = 0;
+                }
+
+
+                // alpha
+                if (i % 2 == 0) {
+                    uint8_t lAlpha = a; lAlpha >>= 4; lAlpha <<= 4;
+                    uint8_t rAlpha = an; rAlpha >>= 4;
+
+                    uint8_t alpha = lAlpha | rAlpha;
+                    alphaBuffer[i / 2] = alpha;
+                }
+
+                // y
+                uint8_t y = ((66ull * (uint64_t)r + 129ull * (uint64_t)g + 25ull * (uint64_t)b + 128ull) >> 8ull) + 16ull;
+                yBuffer[i] = y;
+
+                // u
+
+                // v
+            }
+
+            NSInteger encodedBufferSize = 0;
+            fwrite(yBuffer, yBufferSize, 1, animationFile);
+            encodedBufferSize += yBufferSize;
+//            fwrite(alphaBuffer, alphaBufferSize, 1, animationFile);
+//            encodedBufferSize += alphaBufferSize;
             [frameOffsets addObject:@(currentOffset)];
             [frameLengths addObject:@(encodedBufferSize)];
-            currentOffset += bufferSize;
+            currentOffset += encodedBufferSize;
             if (maxEncodedBufferLength < encodedBufferSize) {
                 maxEncodedBufferLength = encodedBufferSize;
             }
         }
+        free(yBuffer);
+        free(alphaBuffer);
         free(buffer);
         _frameOffsets = [frameOffsets copy];
         _frameLengths = [frameLengths copy];
