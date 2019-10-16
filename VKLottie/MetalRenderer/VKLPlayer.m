@@ -24,6 +24,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly, strong) id<MTLDevice> mtlDevice;
 @property (nonatomic, readonly, strong) id<MTLRenderPipelineState> mtlPipelineState;
 @property (nonatomic, readonly, strong) id<MTLCommandQueue> mtlCommandQueue;
+@property (nonatomic, readonly, strong) id<MTLBuffer> mtlEncodedBuffer;
+
+@property (nonatomic, readwrite, assign) NSInteger currentFrame;
 
 @end
 
@@ -52,11 +55,18 @@ NS_ASSUME_NONNULL_END
         pipelineStateDescriptor.vertexFunction = vertexFunction;
         pipelineStateDescriptor.fragmentFunction = fragmentFunction;
         pipelineStateDescriptor.colorAttachments[0].pixelFormat = MTLPixelFormatBGRA8Unorm;
+        pipelineStateDescriptor.alphaToCoverageEnabled = YES;
+        pipelineStateDescriptor.colorAttachments[0].pixelFormat = MTLPixelFormatBGRA8Unorm;
+        pipelineStateDescriptor.colorAttachments[0].blendingEnabled = YES;
+        pipelineStateDescriptor.colorAttachments[0].destinationRGBBlendFactor = MTLBlendFactorOneMinusSourceAlpha;
+        pipelineStateDescriptor.colorAttachments[0].destinationAlphaBlendFactor = MTLBlendFactorOneMinusSourceAlpha;
 
         _mtlPipelineState = [_mtlDevice newRenderPipelineStateWithDescriptor:pipelineStateDescriptor
                                                                  error:nil];
 
         _mtlCommandQueue = [_mtlDevice newCommandQueue];
+
+        _mtlEncodedBuffer = [_mtlDevice newBufferWithLength:_archiver.maxEncodedBufferLength options:MTLResourceStorageModeShared|MTLResourceCPUCacheModeDefaultCache];
     }
     return self;
 }
@@ -68,29 +78,55 @@ NS_ASSUME_NONNULL_END
 }
 
 - (void)drawInMTKView:(MTKView *)view {
+    if (view.preferredFramesPerSecond != self.renderer.frameRate) {
+        view.preferredFramesPerSecond = self.renderer.frameRate;
+    }
 
     const VKLVertex vertices[] = {
         { { -1, -1 } },
         { { +1, -1 } },
         { { -1, +1 } },
+        { { +1, -1 } },
+        { { -1, +1 } },
+        { { +1, +1 } },
     };
 
     id<MTLCommandBuffer> commandBuffer = [self.mtlCommandQueue commandBuffer];
     MTLRenderPassDescriptor *renderPassDescriptor = view.currentRenderPassDescriptor;
+    renderPassDescriptor.colorAttachments[0].loadAction = MTLLoadActionClear;
+    renderPassDescriptor.colorAttachments[0].clearColor = MTLClearColorMake(0, 0, 0, 0);
     if(renderPassDescriptor != nil) {
         id<MTLRenderCommandEncoder> renderEncoder = [commandBuffer renderCommandEncoderWithDescriptor:renderPassDescriptor];
         [renderEncoder setViewport:(MTLViewport){0.0, 0.0, view.drawableSize.width, view.drawableSize.height, 0.0, 1.0 }];
         [renderEncoder setRenderPipelineState:self.mtlPipelineState];
+
         [renderEncoder setVertexBytes:vertices
                                length:sizeof(vertices)
                               atIndex:VKLVertexInputIndexVertices];
+        
+        NSInteger encodedBufferLength;
+        [self.archiver encodedBuffer:self.mtlEncodedBuffer.contents length:&encodedBufferLength forFrame:self.currentFrame];
+        [renderEncoder setFragmentBuffer:self.mtlEncodedBuffer
+                                  offset:0
+                                 atIndex:VKLFragmentInputIndexEncodedBuffer];
+        [renderEncoder setFragmentBytes:&encodedBufferLength
+                                 length:sizeof(encodedBufferLength)
+                                atIndex:VKLFragmentInputIndexEncodedBufferLength];
+        vector_float2 size = {self.size.width * self.scale, self.size.height * self.scale};
+        [renderEncoder setFragmentBytes:&size
+                                 length:sizeof(size)
+                                atIndex:VKLFragmentInputIndexSize];
+
         [renderEncoder drawPrimitives:MTLPrimitiveTypeTriangle
                           vertexStart:0
-                          vertexCount:3];
+                          vertexCount:6];
+
         [renderEncoder endEncoding];
+
         [commandBuffer presentDrawable:view.currentDrawable];
     }
     [commandBuffer commit];
+    self.currentFrame = (self.currentFrame + 1) % self.renderer.frameCount;
 }
 
 @end

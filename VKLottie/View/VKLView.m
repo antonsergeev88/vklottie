@@ -40,6 +40,7 @@ NS_ASSUME_NONNULL_END
 
 - (void)initialSetupWithFrame:(CGRect)frame {
     _animationView = [[MTKView alloc] initWithFrame:CGRectMake(0.0, 0.0, frame.size.width, frame.size.height) device:MTLCreateSystemDefaultDevice()];
+    _animationView.opaque = NO;
     [self addSubview:_animationView];
 }
 
