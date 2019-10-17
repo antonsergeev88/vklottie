@@ -34,8 +34,8 @@ float3 yuv2bgr(float y, float u, float v) {
     return float3(b / 255.0, g / 255.0, r / 255.0);
 }
 
-float raw2alpha(uint8_t raw) {
-    return ((raw << 4) | raw) / 255.0;
+float raw2alpha(uint8_t raw, int index) {
+    return raw / 255.0;
 }
 
 fragment float4 fragmentShader(RasterizerData in [[stage_in]],
@@ -44,19 +44,19 @@ fragment float4 fragmentShader(RasterizerData in [[stage_in]],
                                constant float2 *size [[buffer(VKLFragmentInputIndexSize)]])
 {
     float2 pos = in.position.xy;
-    int sizeX = (int)(*size).x;
-    int sizeY = (int)(*size).y;
     int posX = (int)pos.x;
     int posY = (int)pos.y;
-    int posXY = posY * sizeX + posX;
+    int sizeX = (int)(*size).x;
+    int sizeY = (int)(*size).y;
 
     int yIndex = posY * sizeX + posX;
     int uIndex = (sizeX * sizeY) + yIndex;
     int vIndex = (sizeX * sizeY) * 2 + yIndex;
-    int aIndex = (sizeX * sizeY * 3) + (yIndex / 2);
+    int alphaIndex = (sizeX * sizeY * 3) + yIndex;
     uint8_t y = encodedBuffer[yIndex];
     uint8_t u = encodedBuffer[uIndex];
     uint8_t v = encodedBuffer[vIndex];
-    uint8_t a = encodedBuffer[aIndex]; a = posXY % 2 == 0 ? a >> 4 : a & 0x0F;
-    return float4(yuv2bgr(y, u, v), raw2alpha(a));
+    float alpha = raw2alpha(encodedBuffer[alphaIndex], alphaIndex);
+    float3 bgr = yuv2bgr(y, u, v);
+    return float4(bgr, alpha);
 }

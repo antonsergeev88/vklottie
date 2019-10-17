@@ -52,7 +52,7 @@ NS_ASSUME_NONNULL_END
         NSInteger bufferSize = pixelCount * sizeof(uint32_t);
         uint8_t *buffer = malloc(bufferSize);
 
-        NSInteger alphaBufferSize = pixelCount * sizeof(uint8_t) / 2 + (pixelCount % 2 == 0 ? 0 : 1);
+        NSInteger alphaBufferSize = pixelCount * sizeof(uint8_t);
         uint8_t *alphaBuffer = malloc(alphaBufferSize);
 
         NSInteger yBufferSize = pixelCount * sizeof(uint8_t);
@@ -87,10 +87,7 @@ NS_ASSUME_NONNULL_END
 
 
                 // alpha
-                if (i % 2 == 0) {
-                    alphaBuffer[i / 2] = 0;
-                }
-                alphaBuffer[i / 2] |= i % 2 == 0 ? a >> 4 << 4 : a >> 4;
+                alphaBuffer[i] = a;
 
                 // y
                 int y = 0.299*r + 0.587*g + 0.114*b;
