@@ -55,11 +55,6 @@ NS_ASSUME_NONNULL_END
         pipelineStateDescriptor.vertexFunction = vertexFunction;
         pipelineStateDescriptor.fragmentFunction = fragmentFunction;
         pipelineStateDescriptor.colorAttachments[0].pixelFormat = MTLPixelFormatBGRA8Unorm;
-        pipelineStateDescriptor.alphaToCoverageEnabled = YES;
-        pipelineStateDescriptor.colorAttachments[0].pixelFormat = MTLPixelFormatBGRA8Unorm;
-        pipelineStateDescriptor.colorAttachments[0].blendingEnabled = YES;
-        pipelineStateDescriptor.colorAttachments[0].destinationRGBBlendFactor = MTLBlendFactorOneMinusSourceAlpha;
-        pipelineStateDescriptor.colorAttachments[0].destinationAlphaBlendFactor = MTLBlendFactorOneMinusSourceAlpha;
 
         _mtlPipelineState = [_mtlDevice newRenderPipelineStateWithDescriptor:pipelineStateDescriptor
                                                                  error:nil];
@@ -75,6 +70,7 @@ NS_ASSUME_NONNULL_END
     mtkView.clearColor = MTLClearColorMake(0, 0, 0, 0);
     mtkView.drawableSize = CGSizeMake(self.size.width * self.scale, self.size.height * self.scale);
     mtkView.autoResizeDrawable = NO;
+    mtkView.bounds = CGRectMake(0.0, 0.0, self.size.width, self.size.height);
 }
 
 #pragma mark - MTKViewDelegate

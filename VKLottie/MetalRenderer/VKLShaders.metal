@@ -23,27 +23,19 @@ vertex RasterizerData vertexShader(uint vertexID [[vertex_id]],
     return out;
 }
 
-float3 yuv2rgb(uint8_t y, uint8_t u, uint8_t v) {
-    int c = y - 16;
-    int d = u - 128;
-    long e = v - 128;
+float3 yuv2bgr(float y, float u, float v) {
+    float c = y - 0;
+    float d = u - 128;
+    float e = v - 128;
 
-    int r = min(255, max(0, (298 * c + 409 * e + 128) >> 8));
-    int g = min(255, max(0, (298 * c - 100 * d - 208 * e + 128) >> 8));
-    int b = min(255, max(0, (298 * c + 516 * d + 128) >> 8));
-    return float3(r / 255.0, g / 255.0, b / 255.0);
+    float r = c + 1.402*e;
+    float g = c - 0.344*d - 0.714*e;
+    float b = c + 1.772*d;
+    return float3(b / 255.0, g / 255.0, r / 255.0);
 }
 
 float raw2alpha(uint8_t raw, int index) {
-    if (index % 2 == 0) {
-        uint8_t lRaw = (raw >> 4) << 4;
-        uint8_t rRaw = raw >> 4;
-        return (lRaw | rRaw) / 255.0;
-    } else {
-        uint8_t lRaw = raw << 4;
-        uint8_t rRaw = (raw << 4) >> 4;
-        return (lRaw | rRaw) / 255.0;
-    }
+    return raw / 255.0;
 }
 
 fragment float4 fragmentShader(RasterizerData in [[stage_in]],
@@ -58,13 +50,13 @@ fragment float4 fragmentShader(RasterizerData in [[stage_in]],
     int sizeY = (int)(*size).y;
 
     int yIndex = posY * sizeX + posX;
-    int uIndex = (sizeX * sizeY) + ((int)(posX / 3) * (int)(sizeX / 3)) + (int)(posX / 3);
-    int vIndex = (sizeX * sizeY) / 9 + uIndex;
-    int alphaIndex = (sizeX * sizeY * 11 / 9) + yIndex / 2;
+    int uIndex = (sizeX * sizeY) + yIndex;
+    int vIndex = (sizeX * sizeY) * 2 + yIndex;
+    int alphaIndex = (sizeX * sizeY * 3) + yIndex;
     uint8_t y = encodedBuffer[yIndex];
     uint8_t u = encodedBuffer[uIndex];
     uint8_t v = encodedBuffer[vIndex];
     float alpha = raw2alpha(encodedBuffer[alphaIndex], alphaIndex);
-    float3 rgb = yuv2rgb(y, u, v);
-    return float4(rgb, alpha);
+    float3 bgr = yuv2bgr(y, u, v);
+    return float4(bgr, alpha);
 }

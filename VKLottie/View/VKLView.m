@@ -54,6 +54,7 @@ NS_ASSUME_NONNULL_END
 - (void)setPlayer:(VKLPlayer *)player {
     self.animationView.delegate = nil;
     [player setupView:self.animationView];
+    [self setNeedsLayout];
     self.animationView.delegate = player;
 }
 
@@ -70,8 +71,7 @@ NS_ASSUME_NONNULL_END
 #pragma mark - Layout
 
 - (void)layoutSubviews {
-    CGSize size = self.bounds.size;
-    self.animationView.frame = CGRectMake(0.0, 0.0, size.width, size.height);
+    self.animationView.center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds));
 }
 
 @end

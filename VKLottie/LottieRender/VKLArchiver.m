@@ -52,13 +52,13 @@ NS_ASSUME_NONNULL_END
         NSInteger bufferSize = pixelCount * sizeof(uint32_t);
         uint8_t *buffer = malloc(bufferSize);
 
-        NSInteger alphaBufferSize = pixelCount * sizeof(uint8_t) / 2 + ((pixelCount % 2) == 0 ? 0 : 1);
+        NSInteger alphaBufferSize = pixelCount * sizeof(uint8_t);
         uint8_t *alphaBuffer = malloc(alphaBufferSize);
 
         NSInteger yBufferSize = pixelCount * sizeof(uint8_t);
         uint8_t *yBuffer = malloc(yBufferSize);
 
-        NSInteger uBufferSize = pointCount * sizeof(uint8_t);
+        NSInteger uBufferSize = yBufferSize;
         uint8_t *uBuffer = malloc(uBufferSize);
 
         NSInteger vBufferSize = uBufferSize;
@@ -67,7 +67,6 @@ NS_ASSUME_NONNULL_END
         for (NSInteger i = 0; i < frameCount; i++) {
             [renderer renderedBuffer:buffer forFrame:i size:size scale:scale];
 
-            NSInteger pointIndex = 0;
             for (NSInteger i = 0; i < pixelCount; i++) {
 
                 uint8_t r, g, b, a;
@@ -88,29 +87,19 @@ NS_ASSUME_NONNULL_END
 
 
                 // alpha
-                if (i % 2 == 0) {
-                    uint8_t lAlpha = a; lAlpha >>= 4; lAlpha <<= 4;
-                    uint8_t rAlpha = an; rAlpha >>= 4;
-
-                    uint8_t alpha = lAlpha | rAlpha;
-                    alphaBuffer[i / 2] = alpha;
-                }
+                alphaBuffer[i] = a;
 
                 // y
-                uint8_t y = ((66ull * (uint64_t)r + 129ull * (uint64_t)g + 25ull * (uint64_t)b + 128ull) >> 8ull) + 16ull;
-                yBuffer[i] = y;
+                int y = 0.299*r + 0.587*g + 0.114*b;
+                yBuffer[i] = MIN(MAX(y, 0), 255);
 
                 // u
-                if ((i / pixelInARow) % (int)scale == 0 && (i % pixelInARow) % (int)scale == 0) {
-                    uint8_t u = ((-38ll * (uint64_t)r - 74ll * (uint64_t)g + 112ll * (uint64_t)b + 128ull) >> 8ull) + 128ull;
-                    uBuffer[pointIndex] = u;
+                int u = -0.169*r - 0.331*g + 0.499*b + 128;
+                uBuffer[i] = MIN(MAX(u, 0), 255);
 
-                    // v
-                    uint8_t v = ((112ll * (uint64_t)r - 94ll * (uint64_t)g - 18ll * (uint64_t)b + 128ull) >> 8ull) + 128ull;
-                    vBuffer[pointIndex] = v;
-
-                    pointIndex += 1;
-                }
+                // v
+                int v = 0.499*r - 0.418*g - 0.0813*b + 128;
+                vBuffer[i] = MIN(MAX(v, 0), 255);
             }
 
             NSInteger encodedBufferSize = 0;
