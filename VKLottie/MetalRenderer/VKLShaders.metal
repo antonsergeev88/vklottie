@@ -41,18 +41,23 @@ float raw2alpha(uint8_t raw, int index) {
 fragment float4 fragmentShader(RasterizerData in [[stage_in]],
                                constant uint8_t *encodedBuffer [[buffer(VKLFragmentInputIndexEncodedBuffer)]],
                                constant int *encodedBufferLength [[buffer(VKLFragmentInputIndexEncodedBufferLength)]],
-                               constant float2 *size [[buffer(VKLFragmentInputIndexSize)]])
+                               constant float2 *size [[buffer(VKLFragmentInputIndexSize)]],
+                               constant float *fscale [[buffer(VKLFragmentInputIndexScale)]])
 {
+    int scale = (int)(*fscale);
     float2 pos = in.position.xy;
-    int posX = (int)pos.x;
-    int posY = (int)pos.y;
-    int sizeX = (int)(*size).x;
-    int sizeY = (int)(*size).y;
+    int posX = (int)pos.x; int pointX = posX / scale;
+    int posY = (int)pos.y; int pointY = posY / scale;
+    int sizeX = (int)(*size).x; int pointSizeX = sizeX / scale;
+    int sizeY = (int)(*size).y; int pointSizeY = sizeY / scale;
 
-    int yIndex = posY * sizeX + posX;
-    int uIndex = (sizeX * sizeY) + yIndex;
-    int vIndex = (sizeX * sizeY) * 2 + yIndex;
-    int alphaIndex = (sizeX * sizeY * 3) + yIndex;
+    int pixelOffset = posY * sizeX + posX;
+    int pointOffset = pointY * pointSizeX + pointX;
+
+    int yIndex = pixelOffset;
+    int uIndex = (sizeX * sizeY) + pointOffset;
+    int vIndex = (sizeX * sizeY) * (scale * scale + 1) / (scale * scale) + pointOffset;
+    int alphaIndex = (sizeX * sizeY) * (scale * scale + 2) / (scale * scale) + pixelOffset;
     uint8_t y = encodedBuffer[yIndex];
     uint8_t u = encodedBuffer[uIndex];
     uint8_t v = encodedBuffer[vIndex];

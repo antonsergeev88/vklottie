@@ -39,17 +39,17 @@ NS_ASSUME_NONNULL_END
 
         NSMutableArray<NSNumber *> *frameOffsets = [NSMutableArray arrayWithCapacity:renderer.frameCount];
         NSMutableArray<NSNumber *> *frameLengths = [NSMutableArray arrayWithCapacity:renderer.frameCount];
-        NSInteger maxEncodedBufferLength = 0;
+        int maxEncodedBufferLength = 0;
 
-        NSInteger currentOffset = 0;
-        NSInteger frameCount = renderer.frameCount;
+        int currentOffset = 0;
+        int frameCount = (int)renderer.frameCount;
 
-        NSInteger pixelCount = size.width * size.height * scale * scale;
-        NSInteger pointCount = size.width * size.height;
-        NSInteger pixelInARow = size.width * scale;
-        NSInteger pointInARow = size.width;
+        int pixelCount = size.width * size.height * scale * scale;
+        int pointCount = size.width * size.height;
+        int pixelInARow = size.width * scale;
+        int pointInARow = size.width;
 
-        NSInteger bufferSize = pixelCount * sizeof(uint32_t);
+        int bufferSize = pixelCount * sizeof(uint32_t);
         uint8_t *buffer = malloc(bufferSize);
 
         NSInteger alphaBufferSize = pixelCount * sizeof(uint8_t);
@@ -58,10 +58,10 @@ NS_ASSUME_NONNULL_END
         NSInteger yBufferSize = pixelCount * sizeof(uint8_t);
         uint8_t *yBuffer = malloc(yBufferSize);
 
-        NSInteger uBufferSize = yBufferSize;
+        NSInteger uBufferSize = pointCount * sizeof(uint8_t);
         uint8_t *uBuffer = malloc(uBufferSize);
 
-        NSInteger vBufferSize = uBufferSize;
+        NSInteger vBufferSize = pointCount * sizeof(uint8_t);
         uint8_t *vBuffer = malloc(vBufferSize);
 
         for (NSInteger i = 0; i < frameCount; i++) {
@@ -75,23 +75,25 @@ NS_ASSUME_NONNULL_END
                 b = buffer[i * 4 + 2];
                 a = buffer[i * 4 + 3];
 
-                uint8_t rn, gn, bn, an;
-                if (i + 1 < pixelCount) {
-                    rn = buffer[(i + 1) * 4 + 0];
-                    gn = buffer[(i + 1) * 4 + 1];
-                    bn = buffer[(i + 1) * 4 + 2];
-                    an = buffer[(i + 1) * 4 + 3];
-                } else {
-                    rn = 0; gn = 0; bn = 0; an = 0;
-                }
-
-
                 // alpha
                 alphaBuffer[i] = a;
 
                 // y
                 int y = 0.299*r + 0.587*g + 0.114*b;
                 yBuffer[i] = MIN(MAX(y, 0), 255);
+
+            }
+
+            for (int i = 0; i < pointCount; i++) {
+
+                uint8_t r, g, b, a;
+                int row = i / pointInARow * (int)scale;
+                int column = (i % pointInARow) * (int)scale;
+                int j = row * pixelInARow + column;
+                r = buffer[j * 4 + 0];
+                g = buffer[j * 4 + 1];
+                b = buffer[j * 4 + 2];
+                a = buffer[j * 4 + 3];
 
                 // u
                 int u = -0.169*r - 0.331*g + 0.499*b + 128;
@@ -100,9 +102,10 @@ NS_ASSUME_NONNULL_END
                 // v
                 int v = 0.499*r - 0.418*g - 0.0813*b + 128;
                 vBuffer[i] = MIN(MAX(v, 0), 255);
+
             }
 
-            NSInteger encodedBufferSize = 0;
+            int encodedBufferSize = 0;
             fwrite(yBuffer, yBufferSize, 1, animationFile);
             encodedBufferSize += yBufferSize;
             fwrite(uBuffer, uBufferSize, 1, animationFile);

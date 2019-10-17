@@ -16,6 +16,7 @@ typedef enum VKLFragmentInputIndex {
     VKLFragmentInputIndexEncodedBuffer = 0,
     VKLFragmentInputIndexEncodedBufferLength = 1,
     VKLFragmentInputIndexSize = 2,
+    VKLFragmentInputIndexScale = 3,
 } VKLFragmentInputIndex;
 
 typedef struct {

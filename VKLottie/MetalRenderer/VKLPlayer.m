@@ -116,6 +116,10 @@ NS_ASSUME_NONNULL_END
         [renderEncoder setFragmentBytes:&size
                                  length:sizeof(size)
                                 atIndex:VKLFragmentInputIndexSize];
+        float scale = self.scale;
+        [renderEncoder setFragmentBytes:&scale
+                                 length:sizeof(scale)
+                                atIndex:VKLFragmentInputIndexScale];
 
         [renderEncoder drawPrimitives:MTLPrimitiveTypeTriangle
                           vertexStart:0
