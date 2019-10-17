@@ -45,6 +45,9 @@ NS_ASSUME_NONNULL_END
         NSInteger frameCount = renderer.frameCount;
 
         NSInteger pixelCount = size.width * size.height * scale * scale;
+        NSInteger pointCount = size.width * size.height;
+        NSInteger pixelInARow = size.width * scale;
+        NSInteger pointInARow = size.width;
 
         NSInteger bufferSize = pixelCount * sizeof(uint32_t);
         uint8_t *buffer = malloc(bufferSize);
@@ -55,9 +58,16 @@ NS_ASSUME_NONNULL_END
         NSInteger yBufferSize = pixelCount * sizeof(uint8_t);
         uint8_t *yBuffer = malloc(yBufferSize);
 
+        NSInteger uBufferSize = pointCount * sizeof(uint8_t);
+        uint8_t *uBuffer = malloc(uBufferSize);
+
+        NSInteger vBufferSize = uBufferSize;
+        uint8_t *vBuffer = malloc(vBufferSize);
+
         for (NSInteger i = 0; i < frameCount; i++) {
             [renderer renderedBuffer:buffer forFrame:i size:size scale:scale];
 
+            NSInteger pointIndex = 0;
             for (NSInteger i = 0; i < pixelCount; i++) {
 
                 uint8_t r, g, b, a;
@@ -91,13 +101,25 @@ NS_ASSUME_NONNULL_END
                 yBuffer[i] = y;
 
                 // u
+                if ((i / pixelInARow) % (int)scale == 0 && (i % pixelInARow) % (int)scale == 0) {
+                    uint8_t u = ((-38ll * (uint64_t)r - 74ll * (uint64_t)g + 112ll * (uint64_t)b + 128ull) >> 8ull) + 128ull;
+                    uBuffer[pointIndex] = u;
 
-                // v
+                    // v
+                    uint8_t v = ((112ll * (uint64_t)r - 94ll * (uint64_t)g - 18ll * (uint64_t)b + 128ull) >> 8ull) + 128ull;
+                    vBuffer[pointIndex] = v;
+
+                    pointIndex += 1;
+                }
             }
 
             NSInteger encodedBufferSize = 0;
             fwrite(yBuffer, yBufferSize, 1, animationFile);
             encodedBufferSize += yBufferSize;
+            fwrite(uBuffer, uBufferSize, 1, animationFile);
+            encodedBufferSize += uBufferSize;
+            fwrite(vBuffer, vBufferSize, 1, animationFile);
+            encodedBufferSize += vBufferSize;
             fwrite(alphaBuffer, alphaBufferSize, 1, animationFile);
             encodedBufferSize += alphaBufferSize;
             [frameOffsets addObject:@(currentOffset)];
@@ -107,6 +129,8 @@ NS_ASSUME_NONNULL_END
                 maxEncodedBufferLength = encodedBufferSize;
             }
         }
+        free(vBuffer);
+        free(uBuffer);
         free(yBuffer);
         free(alphaBuffer);
         free(buffer);
