@@ -25,6 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly, strong) id<MTLRenderPipelineState> mtlPipelineState;
 @property (nonatomic, readonly, strong) id<MTLCommandQueue> mtlCommandQueue;
 @property (nonatomic, readonly, strong) id<MTLBuffer> mtlEncodedBuffer;
+@property (nonatomic, readonly, strong) id<MTLBuffer> mtlDecodedBuffer;
 
 @property (nonatomic, readwrite, assign) NSInteger currentFrame;
 
@@ -61,7 +62,8 @@ NS_ASSUME_NONNULL_END
 
         _mtlCommandQueue = [_mtlDevice newCommandQueue];
 
-        _mtlEncodedBuffer = [_mtlDevice newBufferWithLength:_archiver.maxEncodedBufferLength options:MTLResourceStorageModeShared|MTLResourceCPUCacheModeDefaultCache];
+        _mtlEncodedBuffer = [_mtlDevice newBufferWithLength:_archiver.maxEncodedBufferLength options:MTLResourceStorageModeShared];
+        _mtlDecodedBuffer = [_mtlDevice newBufferWithLength:size.width * size.height *scale *scale * 4 options:MTLResourceStorageModePrivate];
     }
     return self;
 }
@@ -103,15 +105,38 @@ NS_ASSUME_NONNULL_END
         [renderEncoder setVertexBytes:vertices
                                length:sizeof(vertices)
                               atIndex:VKLVertexInputIndexVertices];
-        
+
         NSInteger encodedBufferLength;
+
+        NSInteger pointCount = self.size.width * self.size.height;
+        NSInteger pixelCount = pointCount * self.scale * self.scale;;
         [self.archiver encodedBuffer:self.mtlEncodedBuffer.contents length:&encodedBufferLength forFrame:self.currentFrame];
         [renderEncoder setFragmentBuffer:self.mtlEncodedBuffer
                                   offset:0
-                                 atIndex:VKLFragmentInputIndexEncodedBuffer];
-        [renderEncoder setFragmentBytes:&encodedBufferLength
-                                 length:sizeof(encodedBufferLength)
-                                atIndex:VKLFragmentInputIndexEncodedBufferLength];
+                                 atIndex:VKLFragmentInputIndexEncodedYBuffer];
+        [renderEncoder setFragmentBuffer:self.mtlEncodedBuffer
+                                  offset:pixelCount
+                                 atIndex:VKLFragmentInputIndexEncodedUBuffer];
+        [renderEncoder setFragmentBuffer:self.mtlEncodedBuffer
+                                  offset:pixelCount + pointCount
+                                 atIndex:VKLFragmentInputIndexEncodedVBuffer];
+        [renderEncoder setFragmentBuffer:self.mtlEncodedBuffer
+                                  offset:pixelCount + 2 * pointCount
+                                 atIndex:VKLFragmentInputIndexEncodedABuffer];
+
+        [renderEncoder setFragmentBuffer:self.mtlDecodedBuffer
+                                  offset:0
+                                 atIndex:VKLFragmentInputIndexDecodedYBuffer];
+        [renderEncoder setFragmentBuffer:self.mtlDecodedBuffer
+                                  offset:pixelCount
+                                 atIndex:VKLFragmentInputIndexDecodedUBuffer];
+        [renderEncoder setFragmentBuffer:self.mtlDecodedBuffer
+                                  offset:pixelCount * 2
+                                 atIndex:VKLFragmentInputIndexDecodedVBuffer];
+        [renderEncoder setFragmentBuffer:self.mtlDecodedBuffer
+                                  offset:pixelCount * 3
+                                 atIndex:VKLFragmentInputIndexDecodedABuffer];
+
         vector_float2 size = {self.size.width * self.scale, self.size.height * self.scale};
         [renderEncoder setFragmentBytes:&size
                                  length:sizeof(size)
@@ -120,6 +145,10 @@ NS_ASSUME_NONNULL_END
         [renderEncoder setFragmentBytes:&scale
                                  length:sizeof(scale)
                                 atIndex:VKLFragmentInputIndexScale];
+        NSInteger frame = self.currentFrame;
+        [renderEncoder setFragmentBytes:&frame
+                                 length:sizeof(frame)
+                                atIndex:VKLFragmentInputIndexFrame];
 
         [renderEncoder drawPrimitives:MTLPrimitiveTypeTriangle
                           vertexStart:0

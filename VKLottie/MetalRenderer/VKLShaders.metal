@@ -34,34 +34,51 @@ float3 yuv2bgr(float y, float u, float v) {
     return float3(b / 255.0, g / 255.0, r / 255.0);
 }
 
-float raw2alpha(uint8_t raw, int index) {
+float raw2alpha(uint8_t raw) {
     return raw / 255.0;
 }
 
 fragment float4 fragmentShader(RasterizerData in [[stage_in]],
-                               constant uint8_t *encodedBuffer [[buffer(VKLFragmentInputIndexEncodedBuffer)]],
-                               constant int *encodedBufferLength [[buffer(VKLFragmentInputIndexEncodedBufferLength)]],
+
+                               constant uint8_t *yEn [[buffer(VKLFragmentInputIndexEncodedYBuffer)]],
+                               constant uint8_t *uEn [[buffer(VKLFragmentInputIndexEncodedUBuffer)]],
+                               constant uint8_t *vEn [[buffer(VKLFragmentInputIndexEncodedVBuffer)]],
+                               constant uint8_t *aEn [[buffer(VKLFragmentInputIndexEncodedABuffer)]],
+
+                               device uint8_t *yDe [[buffer(VKLFragmentInputIndexDecodedYBuffer)]],
+                               device uint8_t *uDe [[buffer(VKLFragmentInputIndexDecodedUBuffer)]],
+                               device uint8_t *vDe [[buffer(VKLFragmentInputIndexDecodedVBuffer)]],
+                               device uint8_t *aDe [[buffer(VKLFragmentInputIndexDecodedABuffer)]],
+
                                constant float2 *size [[buffer(VKLFragmentInputIndexSize)]],
-                               constant float *fscale [[buffer(VKLFragmentInputIndexScale)]])
+                               constant float *fscale [[buffer(VKLFragmentInputIndexScale)]],
+                               constant int *frame [[buffer(VKLFragmentInputIndexFrame)]])
 {
     int scale = (int)(*fscale);
     float2 pos = in.position.xy;
     int posX = (int)pos.x; int pointX = posX / scale;
     int posY = (int)pos.y; int pointY = posY / scale;
     int sizeX = (int)(*size).x; int pointSizeX = sizeX / scale;
-    int sizeY = (int)(*size).y; int pointSizeY = sizeY / scale;
 
     int pixelOffset = posY * sizeX + posX;
     int pointOffset = pointY * pointSizeX + pointX;
 
-    int yIndex = pixelOffset;
-    int uIndex = (sizeX * sizeY) + pointOffset;
-    int vIndex = (sizeX * sizeY) * (scale * scale + 1) / (scale * scale) + pointOffset;
-    int alphaIndex = (sizeX * sizeY) * (scale * scale + 2) / (scale * scale) + pixelOffset;
-    uint8_t y = encodedBuffer[yIndex];
-    uint8_t u = encodedBuffer[uIndex];
-    uint8_t v = encodedBuffer[vIndex];
-    float alpha = raw2alpha(encodedBuffer[alphaIndex], alphaIndex);
+    if (*frame == 0) {
+        yDe[pixelOffset] = 0;
+        uDe[pixelOffset] = 0;
+        vDe[pixelOffset] = 0;
+        aDe[pixelOffset] = 0;
+    }
+
+    uint8_t y = yEn[pixelOffset] ^ yDe[pixelOffset];
+    yDe[pixelOffset] = y;
+    uint8_t u = uEn[pointOffset] ^ uDe[pixelOffset];
+    uDe[pixelOffset] = u;
+    uint8_t v = vEn[pointOffset] ^ vDe[pixelOffset];
+    vDe[pixelOffset] = v;
+    uint8_t a = aEn[pixelOffset] ^ aDe[pixelOffset];
+    aDe[pixelOffset] = a;
+    float alpha = raw2alpha(a);
     float3 bgr = yuv2bgr(y, u, v);
     return float4(bgr, alpha);
 }

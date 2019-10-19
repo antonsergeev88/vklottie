@@ -9,14 +9,21 @@
 #define VKLShaderTypes_h
 
 typedef enum VKLVertexInputIndex {
-    VKLVertexInputIndexVertices = 0,
+    VKLVertexInputIndexVertices,
 } VKLVertexInputIndex;
 
 typedef enum VKLFragmentInputIndex {
-    VKLFragmentInputIndexEncodedBuffer = 0,
-    VKLFragmentInputIndexEncodedBufferLength = 1,
-    VKLFragmentInputIndexSize = 2,
-    VKLFragmentInputIndexScale = 3,
+    VKLFragmentInputIndexEncodedYBuffer,
+    VKLFragmentInputIndexEncodedUBuffer,
+    VKLFragmentInputIndexEncodedVBuffer,
+    VKLFragmentInputIndexEncodedABuffer,
+    VKLFragmentInputIndexDecodedYBuffer,
+    VKLFragmentInputIndexDecodedUBuffer,
+    VKLFragmentInputIndexDecodedVBuffer,
+    VKLFragmentInputIndexDecodedABuffer,
+    VKLFragmentInputIndexSize,
+    VKLFragmentInputIndexScale,
+    VKLFragmentInputIndexFrame,
 } VKLFragmentInputIndex;
 
 typedef struct {
