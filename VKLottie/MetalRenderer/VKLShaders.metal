@@ -82,3 +82,59 @@ fragment float4 fragmentShader(RasterizerData in [[stage_in]],
     float3 bgr = yuv2bgr(y, u, v);
     return float4(bgr, alpha);
 }
+
+kernel void tempName(uint2 pos [[thread_position_in_grid]],
+                     constant uint8_t *de [[buffer(VKLKernelInputIndexDecodedBuffer)]],
+
+                     device uint8_t *yPr [[buffer(VKLKernelInputIndexPreviousYBuffer)]],
+                     device uint8_t *uPr [[buffer(VKLKernelInputIndexPreviousUBuffer)]],
+                     device uint8_t *vPr [[buffer(VKLKernelInputIndexPreviousVBuffer)]],
+                     device uint8_t *aPr [[buffer(VKLKernelInputIndexPreviousABuffer)]],
+
+                     device uint8_t *yEn [[buffer(VKLKernelInputIndexEncodedYBuffer)]],
+                     device uint8_t *uEn [[buffer(VKLKernelInputIndexEncodedUBuffer)]],
+                     device uint8_t *vEn [[buffer(VKLKernelInputIndexEncodedVBuffer)]],
+                     device uint8_t *aEn [[buffer(VKLKernelInputIndexEncodedABuffer)]],
+
+                     constant float2 *fsize [[buffer(VKLKernelInputIndexSize)]],
+                     constant float *fscale [[buffer(VKLKernelInputIndexScale)]]) {
+    const int scale = (int)(*fscale);
+    const int posX = pos.x; const int pointX = posX / scale;
+    const int posY = pos.y; const int pointY = posY / scale;
+    const float2 size = *fsize;
+    const int sizeX = ((int)size.x) * scale; const int pointSizeX = (int)size.x;
+    const int sizeY = ((int)size.y) * scale; const int pointSizeY = (int)size.y;
+
+    const int pixelOffset = posY * sizeX + posX;
+    const int pointOffset = pointY * pointSizeX + pointX;
+
+    if (posX > sizeX || posY > sizeY) {
+        return;
+    }
+
+    const uint8_t r = de[pixelOffset * 4 + 0];
+    const uint8_t g = de[pixelOffset * 4 + 1];
+    const uint8_t b = de[pixelOffset * 4 + 2];
+    const uint8_t a = de[pixelOffset * 4 + 3];
+
+    const int yRaw = 0.299*r + 0.587*g + 0.114*b;
+    const uint8_t y = (uint8_t)clamp(yRaw, 0, 255);
+    yEn[pixelOffset] = y ^ yPr[pixelOffset];
+    yPr[pixelOffset] = y;
+
+    if (posX % scale == 0 && posY % scale == 0) {
+        const int uRaw = -0.169*r - 0.331*g + 0.499*b + 128;
+        const uint8_t u = (uint8_t)clamp(uRaw, 0, 255);
+        uEn[pointOffset] = u ^ uPr[pixelOffset];
+        uPr[pixelOffset] = u;
+
+        const int vRaw = 0.499*r - 0.418*g - 0.0813*b + 128;
+        const uint8_t v = (uint8_t)clamp(vRaw, 0, 255);
+        vEn[pointOffset] = v ^ vPr[pixelOffset];
+        vPr[pixelOffset] = v;
+    }
+
+    aEn[pixelOffset] = a ^ aPr[pixelOffset];
+    aPr[pixelOffset] = a;
+
+}

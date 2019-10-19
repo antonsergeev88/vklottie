@@ -7,7 +7,9 @@
 
 #import "VKLArchiver.h"
 #import "VKLRenderer.h"
+#import <MetalKit/MetalKit.h>
 #import "VKLFileManager.h"
+#import "VKLShaderTypes.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -47,83 +49,91 @@ NS_ASSUME_NONNULL_END
         int pixelCount = size.width * size.height * scale * scale;
         int pointCount = size.width * size.height;
         int pixelInARow = size.width * scale;
+        int pixelInAColumn = size.height * scale;
         int pointInARow = size.width;
+        int pointInAColumn = size.height;
 
-        int bufferSize = pixelCount * sizeof(uint32_t);
-        uint8_t *buffer = malloc(bufferSize);
+        id<MTLDevice> mtlDevice = MTLCreateSystemDefaultDevice();
+        NSBundle *bundle = [NSBundle bundleForClass:VKLArchiver.class];
+        id<MTLLibrary> defaultLibrary = [mtlDevice newDefaultLibraryWithBundle:bundle error:nil];
+        id<MTLFunction> function = [defaultLibrary newFunctionWithName:@"tempName"];
+        id<MTLComputePipelineState> pipelineState = [mtlDevice newComputePipelineStateWithFunction:function error:nil];
+        MTLSize threadgroupSize = MTLSizeMake(4 * scale, 4 * scale, 1);
+        MTLSize threadgroupCount = MTLSizeMake((size.width * scale  + threadgroupSize.width -  1) / threadgroupSize.width,
+                                               (size.height * scale  + threadgroupSize.height -  1) / threadgroupSize.height,
+                                               1);
+        id<MTLCommandQueue> commandQueue = [mtlDevice newCommandQueue];
 
-        NSInteger aBufferSize = pixelCount * sizeof(uint8_t);
-        uint8_t *aBuffer = malloc(aBufferSize);
-        uint8_t *aPreBuffer = malloc(aBufferSize);
+        id<MTLBuffer> mtlDecodedBuffer = [mtlDevice newBufferWithLength:pixelCount * 4
+                                                                options:MTLResourceStorageModeShared];
+        id<MTLBuffer> mtlPreviousBuffer = [mtlDevice newBufferWithLength:pixelCount * 4
+                                                                 options:MTLResourceStorageModeShared];
+        id<MTLBuffer> mtlEncodedBuffer = [mtlDevice newBufferWithLength:pixelCount * 2 + pointCount * 2
+                                                                options:MTLResourceStorageModeShared];
 
-        NSInteger yBufferSize = pixelCount * sizeof(uint8_t);
-        uint8_t *yBuffer = malloc(yBufferSize);
-        uint8_t *yPreBuffer = malloc(yBufferSize);
-
-        NSInteger uBufferSize = pointCount * sizeof(uint8_t);
-        uint8_t *uBuffer = malloc(uBufferSize);
-        uint8_t *uPreBuffer = malloc(uBufferSize);
-
-        NSInteger vBufferSize = pointCount * sizeof(uint8_t);
-        uint8_t *vBuffer = malloc(vBufferSize);
-        uint8_t *vPreBuffer = malloc(vBufferSize);
-
+        NSTimeInterval begin = NSProcessInfo.processInfo.systemUptime;
         for (NSInteger i = 0; i < frameCount; i++) {
+            uint8_t *buffer = (uint8_t *)mtlDecodedBuffer.contents;
+
             [renderer renderedBuffer:buffer forFrame:i size:size scale:scale];
 
-            for (NSInteger j = 0; j < pixelCount; j++) {
+            id<MTLCommandBuffer> commandBuffer = [commandQueue commandBuffer];
 
-                const uint8_t r = buffer[j * 4 + 0];
-                const uint8_t g = buffer[j * 4 + 1];
-                const uint8_t b = buffer[j * 4 + 2];
-                const uint8_t a = buffer[j * 4 + 3];
+            id<MTLComputeCommandEncoder> computeEncoder = [commandBuffer computeCommandEncoder];
 
-                // alpha
-                aBuffer[j] = a ^ aPreBuffer[j];
-                aPreBuffer[j] = a;
+            [computeEncoder setComputePipelineState:pipelineState];
 
-                // y
-                int y = 0.299*r + 0.587*g + 0.114*b;
-                y = MIN(MAX(y, 0), 255);
-                yBuffer[j] = y ^ yPreBuffer[j];
-                yPreBuffer[j] = y;
+            [computeEncoder setBuffer:mtlDecodedBuffer
+                               offset:0
+                              atIndex:VKLKernelInputIndexDecodedBuffer];
 
-            }
+            [computeEncoder setBuffer:mtlPreviousBuffer
+                               offset:0
+                              atIndex:VKLKernelInputIndexPreviousYBuffer];
+            [computeEncoder setBuffer:mtlPreviousBuffer
+                               offset:pixelCount
+                              atIndex:VKLKernelInputIndexPreviousUBuffer];
+            [computeEncoder setBuffer:mtlPreviousBuffer
+                               offset:pixelCount * 2
+                              atIndex:VKLKernelInputIndexPreviousVBuffer];
+            [computeEncoder setBuffer:mtlPreviousBuffer
+                               offset:pixelCount * 3
+                              atIndex:VKLKernelInputIndexPreviousABuffer];
 
-            for (int j = 0; j < pointCount; j++) {
+            [computeEncoder setBuffer:mtlEncodedBuffer
+                               offset:0
+                              atIndex:VKLKernelInputIndexEncodedYBuffer];
+            [computeEncoder setBuffer:mtlEncodedBuffer
+                               offset:pixelCount
+                              atIndex:VKLKernelInputIndexEncodedUBuffer];
+            [computeEncoder setBuffer:mtlEncodedBuffer
+                               offset:pixelCount + pointCount
+                              atIndex:VKLKernelInputIndexEncodedVBuffer];
+            [computeEncoder setBuffer:mtlEncodedBuffer
+                               offset:pixelCount + pointCount * 2
+                              atIndex:VKLKernelInputIndexEncodedABuffer];
 
-                uint8_t r, g, b, a;
-                int row = j / pointInARow * (int)scale;
-                int column = (j % pointInARow) * (int)scale;
-                int k = row * pixelInARow + column;
-                r = buffer[k * 4 + 0];
-                g = buffer[k * 4 + 1];
-                b = buffer[k * 4 + 2];
-                a = buffer[k * 4 + 3];
+            vector_float2 size = {pointInARow, pointInAColumn};
+            [computeEncoder setBytes:&size
+                              length:sizeof(size)
+                             atIndex:VKLKernelInputIndexSize];
+            float fscale = (float)scale;
+            [computeEncoder setBytes:&fscale
+                              length:sizeof(fscale)
+                             atIndex:VKLKernelInputIndexScale];
 
-                // u
-                int u = -0.169*r - 0.331*g + 0.499*b + 128;
-                u = MIN(MAX(u, 0.0), 255.0);
-                uBuffer[j] = u ^ uPreBuffer[j];
-                uPreBuffer[j] = u;
+            [computeEncoder dispatchThreadgroups:threadgroupCount
+                           threadsPerThreadgroup:threadgroupSize];
 
-                // v
-                int v = 0.499*r - 0.418*g - 0.0813*b + 128;
-                v = MIN(MAX(v, 0.0), 255.0);
-                vBuffer[j] = v ^ vPreBuffer[j];
-                vPreBuffer[j] = v;
+            [computeEncoder endEncoding];
 
-            }
+            [commandBuffer commit];
+
+            [commandBuffer waitUntilCompleted];
 
             int encodedBufferSize = 0;
-            fwrite(yBuffer, yBufferSize, 1, animationFile);
-            encodedBufferSize += yBufferSize;
-            fwrite(uBuffer, uBufferSize, 1, animationFile);
-            encodedBufferSize += uBufferSize;
-            fwrite(vBuffer, vBufferSize, 1, animationFile);
-            encodedBufferSize += vBufferSize;
-            fwrite(aBuffer, aBufferSize, 1, animationFile);
-            encodedBufferSize += aBufferSize;
+            fwrite(mtlEncodedBuffer.contents, pixelCount * 2 + pointCount * 2, 1, animationFile);
+            encodedBufferSize += pixelCount * 2 + pointCount * 2;
             [frameOffsets addObject:@(currentOffset)];
             [frameLengths addObject:@(encodedBufferSize)];
             currentOffset += encodedBufferSize;
@@ -131,15 +141,10 @@ NS_ASSUME_NONNULL_END
                 maxEncodedBufferLength = encodedBufferSize;
             }
         }
-        free(vBuffer);
-        free(vPreBuffer);
-        free(uBuffer);
-        free(uPreBuffer);
-        free(yBuffer);
-        free(yPreBuffer);
-        free(aBuffer);
-        free(aPreBuffer);
-        free(buffer);
+
+        NSTimeInterval end = NSProcessInfo.processInfo.systemUptime;
+        NSLog(@"%f", end - begin);
+
         _frameOffsets = [frameOffsets copy];
         _frameLengths = [frameLengths copy];
         _maxEncodedBufferLength = maxEncodedBufferLength;
@@ -159,6 +164,11 @@ NS_ASSUME_NONNULL_END
     *length = frameLength;
     fseeko(self.file, frameOffset, SEEK_SET);
     fread(buffer, frameLength, 1, self.file);
+
+//    for (int i = 0; i < 256; i++) {
+//        uint8_t *buf = (uint8_t *)buffer;
+//        printf("%d", (int)(buf[i * 4]));
+//    }
 }
 
 @end

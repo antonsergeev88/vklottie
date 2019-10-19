@@ -5,8 +5,8 @@
 //  Created by Антон Сергеев on 16.10.2019.
 //
 
-#ifndef VKLShaderTypes_h
-#define VKLShaderTypes_h
+//#ifndef VKLShaderTypes_h
+//#define VKLShaderTypes_h
 
 typedef enum VKLVertexInputIndex {
     VKLVertexInputIndexVertices,
@@ -30,4 +30,18 @@ typedef struct {
     vector_float2 position;
 } VKLVertex;
 
-#endif /* VKLShaderTypes_h */
+typedef enum VKLKernelInputIndex {
+    VKLKernelInputIndexDecodedBuffer,
+    VKLKernelInputIndexPreviousYBuffer,
+    VKLKernelInputIndexPreviousUBuffer,
+    VKLKernelInputIndexPreviousVBuffer,
+    VKLKernelInputIndexPreviousABuffer,
+    VKLKernelInputIndexEncodedYBuffer,
+    VKLKernelInputIndexEncodedUBuffer,
+    VKLKernelInputIndexEncodedVBuffer,
+    VKLKernelInputIndexEncodedABuffer,
+    VKLKernelInputIndexSize,
+    VKLKernelInputIndexScale,
+} VKLKernelInputIndex;
+
+//#endif /* VKLShaderTypes_h */
