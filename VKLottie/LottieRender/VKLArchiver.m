@@ -20,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly, copy) NSString *path;
 @property (nonatomic, readonly, copy) NSArray<NSNumber *> *frameOffsets;
 @property (nonatomic, readonly, copy) NSArray<NSNumber *> *frameLengths;
+@property (nonatomic, readonly, assign) size_t decodedFrameSize;
 
 @end
 
@@ -30,6 +31,7 @@ NS_ASSUME_NONNULL_END
 - (instancetype)initWithRenderer:(VKLRenderer *)renderer size:(CGSize)size scale:(CGFloat)scale {
     self = [super init];
     if (self) {
+        _decodedFrameSize = size.width * size.height * (2 * scale * scale + 2);
         VKLFileManager *fileManager = VKLFileManager.shared;
         NSString *filePath = [[fileManager pathForCacheKey:renderer.cacheKey size:size scale:scale] copy];
         _path = [filePath copy];
@@ -68,7 +70,7 @@ NS_ASSUME_NONNULL_END
         id<MTLBuffer> mtlDecodedBuffer = [mtlDevice newBufferWithLength:pixelCount * 4
                                                                 options:MTLResourceStorageModeShared];
         id<MTLBuffer> mtlPreviousBuffer = [mtlDevice newBufferWithLength:pixelCount * 4
-                                                                 options:MTLResourceStorageModeShared];
+                                                                 options:MTLResourceStorageModePrivate];
         id<MTLBuffer> mtlEncodedBuffer = [mtlDevice newBufferWithLength:pixelCount * 2 + pointCount * 2
                                                                 options:MTLResourceStorageModeShared];
 
@@ -169,7 +171,7 @@ NS_ASSUME_NONNULL_END
     fseeko(self.file, frameOffset, SEEK_SET);
     void *compressedBuffer = malloc(frameLength);
     fread(compressedBuffer, frameLength, 1, self.file);
-    NSInteger unlength = compression_decode_buffer(buffer, 288*360*(3*3 * 2 + 2), compressedBuffer, frameLength, nil, COMPRESSION_LZFSE);
+    NSInteger unlength = compression_decode_buffer(buffer, self.decodedFrameSize, compressedBuffer, frameLength, nil, COMPRESSION_LZFSE);
     free(compressedBuffer);
     *length = unlength;
 }
