@@ -62,8 +62,8 @@ NS_ASSUME_NONNULL_END
 
         _mtlCommandQueue = [_mtlDevice newCommandQueue];
 
-        _mtlEncodedBuffer = [_mtlDevice newBufferWithLength:_archiver.maxEncodedBufferLength options:MTLResourceStorageModeShared];
-        _mtlDecodedBuffer = [_mtlDevice newBufferWithLength:size.width * size.height *scale *scale * 4 options:MTLResourceStorageModePrivate];
+        _mtlEncodedBuffer = [_mtlDevice newBufferWithLength:size.width * size.height * (scale * scale * 2 + 2) options:MTLResourceStorageModeShared];
+        _mtlDecodedBuffer = [_mtlDevice newBufferWithLength:size.width * size.height * scale * scale * 4 options:MTLResourceStorageModePrivate];
     }
     return self;
 }

@@ -10,6 +10,7 @@
 #import <MetalKit/MetalKit.h>
 #import "VKLFileManager.h"
 #import "VKLShaderTypes.h"
+#include "compression.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -41,7 +42,7 @@ NS_ASSUME_NONNULL_END
 
         NSMutableArray<NSNumber *> *frameOffsets = [NSMutableArray arrayWithCapacity:renderer.frameCount];
         NSMutableArray<NSNumber *> *frameLengths = [NSMutableArray arrayWithCapacity:renderer.frameCount];
-        int maxEncodedBufferLength = 0;
+        size_t maxEncodedBufferLength = 0;
 
         int currentOffset = 0;
         int frameCount = (int)renderer.frameCount;
@@ -72,6 +73,9 @@ NS_ASSUME_NONNULL_END
                                                                 options:MTLResourceStorageModeShared];
 
         NSTimeInterval begin = NSProcessInfo.processInfo.systemUptime;
+
+        void *scratchBuffer = malloc(compression_encode_scratch_buffer_size(COMPRESSION_LZFSE));
+
         for (NSInteger i = 0; i < frameCount; i++) {
             uint8_t *buffer = (uint8_t *)mtlDecodedBuffer.contents;
 
@@ -131,9 +135,8 @@ NS_ASSUME_NONNULL_END
 
             [commandBuffer waitUntilCompleted];
 
-            int encodedBufferSize = 0;
-            fwrite(mtlEncodedBuffer.contents, pixelCount * 2 + pointCount * 2, 1, animationFile);
-            encodedBufferSize += pixelCount * 2 + pointCount * 2;
+            const size_t encodedBufferSize = compression_encode_buffer(mtlEncodedBuffer.contents, mtlEncodedBuffer.length, mtlEncodedBuffer.contents, mtlEncodedBuffer.length, scratchBuffer, COMPRESSION_LZFSE);
+            fwrite(mtlEncodedBuffer.contents, encodedBufferSize, 1, animationFile);
             [frameOffsets addObject:@(currentOffset)];
             [frameLengths addObject:@(encodedBufferSize)];
             currentOffset += encodedBufferSize;
@@ -141,6 +144,8 @@ NS_ASSUME_NONNULL_END
                 maxEncodedBufferLength = encodedBufferSize;
             }
         }
+
+        free(scratchBuffer);
 
         NSTimeInterval end = NSProcessInfo.processInfo.systemUptime;
         NSLog(@"%f", end - begin);
@@ -161,14 +166,12 @@ NS_ASSUME_NONNULL_END
 - (void)encodedBuffer:(void *)buffer length:(NSInteger *)length forFrame:(NSInteger)frame {
     NSInteger frameOffset = [self.frameOffsets[frame] integerValue];
     NSInteger frameLength = [self.frameLengths[frame] integerValue];
-    *length = frameLength;
     fseeko(self.file, frameOffset, SEEK_SET);
-    fread(buffer, frameLength, 1, self.file);
-
-//    for (int i = 0; i < 256; i++) {
-//        uint8_t *buf = (uint8_t *)buffer;
-//        printf("%d", (int)(buf[i * 4]));
-//    }
+    void *compressedBuffer = malloc(frameLength);
+    fread(compressedBuffer, frameLength, 1, self.file);
+    NSInteger unlength = compression_decode_buffer(buffer, 288*360*(3*3 * 2 + 2), compressedBuffer, frameLength, nil, COMPRESSION_LZFSE);
+    free(compressedBuffer);
+    *length = unlength;
 }
 
 @end
