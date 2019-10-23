@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initWithRenderer:(VKLRenderer *)renderer size:(CGSize)size scale:(CGFloat)scale;
 
-- (void)encodedBuffer:(void *)buffer length:(NSInteger *)length forFrame:(NSInteger)frame;
+- (void)encodedBuffer:(void *)buffer forFrame:(NSInteger)frame;
 
 @end
 

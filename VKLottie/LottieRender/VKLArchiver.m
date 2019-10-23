@@ -11,16 +11,20 @@
 #import "VKLFileManager.h"
 #import "VKLShaderTypes.h"
 #include "compression.h"
+#include <arm_neon.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface VKLArchiver ()
 
-@property (nonatomic, readonly, assign) FILE *file;
-@property (nonatomic, readonly, copy) NSString *path;
-@property (nonatomic, readonly, copy) NSArray<NSNumber *> *frameOffsets;
-@property (nonatomic, readonly, copy) NSArray<NSNumber *> *frameLengths;
-@property (nonatomic, readonly, assign) size_t decodedFrameSize;
+@property (nonatomic, readonly, assign) size_t width;
+@property (nonatomic, readonly, assign) size_t height;
+@property (nonatomic, readonly, assign) size_t scale;
+
+@property (nonatomic, readonly, assign) size_t encodedFrameSize;
+
+@property (nonatomic, readonly, strong) NSArray<NSMutableData *> *compressedFrames;
+
 
 @end
 
@@ -31,30 +35,27 @@ NS_ASSUME_NONNULL_END
 - (instancetype)initWithRenderer:(VKLRenderer *)renderer size:(CGSize)size scale:(CGFloat)scale {
     self = [super init];
     if (self) {
-        _decodedFrameSize = size.width * size.height * (2 * scale * scale + 2);
-        VKLFileManager *fileManager = VKLFileManager.shared;
-        NSString *filePath = [[fileManager pathForCacheKey:renderer.cacheKey size:size scale:scale] copy];
-        _path = [filePath copy];
-        const char *animationPath = [[[filePath stringByAppendingPathComponent:@"animation"] stringByAppendingPathExtension:@"vkl"] cStringUsingEncoding:NSUTF8StringEncoding];
-        FILE *animationFile = fopen(animationPath, "w+");
-        _file = animationFile;
-        if (animationFile == NULL) {
-            return nil;
-        }
-
-        NSMutableArray<NSNumber *> *frameOffsets = [NSMutableArray arrayWithCapacity:renderer.frameCount];
-        NSMutableArray<NSNumber *> *frameLengths = [NSMutableArray arrayWithCapacity:renderer.frameCount];
-        size_t maxEncodedBufferLength = 0;
-
-        int currentOffset = 0;
-        int frameCount = (int)renderer.frameCount;
-
         int pixelCount = size.width * size.height * scale * scale;
         int pointCount = size.width * size.height;
         int pixelInARow = size.width * scale;
         int pixelInAColumn = size.height * scale;
         int pointInARow = size.width;
         int pointInAColumn = size.height;
+
+        
+
+        _width = (size_t)size.width;
+        _height = (size_t)size.height;
+        _scale = (size_t)scale;
+        _encodedFrameSize = _width*_height * (2*_scale*_scale + 2);
+        size_t frameCount = (size_t)renderer.frameCount;
+        _compressedFrames = ({
+            NSMutableArray<NSMutableData *> *array = [NSMutableArray arrayWithCapacity:frameCount];
+            for (int i = 0; i < frameCount; i++) {
+                array[i] = [NSMutableData data];
+            }
+            [array copy];
+        });
 
         id<MTLDevice> mtlDevice = MTLCreateSystemDefaultDevice();
         NSBundle *bundle = [NSBundle bundleForClass:VKLArchiver.class];
@@ -75,8 +76,6 @@ NS_ASSUME_NONNULL_END
                                                                 options:MTLResourceStorageModeShared];
 
         NSTimeInterval begin = NSProcessInfo.processInfo.systemUptime;
-
-        void *scratchBuffer = malloc(compression_encode_scratch_buffer_size(COMPRESSION_LZFSE));
 
         for (NSInteger i = 0; i < frameCount; i++) {
             uint8_t *buffer = (uint8_t *)mtlDecodedBuffer.contents;
@@ -137,43 +136,37 @@ NS_ASSUME_NONNULL_END
 
             [commandBuffer waitUntilCompleted];
 
-            const size_t encodedBufferSize = compression_encode_buffer(mtlEncodedBuffer.contents, mtlEncodedBuffer.length, mtlEncodedBuffer.contents, mtlEncodedBuffer.length, scratchBuffer, COMPRESSION_LZFSE);
-            fwrite(mtlEncodedBuffer.contents, encodedBufferSize, 1, animationFile);
-            [frameOffsets addObject:@(currentOffset)];
-            [frameLengths addObject:@(encodedBufferSize)];
-            currentOffset += encodedBufferSize;
-            if (maxEncodedBufferLength < encodedBufferSize) {
-                maxEncodedBufferLength = encodedBufferSize;
-            }
-        }
 
-        free(scratchBuffer);
+            NSData *encodedFrame = [NSData dataWithBytes:mtlEncodedBuffer.contents length:_encodedFrameSize];
+            dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), ^{
+                void *compressedFrame = malloc(self.encodedFrameSize);
+                const size_t encodedBufferSize = compression_encode_buffer(compressedFrame, self.encodedFrameSize, encodedFrame.bytes, self.encodedFrameSize, nil, COMPRESSION_LZFSE);
+                [self.compressedFrames[i] appendBytes:compressedFrame length:encodedBufferSize];
+                free(compressedFrame);
+            });
+
+
+//            fwrite(mtlEncodedBuffer.contents, encodedBufferSize, 1, animationFile);
+//            [frameOffsets addObject:@(currentOffset)];
+//            [frameLengths addObject:@(encodedBufferSize)];
+//            currentOffset += encodedBufferSize;
+//            if (maxEncodedBufferLength < encodedBufferSize) {
+//                maxEncodedBufferLength = encodedBufferSize;
+//            }
+        }
 
         NSTimeInterval end = NSProcessInfo.processInfo.systemUptime;
         NSLog(@"%f", end - begin);
 
-        _frameOffsets = [frameOffsets copy];
-        _frameLengths = [frameLengths copy];
-        _maxEncodedBufferLength = maxEncodedBufferLength;
     }
     return self;
 }
 
-- (void)dealloc {
-    if (_file != NULL) {
-        fclose(_file);
+- (void)encodedBuffer:(void *)buffer forFrame:(NSInteger)frame {
+    while (self.compressedFrames[frame].length == 0) {
+        NSLog(@"waiting");
     }
-}
-
-- (void)encodedBuffer:(void *)buffer length:(NSInteger *)length forFrame:(NSInteger)frame {
-    NSInteger frameOffset = [self.frameOffsets[frame] integerValue];
-    NSInteger frameLength = [self.frameLengths[frame] integerValue];
-    fseeko(self.file, frameOffset, SEEK_SET);
-    void *compressedBuffer = malloc(frameLength);
-    fread(compressedBuffer, frameLength, 1, self.file);
-    NSInteger unlength = compression_decode_buffer(buffer, self.decodedFrameSize, compressedBuffer, frameLength, nil, COMPRESSION_LZFSE);
-    free(compressedBuffer);
-    *length = unlength;
+    compression_decode_buffer(buffer, self.encodedFrameSize, self.compressedFrames[frame].mutableBytes, self.compressedFrames[frame].length, nil, COMPRESSION_LZFSE);
 }
 
 @end

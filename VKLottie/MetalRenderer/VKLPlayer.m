@@ -106,11 +106,9 @@ NS_ASSUME_NONNULL_END
                                length:sizeof(vertices)
                               atIndex:VKLVertexInputIndexVertices];
 
-        NSInteger encodedBufferLength;
-
         NSInteger pointCount = self.size.width * self.size.height;
         NSInteger pixelCount = pointCount * self.scale * self.scale;;
-        [self.archiver encodedBuffer:self.mtlEncodedBuffer.contents length:&encodedBufferLength forFrame:self.currentFrame];
+        [self.archiver encodedBuffer:self.mtlEncodedBuffer.contents forFrame:self.currentFrame];
         [renderEncoder setFragmentBuffer:self.mtlEncodedBuffer
                                   offset:0
                                  atIndex:VKLFragmentInputIndexEncodedYBuffer];
