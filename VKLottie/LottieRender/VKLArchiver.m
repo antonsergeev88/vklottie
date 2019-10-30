@@ -11,7 +11,6 @@
 #import "VKLFileManager.h"
 #import "VKLShaderTypes.h"
 #include "compression.h"
-#include <arm_neon.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
